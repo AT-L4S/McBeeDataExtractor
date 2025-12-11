@@ -14,10 +14,9 @@ const path = require("path");
  * Build final JSONC files from intermediate format data
  * @param {Array<Object>} intermediateData - Array of intermediate format objects from parsers
  * @param {string} outputDir - Directory to write JSONC files to
+ * @returns {Object} Statistics about the build
  */
 function buildOutput(intermediateData, outputDir) {
-  console.log("Building output files...");
-
   // Merge all data from different mods
   const merged = {
     bees: {},
@@ -38,17 +37,15 @@ function buildOutput(intermediateData, outputDir) {
   });
 
   // Load manual mutations as starting template
-  const manualMutationsPath = path.join(__dirname, "manual_mutations.jsonc");
+  const manualMutationsPath = path.join(__dirname, "manual", "mutations.jsonc");
   let manualMutations = [];
   if (fs.existsSync(manualMutationsPath)) {
-    console.log("Loading manual mutations template...");
     const content = fs.readFileSync(manualMutationsPath, "utf-8");
     // Remove JSONC comments
     const jsonContent = content
       .replace(/\/\/.*$/gm, "")
       .replace(/\/\*[\s\S]*?\*\//g, "");
     manualMutations = JSON.parse(jsonContent);
-    console.log(`  Loaded ${manualMutations.length} manual mutation groups`);
   }
 
   // Extract comb information from bee products
@@ -63,7 +60,8 @@ function buildOutput(intermediateData, outputDir) {
   );
 
   // Build mutations.jsonc (starting with manual mutations)
-  const breedingOutput = buildBreedingPairsJsonc(merged, manualMutations);
+  const { output: breedingOutput, stats: mutationStats } =
+    buildBreedingPairsJsonc(merged, manualMutations);
   writeJsonc(
     path.join(outputDir, "mutations.jsonc"),
     breedingOutput,
@@ -78,14 +76,26 @@ function buildOutput(intermediateData, outputDir) {
     "Honeycomb Data"
   );
 
-  console.log("Output files built successfully!");
-  console.log(`  - ${Object.keys(merged.bees).length} bees`);
-  const totalMutations = breedingOutput.reduce(
+  // Calculate manual mutation count
+  const manualMutationCount = manualMutations.reduce(
     (sum, group) => sum + group.children.length,
     0
   );
-  console.log(`  - ${totalMutations} mutations`);
-  console.log(`  - ${Object.keys(merged.combs).length} combs`);
+
+  // Calculate total mutations in output
+  const totalMutationCount = breedingOutput.reduce(
+    (sum, group) => sum + group.children.length,
+    0
+  );
+
+  return {
+    beeCount: Object.keys(beesOutput).length,
+    mutationCount: totalMutationCount,
+    manualMutationCount: manualMutationCount,
+    parsedMutationCount: totalMutationCount - manualMutationCount,
+    combCount: Object.keys(combsOutput).length,
+    skippedMutations: mutationStats.skippedMutations,
+  };
 }
 
 /**
@@ -201,8 +211,7 @@ function buildBeesJsonc(merged) {
 function buildBreedingPairsJsonc(merged, manualMutations = []) {
   // Start with manual mutations as template
   const output = [...manualMutations];
-  let skippedMutationsCount = 0;
-  let skippedInManualCount = 0;
+  const skippedMutations = [];
 
   // Group mutations by parent pair (start with manual mutations)
   const mutationGroups = new Map();
@@ -222,16 +231,6 @@ function buildBreedingPairsJsonc(merged, manualMutations = []) {
     });
   });
 
-  // Debug: Log first few manual mutation keys
-  console.log(`Indexed ${manualMutationSet.size} manual mutation entries`);
-  const sampleKeys = Array.from(manualMutationSet).slice(0, 3);
-  console.log("Sample manual mutation keys:", sampleKeys);
-
-  // Log first few bee keys to understand the structure
-  const beeKeys = Object.keys(merged.bees);
-  console.log(`Total bees in merged.bees: ${beeKeys.length}`);
-  console.log("Sample bee keys:", beeKeys.slice(0, 5));
-
   merged.mutations.forEach((mutation) => {
     // Find bees by mod:name key (new standardized format)
     const findBee = (identifier) => {
@@ -248,59 +247,19 @@ function buildBreedingPairsJsonc(merged, manualMutations = []) {
     const parent2Bee = findBee(mutation.parent2);
     const offspringBee = findBee(mutation.offspring);
 
-    // Debug: Log Silicon and Certus offspring before checking
-    if (
-      mutation.offspring &&
-      (mutation.offspring.includes("Silicon") ||
-        mutation.offspring.includes("Certus"))
-    ) {
-      console.log(
-        `\n🔍 Parsing mutation: offspring="${mutation.offspring}" chance=${mutation.chance}`
-      );
-      console.log(`   Found bee? ${!!offspringBee}`);
-      if (offspringBee) {
-        console.log(
-          `   Bee mod:name = ${offspringBee.mod}:${offspringBee.name}`
-        );
-      }
-    }
-
     if (!parent1Bee || !parent2Bee || !offspringBee) {
-      // Check if this mutation is in manual_mutations.jsonc
+      // Check if this mutation is in manual/mutations.jsonc
       const isInManual = checkIfInManualMutations(
         mutation,
         manualMutationSet,
         merged.bees
       );
 
-      if (isInManual) {
-        skippedInManualCount++;
-      } else {
-        skippedMutationsCount++;
-      }
+      skippedMutations.push({
+        offspring: mutation.offspring,
+        inManual: isInManual,
+      });
 
-      if (mutation.source) {
-        const fullPath = path.resolve(mutation.source.file);
-        const emoji = isInManual ? "ℹ️ " : "⚠️ ";
-        console.warn(
-          `${emoji} Skipping mutation: ${mutation.offspring}\n    ${fullPath}:${mutation.source.line}`
-        );
-
-        if (isInManual) {
-          console.warn(`    → Already in manual_mutations.jsonc`);
-        }
-        console.warn(""); // Add blank line after each skipped mutation
-      } else {
-        const emoji = isInManual ? "ℹ️ " : "⚠️ ";
-        console.warn(
-          `${emoji} Skipping mutation: ${mutation.offspring}\n    (no source location)`
-        );
-
-        if (isInManual) {
-          console.warn(`    → Already in manual_mutations.jsonc`);
-        }
-        console.warn(""); // Add blank line after each skipped mutation
-      }
       return;
     }
 
@@ -320,14 +279,12 @@ function buildBreedingPairsJsonc(merged, manualMutations = []) {
     // Check if this exact mutation already exists in manual mutations
     const mutationKey = `${parentKey}|${offspring}|${mutation.chance / 100}`;
 
-    // Debug: Log first few parsed mutation keys
-    if (manualMutationSet.size > 0 && Math.random() < 0.01) {
-      console.log(`Sample parsed mutation key: ${mutationKey}`);
-    }
-
     if (manualMutationSet.has(mutationKey)) {
       // Skip - already in manual mutations
-      skippedInManualCount++;
+      skippedMutations.push({
+        offspring: mutation.offspring,
+        inManual: true,
+      });
       return;
     }
 
@@ -420,23 +377,6 @@ function buildBreedingPairsJsonc(merged, manualMutations = []) {
     mutationGroups.get(parentKey).children.push(childEntry);
   });
 
-  // Log mutation statistics
-  console.log(`Successfully processed: ${output.length} mutation groups`);
-  console.log(
-    `  - Started with ${manualMutations.length} manual mutation groups`
-  );
-  console.log(
-    `  - Added ${
-      output.length - manualMutations.length
-    } new groups from parsers`
-  );
-  console.log(`Skipped mutations: ${skippedMutationsCount}`);
-  if (skippedInManualCount > 0) {
-    console.log(
-      `  - ${skippedInManualCount} already in manual_mutations.jsonc`
-    );
-  }
-
   // Convert map to array (only new entries not in manual mutations)
   const newGroups = Array.from(mutationGroups.values()).filter((group) => {
     const parentKey = group.parents.sort().join("|");
@@ -461,11 +401,16 @@ function buildBreedingPairsJsonc(merged, manualMutations = []) {
     output.push(group);
   });
 
-  return output;
+  return {
+    output,
+    stats: {
+      skippedMutations,
+    },
+  };
 }
 
 /**
- * Check if a mutation is already in manual_mutations.jsonc
+ * Check if a mutation is already in manual/mutations.jsonc
  */
 function checkIfInManualMutations(mutation, manualMutationSet, beesMap) {
   // Identifier is already in mod:name format, just normalize case and spaces
@@ -535,25 +480,18 @@ function writeJsonc(filePath, data, description) {
   const header = `// ${description}\n// Generated from mod source files\n// Do not edit manually - regenerate using scripts/build.js\n\n`;
   const jsonContent = JSON.stringify(data, null, 2);
   fs.writeFileSync(filePath, header + jsonContent);
-  console.log(`Wrote ${filePath}`);
 }
 
 /**
  * Main export function
  */
 function buildOutputFiles(intermediateData, outputDir = "./data") {
-  try {
-    // Ensure output directory exists
-    if (!fs.existsSync(outputDir)) {
-      fs.mkdirSync(outputDir, { recursive: true });
-    }
-
-    buildOutput(intermediateData, outputDir);
-    return true;
-  } catch (error) {
-    console.error(`Error building output files: ${error.message}`);
-    throw error;
+  // Ensure output directory exists
+  if (!fs.existsSync(outputDir)) {
+    fs.mkdirSync(outputDir, { recursive: true });
   }
+
+  return buildOutput(intermediateData, outputDir);
 }
 
 module.exports = { buildOutputFiles };

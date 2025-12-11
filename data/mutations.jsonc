@@ -1214,6 +1214,23 @@
   },
   {
     "parents": [
+      "careerbees:honeysmelter",
+      "meatballcraft:gallifreyan"
+    ],
+    "children": [
+      {
+        "species": "meatballcraft:honeysmeltest",
+        "chance": 0.8,
+        "requirements": {
+          "temperature": [
+            "NORMAL"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "parents": [
       "careerbees:husbandry",
       "careerbees:student"
     ],
@@ -4558,18 +4575,6 @@
     "parents": [
       "magicbees:bigbad",
       "magicbees:tctaint"
-    ],
-    "children": [
-      {
-        "species": "magicbees:tchungry",
-        "chance": 0.15
-      }
-    ]
-  },
-  {
-    "parents": [
-      "magicbees:bigbad",
-      "magicbees:tcvis"
     ],
     "children": [
       {

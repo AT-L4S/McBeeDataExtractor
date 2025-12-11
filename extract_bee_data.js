@@ -75,38 +75,154 @@ function parseAllMods(modsToInclude = null) {
     ? MOD_CONFIGS.filter((config) => modsToInclude.includes(config.key))
     : MOD_CONFIGS;
 
-  console.log("Starting mod parsing...\n");
-  console.log("Parse order: Forestry → Standalone Addons → Gendustry\n");
+  // First pass: collect all data and find max widths for alignment
+  const parsedResults = [];
+  let maxNameLen = "Source".length;
+  let maxBeeLen = "Bees".length;
+  let maxMutLen = "Mutations".length;
+  let maxBranchLen = "Branches".length;
+  let maxCombLen = "Combs".length;
+
+  // Totals
+  let totalBees = 0;
+  let totalMutations = 0;
+  let totalBranches = 0;
+  let totalCombs = 0;
 
   for (const config of modsConfig) {
-    console.log(`\n=== Parsing ${config.name} ===`);
-
-    // Check if source file exists
     if (!fs.existsSync(config.sourceFile)) {
-      console.warn(`⚠️  Source file not found: ${config.sourceFile}`);
-      console.warn(`   Skipping ${config.name}`);
+      parsedResults.push({ config, error: "Source file not found" });
       continue;
     }
 
     try {
       const data = config.parser(config.sourceFile);
+      data._configName = config.name;
+      data._sourceFile = path.basename(config.sourceFile);
       intermediateData.push(data);
-      console.log(`✓ Successfully parsed ${config.name}`);
-      console.log(
-        `  → ${Object.keys(data.bees).length} bees, ${
-          data.mutations.length
-        } mutations`
-      );
+
+      const beeCount = Object.keys(data.bees).length;
+      const mutationCount = data.mutations.length;
+      const branchCount = Object.keys(data.branches || {}).length;
+
+      // Count combs from bee products
+      const combSet = new Set();
+      Object.values(data.bees).forEach((bee) => {
+        if (bee.products) {
+          bee.products.forEach((p) => {
+            if (p.item && p.item.toLowerCase().includes("comb")) {
+              combSet.add(p.item);
+            }
+          });
+        }
+      });
+      const combCount = combSet.size;
+
+      totalBees += beeCount;
+      totalMutations += mutationCount;
+      totalBranches += branchCount;
+      totalCombs += combCount;
+
+      const displayName = `${config.name} (${data._sourceFile})`;
+      maxNameLen = Math.max(maxNameLen, displayName.length);
+      maxBeeLen = Math.max(maxBeeLen, String(beeCount).length);
+      maxMutLen = Math.max(maxMutLen, String(mutationCount).length);
+      maxBranchLen = Math.max(maxBranchLen, String(branchCount).length);
+      maxCombLen = Math.max(maxCombLen, String(combCount).length);
+
+      parsedResults.push({
+        config,
+        data,
+        displayName,
+        beeCount,
+        mutationCount,
+        branchCount,
+        combCount,
+      });
     } catch (error) {
-      console.error(`✗ Error parsing ${config.name}: ${error.message}`);
-      console.error(`  Stack: ${error.stack}`);
-      // Continue with other mods
+      parsedResults.push({ config, error: error.message });
     }
   }
 
-  console.log(`\n=== Parsing Complete ===`);
-  console.log(`Successfully parsed ${intermediateData.length} mod(s)\n`);
+  // Load manual mutations to add to the table
+  const manualMutationsPath = path.join(__dirname, "manual", "mutations.jsonc");
+  let manualMutationCount = 0;
+  if (fs.existsSync(manualMutationsPath)) {
+    const content = fs.readFileSync(manualMutationsPath, "utf-8");
+    const jsonContent = content
+      .replace(/\/\/.*$/gm, "")
+      .replace(/\/\*[\s\S]*?\*\//g, "");
+    const manualMutations = JSON.parse(jsonContent);
+    manualMutationCount = manualMutations.reduce(
+      (sum, group) => sum + group.children.length,
+      0
+    );
+    totalMutations += manualMutationCount;
+  }
 
+  // Update max lengths for manual and totals rows
+  const manualDisplayName = "Manual (mutations.jsonc)";
+  const totalsDisplayName = "TOTAL";
+  maxNameLen = Math.max(
+    maxNameLen,
+    manualDisplayName.length,
+    totalsDisplayName.length
+  );
+  maxMutLen = Math.max(
+    maxMutLen,
+    String(manualMutationCount).length,
+    String(totalMutations).length
+  );
+  maxBeeLen = Math.max(maxBeeLen, String(totalBees).length);
+  maxBranchLen = Math.max(maxBranchLen, String(totalBranches).length);
+  maxCombLen = Math.max(maxCombLen, String(totalCombs).length);
+
+  // Print header
+  console.log("Parsing source files...\n");
+  const header = `${"Source".padEnd(maxNameLen)}  ${"Bees".padStart(
+    maxBeeLen
+  )}  ${"Mutations".padStart(maxMutLen)}  ${"Branches".padStart(
+    maxBranchLen
+  )}  ${"Combs".padStart(maxCombLen)}`;
+  console.log(header);
+  console.log("-".repeat(header.length));
+
+  // Print each row
+  for (const result of parsedResults) {
+    if (result.error) {
+      console.warn(`⚠️  ${result.config.name}: ${result.error}`);
+    } else {
+      const row = `${result.displayName.padEnd(maxNameLen)}  ${String(
+        result.beeCount
+      ).padStart(maxBeeLen)}  ${String(result.mutationCount).padStart(
+        maxMutLen
+      )}  ${String(result.branchCount).padStart(maxBranchLen)}  ${String(
+        result.combCount
+      ).padStart(maxCombLen)}`;
+      console.log(row);
+    }
+  }
+
+  // Print manual mutations row
+  const manualRow = `${manualDisplayName.padEnd(maxNameLen)}  ${"-".padStart(
+    maxBeeLen
+  )}  ${String(manualMutationCount).padStart(maxMutLen)}  ${"-".padStart(
+    maxBranchLen
+  )}  ${"-".padStart(maxCombLen)}`;
+  console.log(manualRow);
+
+  // Print separator and totals
+  console.log("-".repeat(header.length));
+  const totalsRow = `${totalsDisplayName.padEnd(maxNameLen)}  ${String(
+    totalBees
+  ).padStart(maxBeeLen)}  ${String(totalMutations).padStart(
+    maxMutLen
+  )}  ${String(totalBranches).padStart(maxBranchLen)}  ${String(
+    totalCombs
+  ).padStart(maxCombLen)}`;
+  console.log(totalsRow);
+
+  console.log("");
   return intermediateData;
 }
 
@@ -121,10 +237,6 @@ function build(options = {}) {
     intermediateDir = path.join(__dirname, "intermediate"),
   } = options;
 
-  console.log("╔═══════════════════════════════════════╗");
-  console.log("║   Bee Breeding Data Build Script     ║");
-  console.log("╚═══════════════════════════════════════╝\n");
-
   try {
     // Parse all mods
     const intermediateData = parseAllMods(modsToInclude);
@@ -136,7 +248,6 @@ function build(options = {}) {
 
     // Save intermediate files if requested
     if (saveIntermediate) {
-      console.log("\n=== Saving Intermediate Files ===");
       if (!fs.existsSync(intermediateDir)) {
         fs.mkdirSync(intermediateDir, { recursive: true });
       }
@@ -146,23 +257,32 @@ function build(options = {}) {
         const filename = `${modName.toLowerCase()}_intermediate.json`;
         const filepath = path.join(intermediateDir, filename);
         fs.writeFileSync(filepath, JSON.stringify(data, null, 2));
-        console.log(`Saved ${filepath}`);
       });
     }
 
-    // Build output files
-    console.log("\n=== Building Output Files ===");
-    buildOutputFiles(intermediateData, outputDir);
+    // Build output files and get stats
+    const stats = buildOutputFiles(intermediateData, outputDir);
 
-    console.log("\n╔═══════════════════════════════════════╗");
-    console.log("║        Build Complete! ✓              ║");
-    console.log("╚═══════════════════════════════════════╝\n");
+    // Display final summary
+    console.log("Output files written to data/");
+    console.log(`  → bees.jsonc: ${stats.beeCount} bees`);
+    console.log(
+      `  → mutations.jsonc: ${stats.mutationCount} mutations (${stats.manualMutationCount} manual, ${stats.parsedMutationCount} parsed)`
+    );
+    console.log(`  → combs.jsonc: ${stats.combCount} combs`);
+
+    if (stats.skippedMutations.length > 0) {
+      console.log(`\nSkipped ${stats.skippedMutations.length} mutations:`);
+      stats.skippedMutations.forEach((skip) => {
+        if (skip.inManual) {
+          console.log(`  ℹ️  ${skip.offspring} - in manual/mutations.jsonc`);
+        } else {
+          console.log(`  ⚠️  ${skip.offspring} - species not found`);
+        }
+      });
+    }
   } catch (error) {
-    console.error("\n╔═══════════════════════════════════════╗");
-    console.error("║        Build Failed! ✗                ║");
-    console.error("╚═══════════════════════════════════════╝\n");
-    console.error(`Error: ${error.message}`);
-    console.error(`Stack: ${error.stack}`);
+    console.error(`✗ Build failed: ${error.message}`);
     process.exit(1);
   }
 }

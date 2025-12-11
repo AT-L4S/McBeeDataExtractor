@@ -9,12 +9,24 @@ const fs = require("fs");
 const path = require("path");
 
 /**
+ * Remove comments from Java content
+ */
+function removeComments(content) {
+  // Remove multi-line comments /* */
+  content = content.replace(/\/\*[\s\S]*?\*\//g, "");
+  // Remove single-line comments //
+  content = content.replace(/\/\/.*$/gm, "");
+  return content;
+}
+
+/**
  * Parse ExtraBees ExtraBeeDefinition.java file
  * @param {string} filePath - Path to ExtraBeeDefinition.java
  * @returns {Object} Intermediate format object with bees, mutations, and branches
  */
 function parseExtraBeesDefinition(filePath) {
-  const content = fs.readFileSync(filePath, "utf-8");
+  let content = fs.readFileSync(filePath, "utf-8");
+  content = removeComments(content);
 
   const result = {
     bees: {},
@@ -260,7 +272,8 @@ function resolveSpeciesReference(ref) {
   // ExtraBees reference: ExtraBeeDefinition.NAME
   const extraMatch = ref.match(/ExtraBeeDefinition\.(\w+)/);
   if (extraMatch) {
-    const displayName = extraMatch[1].split("_")
+    const displayName = extraMatch[1]
+      .split("_")
       .map((part) => part.charAt(0).toUpperCase() + part.slice(1).toLowerCase())
       .join(" ");
     return `extrabees:${displayName.toLowerCase().replace(/\s+/g, "")}`;
@@ -269,7 +282,8 @@ function resolveSpeciesReference(ref) {
   // Forestry bee reference: BeeDefinition.NAME
   const forestryMatch = ref.match(/^BeeDefinition\.(\w+)$/);
   if (forestryMatch) {
-    const displayName = forestryMatch[1].split("_")
+    const displayName = forestryMatch[1]
+      .split("_")
       .map((part) => part.charAt(0).toUpperCase() + part.slice(1).toLowerCase())
       .join(" ");
     return `forestry:${displayName.toLowerCase().replace(/\s+/g, "")}`;
@@ -277,7 +291,8 @@ function resolveSpeciesReference(ref) {
 
   // ExtraBees bee reference (bare ALL_CAPS in same file)
   if (ref.match(/^[A-Z_]+$/)) {
-    const displayName = ref.split("_")
+    const displayName = ref
+      .split("_")
       .map((part) => part.charAt(0).toUpperCase() + part.slice(1).toLowerCase())
       .join(" ");
     return `extrabees:${displayName.toLowerCase().replace(/\s+/g, "")}`;
@@ -333,21 +348,7 @@ function hexToRGB(hex) {
  * Main export function
  */
 function parseExtraBees(javaFilePath) {
-  try {
-    console.log(`Parsing ExtraBees ExtraBeeDefinition: ${javaFilePath}`);
-    const result = parseExtraBeesDefinition(javaFilePath);
-    console.log(
-      `Parsed ${Object.keys(result.bees).length} bees, ${
-        result.mutations.length
-      } mutations, ${Object.keys(result.branches).length} branches`
-    );
-    return result;
-  } catch (error) {
-    console.error(
-      `Error parsing ExtraBees ExtraBeeDefinition: ${error.message}`
-    );
-    throw error;
-  }
+  return parseExtraBeesDefinition(javaFilePath);
 }
 
 module.exports = { parseExtraBees };

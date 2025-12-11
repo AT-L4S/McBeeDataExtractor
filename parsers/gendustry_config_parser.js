@@ -565,12 +565,13 @@ function normalizeParentUID(uid) {
     speciesName = parts[1];
   }
 
-  // Determine if this is a Gendustry built-in bee (all lowercase)
+  // Determine if this is a Gendustry built-in bee (all lowercase AND from gendustry mod)
   if (speciesName) {
-    // Check if the species name is all lowercase (Gendustry built-in bees)
-    const isGendustryBuiltIn = speciesName === speciesName.toLowerCase();
+    // Only treat as Gendustry built-in if modPrefix is "gendustry" AND species is all lowercase
+    const isGendustryBuiltIn =
+      modPrefix === "gendustry" && speciesName === speciesName.toLowerCase();
 
-    if (isGendustryBuiltIn && modName === "meatballcraft") {
+    if (isGendustryBuiltIn) {
       // This is a Gendustry built-in bee referenced from MeatballCraft config
       return `gendustry:${speciesName}`;
     }
@@ -581,18 +582,17 @@ function normalizeParentUID(uid) {
     }
 
     // Convert to display name format (title case with spaces), then to lowercase no-spaces
-    if (!isGendustryBuiltIn) {
-      const displayName = speciesName
-        .split("_")
-        .map((part) => {
-          if (part.length === 2 && /^[A-Z]{2}$/.test(part)) {
-            return part;
-          }
-          return part.charAt(0).toUpperCase() + part.slice(1).toLowerCase();
-        })
-        .join(" ");
-      speciesName = displayName.toLowerCase().replace(/\s+/g, "");
-    }
+    // Always normalize for non-gendustry mods, regardless of case
+    const displayName = speciesName
+      .split("_")
+      .map((part) => {
+        if (part.length === 2 && /^[A-Z]{2}$/.test(part)) {
+          return part;
+        }
+        return part.charAt(0).toUpperCase() + part.slice(1).toLowerCase();
+      })
+      .join(" ");
+    speciesName = displayName.toLowerCase().replace(/\s+/g, "");
   }
 
   return `${modName}:${speciesName}`;
@@ -638,29 +638,16 @@ function parseInlineRequirements(reqStr) {
  * @param {string} modName - Name of the mod (default: auto-detect from path)
  */
 function parseGendustryConfig(configPath, modName = null) {
-  try {
-    // Auto-detect mod name from file path if not provided
-    if (!modName) {
-      if (configPath.includes("meatball_bees.cfg")) {
-        modName = "MeatballCraft";
-      } else {
-        modName = "Gendustry";
-      }
+  // Auto-detect mod name from file path if not provided
+  if (!modName) {
+    if (configPath.includes("meatball_bees.cfg")) {
+      modName = "MeatballCraft";
+    } else {
+      modName = "Gendustry";
     }
-
-    console.log(`Parsing Gendustry config: ${configPath}`);
-    const result = parseGendustryConfigFile(configPath, modName);
-    console.log(
-      `Parsed ${Object.keys(result.bees).length} bees, ${
-        result.mutations.length
-      } mutations, ${Object.keys(result.branches).length} branches`
-    );
-    return result;
-  } catch (error) {
-    console.error(`Error parsing Gendustry config: ${error.message}`);
-    console.error(error.stack);
-    throw error;
   }
+
+  return parseGendustryConfigFile(configPath, modName);
 }
 
 module.exports = { parseGendustryConfig };

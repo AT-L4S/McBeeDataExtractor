@@ -12,12 +12,24 @@ const fs = require("fs");
 const path = require("path");
 
 /**
+ * Remove comments from Java content
+ */
+function removeComments(content) {
+  // Remove multi-line comments /* */
+  content = content.replace(/\/\*[\s\S]*?\*\//g, "");
+  // Remove single-line comments //
+  content = content.replace(/\/\/.*$/gm, "");
+  return content;
+}
+
+/**
  * Parse CareerBees CareerBeeSpecies.java file
  * @param {string} filePath - Path to CareerBeeSpecies.java
  * @returns {Object} Intermediate format object with bees, mutations, and branches
  */
 function parseCareerBeesSpecies(filePath) {
-  const content = fs.readFileSync(filePath, "utf-8");
+  let content = fs.readFileSync(filePath, "utf-8");
+  content = removeComments(content);
 
   const result = {
     bees: {},
@@ -263,21 +275,7 @@ function rgbToHex(r, g, b) {
  * Main export function
  */
 function parseCareerBees(javaFilePath) {
-  try {
-    console.log(`Parsing CareerBees CareerBeeSpecies: ${javaFilePath}`);
-    const result = parseCareerBeesSpecies(javaFilePath);
-    console.log(
-      `Parsed ${Object.keys(result.bees).length} bees, ${
-        result.mutations.length
-      } mutations, ${Object.keys(result.branches).length} branches`
-    );
-    return result;
-  } catch (error) {
-    console.error(
-      `Error parsing CareerBees CareerBeeSpecies: ${error.message}`
-    );
-    throw error;
-  }
+  return parseCareerBeesSpecies(javaFilePath);
 }
 
 module.exports = { parseCareerBees };

@@ -11,12 +11,24 @@ const fs = require("fs");
 const path = require("path");
 
 /**
+ * Remove comments from Java content
+ */
+function removeComments(content) {
+  // Remove multi-line comments /* */
+  content = content.replace(/\/\*[\s\S]*?\*\//g, "");
+  // Remove single-line comments //
+  content = content.replace(/\/\/.*$/gm, "");
+  return content;
+}
+
+/**
  * Parse MagicBees EnumBeeSpecies.java file
  * @param {string} filePath - Path to EnumBeeSpecies.java
  * @returns {Object} Intermediate format object with bees, mutations, and branches
  */
 function parseMagicBeesSpecies(filePath) {
-  const content = fs.readFileSync(filePath, "utf-8");
+  let content = fs.readFileSync(filePath, "utf-8");
+  content = removeComments(content);
 
   const result = {
     bees: {},
@@ -43,7 +55,7 @@ function parseMagicBeesSpecies(filePath) {
     ] = match;
 
     // Create storage key using final format: mod:name (lowercase, no spaces)
-    // This matches the format used in manual_mutations.jsonc and final output
+    // This matches the format used in manual/mutations.jsonc and final output
     const displayName = enumName
       .split("_")
       .map((part) => {
@@ -431,7 +443,9 @@ function resolveSpeciesReference(ref, bees) {
   // Pattern: ExtraBeeDefinition.XXX
   const extraBeesMatch = ref.match(/ExtraBeeDefinition\.(\w+)/);
   if (extraBeesMatch) {
-    const name = extraBeesMatch[1].charAt(0).toUpperCase() + extraBeesMatch[1].slice(1).toLowerCase();
+    const name =
+      extraBeesMatch[1].charAt(0).toUpperCase() +
+      extraBeesMatch[1].slice(1).toLowerCase();
     return `extrabees:${name.toLowerCase()}`;
   }
 
@@ -457,19 +471,7 @@ function resolveSpeciesReference(ref, bees) {
  * Main export function
  */
 function parseMagicBees(javaFilePath) {
-  try {
-    console.log(`Parsing MagicBees EnumBeeSpecies: ${javaFilePath}`);
-    const result = parseMagicBeesSpecies(javaFilePath);
-    console.log(
-      `Parsed ${Object.keys(result.bees).length} bees, ${
-        result.mutations.length
-      } mutations, ${Object.keys(result.branches).length} branches`
-    );
-    return result;
-  } catch (error) {
-    console.error(`Error parsing MagicBees EnumBeeSpecies: ${error.message}`);
-    throw error;
-  }
+  return parseMagicBeesSpecies(javaFilePath);
 }
 
 module.exports = { parseMagicBees };

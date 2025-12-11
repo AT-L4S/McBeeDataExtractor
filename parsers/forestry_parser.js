@@ -9,12 +9,24 @@ const fs = require("fs");
 const path = require("path");
 
 /**
+ * Remove comments from Java content
+ */
+function removeComments(content) {
+  // Remove multi-line comments /* */
+  content = content.replace(/\/\*[\s\S]*?\*\//g, "");
+  // Remove single-line comments //
+  content = content.replace(/\/\/.*$/gm, "");
+  return content;
+}
+
+/**
  * Parse Forestry BeeDefinition.java file
  * @param {string} filePath - Path to BeeDefinition.java
  * @returns {Object} Intermediate format object with bees, mutations, and branches
  */
 function parseForestryBeeDefinition(filePath) {
-  const content = fs.readFileSync(filePath, "utf-8");
+  let content = fs.readFileSync(filePath, "utf-8");
+  content = removeComments(content);
 
   const result = {
     bees: {},
@@ -319,19 +331,7 @@ function hexToRGB(hex) {
  * Main export function
  */
 function parseForestry(javaFilePath) {
-  try {
-    console.log(`Parsing Forestry BeeDefinition: ${javaFilePath}`);
-    const result = parseForestryBeeDefinition(javaFilePath);
-    console.log(
-      `Parsed ${Object.keys(result.bees).length} bees, ${
-        result.mutations.length
-      } mutations, ${Object.keys(result.branches).length} branches`
-    );
-    return result;
-  } catch (error) {
-    console.error(`Error parsing Forestry BeeDefinition: ${error.message}`);
-    throw error;
-  }
+  return parseForestryBeeDefinition(javaFilePath);
 }
 
 module.exports = { parseForestry };
