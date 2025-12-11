@@ -24,6 +24,19 @@
       {
         "species": "forestry:common",
         "chance": 0.15
+      },
+      {
+        "species": "forestry:leporine",
+        "chance": 0.1,
+        "requirements": {
+          "dateRange": {
+            "startMonth": 3,
+            "startDay": 29,
+            "endMonth": 4,
+            "endDay": 15
+          }
+        },
+        "isSecret": true
       }
     ]
   },
@@ -60,6 +73,19 @@
       {
         "species": "forestry:common",
         "chance": 0.15
+      },
+      {
+        "species": "forestry:merry",
+        "chance": 0.1,
+        "requirements": {
+          "dateRange": {
+            "startMonth": 12,
+            "startDay": 21,
+            "endMonth": 12,
+            "endDay": 27
+          }
+        },
+        "isSecret": true
       }
     ]
   },
@@ -288,6 +314,19 @@
       {
         "species": "forestry:fiendish",
         "chance": 0.4
+      },
+      {
+        "species": "forestry:frugal",
+        "chance": 0.16,
+        "requirements": {
+          "temperature": [
+            "HOT",
+            "HELLISH"
+          ],
+          "humidity": [
+            "ARID"
+          ]
+        }
       }
     ]
   },
@@ -297,6 +336,10 @@
       "forestry:tropical"
     ],
     "children": [
+      {
+        "species": "extrabees:malicious",
+        "chance": 0.1
+      },
       {
         "species": "forestry:fiendish",
         "chance": 0.4
@@ -461,6 +504,10 @@
     ],
     "children": [
       {
+        "species": "magicbees:cobalt",
+        "chance": 0.11
+      },
+      {
         "species": "magicbees:osmium",
         "chance": 0.11,
         "runtimeConditions": [
@@ -484,6 +531,10 @@
       "magicbees:infernal"
     ],
     "children": [
+      {
+        "species": "magicbees:cobalt",
+        "chance": 0.11
+      },
       {
         "species": "magicbees:osmium",
         "chance": 0.11,
@@ -749,7 +800,7 @@
     ],
     "children": [
       {
-        "species": "magicbees:earthy",
+        "species": "magicbees:fluix",
         "chance": 0.17,
         "runtimeConditions": [
           {
@@ -1096,7 +1147,11 @@
       {
         "species": "careerbees:armorer",
         "chance": 0.001,
-        "requirements": {}
+        "requirements": {
+          "block": [
+            "minecraft:anvil"
+          ]
+        }
       }
     ]
   },
@@ -3233,7 +3288,11 @@
       {
         "species": "careerbees:student",
         "chance": 0.01,
-        "requirements": {}
+        "requirements": {
+          "block": [
+            "minecraft:bookshelf"
+          ]
+        }
       },
       {
         "species": "forestry:diligent",
@@ -3279,7 +3338,11 @@
       {
         "species": "meatballcraft:meatball",
         "chance": 0.1,
-        "requirements": {}
+        "requirements": {
+          "block": [
+            "B:wool@1"
+          ]
+        }
       }
     ]
   },
@@ -4784,7 +4847,11 @@
       {
         "species": "magicbees:rsafluxed",
         "chance": 0.1,
-        "requirements": {}
+        "requirements": {
+          "block": [
+            "blockElectrumFlux"
+          ]
+        }
       }
     ]
   },
@@ -4881,7 +4948,11 @@
       {
         "species": "magicbees:windy",
         "chance": 0.14,
-        "requirements": {}
+        "requirements": {
+          "block": [
+            "treeLeaves"
+          ]
+        }
       }
     ]
   },
@@ -5221,7 +5292,11 @@
       {
         "species": "magicbees:teendearing",
         "chance": 0.08,
-        "requirements": {}
+        "requirements": {
+          "block": [
+            "blockEnderium"
+          ]
+        }
       }
     ]
   },

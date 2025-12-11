@@ -79,16 +79,79 @@ function parseAllMods(modsToInclude = null) {
   const parsedResults = [];
   let maxNameLen = "Source".length;
   let maxBeeLen = "Bees".length;
-  let maxMutLen = "Mutations".length;
+  let maxSuccessLen = "Success".length;
+  let maxSkipLen = "Skipped".length;
   let maxBranchLen = "Branches".length;
   let maxCombLen = "Combs".length;
 
   // Totals
   let totalBees = 0;
-  let totalMutations = 0;
+  let totalSuccessMutations = 0;
+  let totalSkippedMutations = 0;
+  let totalDuplicateMutations = 0;
+  let totalMergedMutations = 0;
   let totalBranches = 0;
   let totalCombs = 0;
 
+  // Load manual mutations first to check for skipped mutations
+  const manualMutationsPath = path.join(__dirname, "manual", "mutations.jsonc");
+  let manualMutations = [];
+  let manualMutationCount = 0;
+  const manualMutationSet = new Set();
+  const manualParentPairs = new Set();
+
+  if (fs.existsSync(manualMutationsPath)) {
+    const content = fs.readFileSync(manualMutationsPath, "utf-8");
+    const jsonContent = content
+      .replace(/\/\/.*$/gm, "")
+      .replace(/\/\*[\s\S]*?\*\//g, "");
+    manualMutations = JSON.parse(jsonContent);
+    manualMutationCount = manualMutations.reduce(
+      (sum, group) => sum + group.children.length,
+      0
+    );
+    // Build set of exact mutation keys (parentKey|offspring|chance) and parent pairs
+    manualMutations.forEach((group) => {
+      const parentKey = group.parents.sort().join("|");
+      manualParentPairs.add(parentKey);
+      group.children.forEach((child) => {
+        const mutationKey = `${parentKey}|${child.species}|${child.chance}`;
+        manualMutationSet.add(mutationKey);
+      });
+    });
+  }
+
+  // First pass: collect all bees to build the lookup map
+  const allBees = {};
+  for (const config of modsConfig) {
+    if (!fs.existsSync(config.sourceFile)) continue;
+    try {
+      const data = config.parser(config.sourceFile);
+      Object.assign(allBees, data.bees);
+    } catch (error) {
+      // Ignore errors in first pass
+    }
+  }
+
+  // Track all mutations for duplicate detection
+  const seenMutations = new Set();
+
+  // Helper function to serialize conditions for mutation key generation
+  const serializeConditions = (conditions) => {
+    if (!conditions || Object.keys(conditions).length === 0) return "";
+    // Create a stable, sorted string representation of conditions
+    const sortedKeys = Object.keys(conditions).sort();
+    const parts = sortedKeys.map((key) => {
+      const value = conditions[key];
+      if (Array.isArray(value)) {
+        return `${key}=${value.slice().sort().join(",")}`;
+      }
+      return `${key}=${JSON.stringify(value)}`;
+    });
+    return "|" + parts.join("|");
+  };
+
+  // Second pass: collect data with mutation success/skip counts
   for (const config of modsConfig) {
     if (!fs.existsSync(config.sourceFile)) {
       parsedResults.push({ config, error: "Source file not found" });
@@ -102,8 +165,62 @@ function parseAllMods(modsToInclude = null) {
       intermediateData.push(data);
 
       const beeCount = Object.keys(data.bees).length;
-      const mutationCount = data.mutations.length;
       const branchCount = Object.keys(data.branches || {}).length;
+
+      // Count successful, skipped (unresolvable), duplicate, and merged mutations
+      let successMutations = 0;
+      let skippedMutations = 0;
+      let duplicateMutations = 0;
+      let mergedMutations = 0;
+
+      data.mutations.forEach((mutation) => {
+        const parent1Bee = allBees[mutation.parent1];
+        const parent2Bee = allBees[mutation.parent2];
+        const offspringBee = allBees[mutation.offspring];
+
+        if (!parent1Bee || !parent2Bee || !offspringBee) {
+          skippedMutations++;
+        } else {
+          // Build mutation key matching output_builder.js format
+          const parent1Key = `${parent1Bee.mod.toLowerCase()}:${parent1Bee.name
+            .toLowerCase()
+            .replace(/\s+/g, "")}`;
+          const parent2Key = `${parent2Bee.mod.toLowerCase()}:${parent2Bee.name
+            .toLowerCase()
+            .replace(/\s+/g, "")}`;
+          const offspringKey = `${offspringBee.mod.toLowerCase()}:${offspringBee.name
+            .toLowerCase()
+            .replace(/\s+/g, "")}`;
+          const parentKey = [parent1Key, parent2Key].sort().join("|");
+          // Note: output_builder divides chance by 100, so we do the same
+          // Include serialized conditions to distinguish mutations with different requirements
+          const conditionsKey = serializeConditions(mutation.conditions);
+          const mutationKey = `${parentKey}|${offspringKey}|${
+            mutation.chance / 100
+          }${conditionsKey}`;
+
+          // For manual mutation check, use key without conditions (manual mutations don't have conditions key)
+          const baseKey = `${parentKey}|${offspringKey}|${
+            mutation.chance / 100
+          }`;
+
+          // Check if exact mutation exists in manual mutations or is a duplicate
+          if (manualMutationSet.has(baseKey)) {
+            duplicateMutations++;
+          } else if (seenMutations.has(mutationKey)) {
+            duplicateMutations++;
+          } else if (manualParentPairs.has(parentKey)) {
+            // Mutation shares parent pair with manual - will be merged into manual group
+            // These still count as success since they're added to output
+            mergedMutations++;
+            seenMutations.add(mutationKey);
+            successMutations++;
+          } else {
+            seenMutations.add(mutationKey);
+            successMutations++;
+          }
+        }
+      });
 
       // Count combs from bee products
       const combSet = new Set();
@@ -119,14 +236,18 @@ function parseAllMods(modsToInclude = null) {
       const combCount = combSet.size;
 
       totalBees += beeCount;
-      totalMutations += mutationCount;
+      totalSuccessMutations += successMutations;
+      totalSkippedMutations += skippedMutations;
+      totalDuplicateMutations += duplicateMutations;
+      totalMergedMutations += mergedMutations;
       totalBranches += branchCount;
       totalCombs += combCount;
 
       const displayName = `${config.name} (${data._sourceFile})`;
       maxNameLen = Math.max(maxNameLen, displayName.length);
       maxBeeLen = Math.max(maxBeeLen, String(beeCount).length);
-      maxMutLen = Math.max(maxMutLen, String(mutationCount).length);
+      maxSuccessLen = Math.max(maxSuccessLen, String(successMutations).length);
+      maxSkipLen = Math.max(maxSkipLen, String(skippedMutations).length);
       maxBranchLen = Math.max(maxBranchLen, String(branchCount).length);
       maxCombLen = Math.max(maxCombLen, String(combCount).length);
 
@@ -135,29 +256,16 @@ function parseAllMods(modsToInclude = null) {
         data,
         displayName,
         beeCount,
-        mutationCount,
+        successMutations,
+        skippedMutations,
+        duplicateMutations,
+        mergedMutations,
         branchCount,
         combCount,
       });
     } catch (error) {
       parsedResults.push({ config, error: error.message });
     }
-  }
-
-  // Load manual mutations to add to the table
-  const manualMutationsPath = path.join(__dirname, "manual", "mutations.jsonc");
-  let manualMutationCount = 0;
-  if (fs.existsSync(manualMutationsPath)) {
-    const content = fs.readFileSync(manualMutationsPath, "utf-8");
-    const jsonContent = content
-      .replace(/\/\/.*$/gm, "")
-      .replace(/\/\*[\s\S]*?\*\//g, "");
-    const manualMutations = JSON.parse(jsonContent);
-    manualMutationCount = manualMutations.reduce(
-      (sum, group) => sum + group.children.length,
-      0
-    );
-    totalMutations += manualMutationCount;
   }
 
   // Update max lengths for manual and totals rows
@@ -168,24 +276,42 @@ function parseAllMods(modsToInclude = null) {
     manualDisplayName.length,
     totalsDisplayName.length
   );
-  maxMutLen = Math.max(
-    maxMutLen,
+  maxSuccessLen = Math.max(
+    maxSuccessLen,
     String(manualMutationCount).length,
-    String(totalMutations).length
+    String(totalSuccessMutations + manualMutationCount).length
   );
   maxBeeLen = Math.max(maxBeeLen, String(totalBees).length);
   maxBranchLen = Math.max(maxBranchLen, String(totalBranches).length);
   maxCombLen = Math.max(maxCombLen, String(totalCombs).length);
 
-  // Print header
+  // Calculate column widths for the mutation header
+  const mutationColWidth = maxSuccessLen + maxSkipLen + 3; // 3 for "  " separator
+
+  // Print header (two lines)
   console.log("Parsing source files...\n");
-  const header = `${"Source".padEnd(maxNameLen)}  ${"Bees".padStart(
+
+  // First header line with "Mutations" spanning two columns
+  const mutationsLabel = "Mutations";
+  const mutationsHeaderPad = Math.floor(
+    (mutationColWidth - mutationsLabel.length) / 2
+  );
+  const headerLine1 = `${"".padEnd(maxNameLen)}  ${"".padStart(
     maxBeeLen
-  )}  ${"Mutations".padStart(maxMutLen)}  ${"Branches".padStart(
-    maxBranchLen
-  )}  ${"Combs".padStart(maxCombLen)}`;
-  console.log(header);
-  console.log("-".repeat(header.length));
+  )}  ${" ".repeat(mutationsHeaderPad)}${mutationsLabel}${"".padEnd(
+    mutationColWidth - mutationsHeaderPad - mutationsLabel.length
+  )}  ${"".padStart(maxBranchLen)}  ${"".padStart(maxCombLen)}`;
+
+  // Second header line with actual column names
+  const headerLine2 = `${"Source".padEnd(maxNameLen)}  ${"Bees".padStart(
+    maxBeeLen
+  )}  ${"Success".padStart(maxSuccessLen)}  ${"Skipped".padStart(
+    maxSkipLen
+  )}  ${"Branches".padStart(maxBranchLen)}  ${"Combs".padStart(maxCombLen)}`;
+
+  console.log(headerLine1);
+  console.log(headerLine2);
+  console.log("-".repeat(headerLine2.length));
 
   // Print each row
   for (const result of parsedResults) {
@@ -194,11 +320,13 @@ function parseAllMods(modsToInclude = null) {
     } else {
       const row = `${result.displayName.padEnd(maxNameLen)}  ${String(
         result.beeCount
-      ).padStart(maxBeeLen)}  ${String(result.mutationCount).padStart(
-        maxMutLen
-      )}  ${String(result.branchCount).padStart(maxBranchLen)}  ${String(
-        result.combCount
-      ).padStart(maxCombLen)}`;
+      ).padStart(maxBeeLen)}  ${String(result.successMutations).padStart(
+        maxSuccessLen
+      )}  ${String(result.skippedMutations).padStart(maxSkipLen)}  ${String(
+        result.branchCount
+      ).padStart(maxBranchLen)}  ${String(result.combCount).padStart(
+        maxCombLen
+      )}`;
       console.log(row);
     }
   }
@@ -206,21 +334,34 @@ function parseAllMods(modsToInclude = null) {
   // Print manual mutations row
   const manualRow = `${manualDisplayName.padEnd(maxNameLen)}  ${"-".padStart(
     maxBeeLen
-  )}  ${String(manualMutationCount).padStart(maxMutLen)}  ${"-".padStart(
-    maxBranchLen
-  )}  ${"-".padStart(maxCombLen)}`;
+  )}  ${String(manualMutationCount).padStart(maxSuccessLen)}  ${"-".padStart(
+    maxSkipLen
+  )}  ${"-".padStart(maxBranchLen)}  ${"-".padStart(maxCombLen)}`;
   console.log(manualRow);
 
   // Print separator and totals
-  console.log("-".repeat(header.length));
+  console.log("-".repeat(headerLine2.length));
+  const totalMutations = totalSuccessMutations + manualMutationCount;
   const totalsRow = `${totalsDisplayName.padEnd(maxNameLen)}  ${String(
     totalBees
   ).padStart(maxBeeLen)}  ${String(totalMutations).padStart(
-    maxMutLen
-  )}  ${String(totalBranches).padStart(maxBranchLen)}  ${String(
-    totalCombs
-  ).padStart(maxCombLen)}`;
+    maxSuccessLen
+  )}  ${String(totalSkippedMutations).padStart(maxSkipLen)}  ${String(
+    totalBranches
+  ).padStart(maxBranchLen)}  ${String(totalCombs).padStart(maxCombLen)}`;
   console.log(totalsRow);
+
+  // Print summary notes
+  const notes = [];
+  if (totalDuplicateMutations > 0) {
+    notes.push(`${totalDuplicateMutations} duplicates filtered`);
+  }
+  if (totalMergedMutations > 0) {
+    notes.push(`${totalMergedMutations} merged into manual groups`);
+  }
+  if (notes.length > 0) {
+    console.log(`\n(${notes.join(", ")})`);
+  }
 
   console.log("");
   return intermediateData;

@@ -632,7 +632,7 @@
     "parents": ["magicbees:aeskystone", "magicbees:silicon"],
     "children": [
       {
-        "species": "magicbees:earthy",
+        "species": "magicbees:fluix",
         "chance": 0.17,
         "runtimeConditions": [
           {

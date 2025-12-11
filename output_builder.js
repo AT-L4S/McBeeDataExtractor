@@ -39,6 +39,7 @@ function buildOutput(intermediateData, outputDir) {
   // Load manual mutations as starting template
   const manualMutationsPath = path.join(__dirname, "manual", "mutations.jsonc");
   let manualMutations = [];
+  let originalManualMutationCount = 0;
   if (fs.existsSync(manualMutationsPath)) {
     const content = fs.readFileSync(manualMutationsPath, "utf-8");
     // Remove JSONC comments
@@ -46,6 +47,11 @@ function buildOutput(intermediateData, outputDir) {
       .replace(/\/\/.*$/gm, "")
       .replace(/\/\*[\s\S]*?\*\//g, "");
     manualMutations = JSON.parse(jsonContent);
+    // Save original count BEFORE any merges happen
+    originalManualMutationCount = manualMutations.reduce(
+      (sum, group) => sum + group.children.length,
+      0
+    );
   }
 
   // Extract comb information from bee products
@@ -76,12 +82,6 @@ function buildOutput(intermediateData, outputDir) {
     "Honeycomb Data"
   );
 
-  // Calculate manual mutation count
-  const manualMutationCount = manualMutations.reduce(
-    (sum, group) => sum + group.children.length,
-    0
-  );
-
   // Calculate total mutations in output
   const totalMutationCount = breedingOutput.reduce(
     (sum, group) => sum + group.children.length,
@@ -91,8 +91,8 @@ function buildOutput(intermediateData, outputDir) {
   return {
     beeCount: Object.keys(beesOutput).length,
     mutationCount: totalMutationCount,
-    manualMutationCount: manualMutationCount,
-    parsedMutationCount: totalMutationCount - manualMutationCount,
+    manualMutationCount: originalManualMutationCount,
+    parsedMutationCount: totalMutationCount - originalManualMutationCount,
     combCount: Object.keys(combsOutput).length,
     skippedMutations: mutationStats.skippedMutations,
   };
@@ -231,6 +231,24 @@ function buildBreedingPairsJsonc(merged, manualMutations = []) {
     });
   });
 
+  // Track seen mutations to filter duplicates
+  const seenMutationKeys = new Set();
+
+  // Helper function to serialize conditions for mutation key generation
+  const serializeConditions = (conditions) => {
+    if (!conditions || Object.keys(conditions).length === 0) return "";
+    // Create a stable, sorted string representation of conditions
+    const sortedKeys = Object.keys(conditions).sort();
+    const parts = sortedKeys.map((key) => {
+      const value = conditions[key];
+      if (Array.isArray(value)) {
+        return `${key}=${value.slice().sort().join(",")}`;
+      }
+      return `${key}=${JSON.stringify(value)}`;
+    });
+    return "|" + parts.join("|");
+  };
+
   merged.mutations.forEach((mutation) => {
     // Find bees by mod:name key (new standardized format)
     const findBee = (identifier) => {
@@ -277,9 +295,15 @@ function buildBreedingPairsJsonc(merged, manualMutations = []) {
     const parentKey = [parent1, parent2].sort().join("|");
 
     // Check if this exact mutation already exists in manual mutations
-    const mutationKey = `${parentKey}|${offspring}|${mutation.chance / 100}`;
+    // Include serialized conditions to distinguish mutations with different requirements
+    const conditionsKey = serializeConditions(mutation.conditions);
+    const mutationKey = `${parentKey}|${offspring}|${
+      mutation.chance / 100
+    }${conditionsKey}`;
 
-    if (manualMutationSet.has(mutationKey)) {
+    // For manual mutation check, use key without conditions (manual mutations don't have conditions key)
+    const baseKey = `${parentKey}|${offspring}|${mutation.chance / 100}`;
+    if (manualMutationSet.has(baseKey)) {
       // Skip - already in manual mutations
       skippedMutations.push({
         offspring: mutation.offspring,
@@ -287,6 +311,12 @@ function buildBreedingPairsJsonc(merged, manualMutations = []) {
       });
       return;
     }
+
+    // Skip duplicates (same mutation from multiple sources or duplicates within a mod)
+    if (seenMutationKeys.has(mutationKey)) {
+      return;
+    }
+    seenMutationKeys.add(mutationKey);
 
     if (!mutationGroups.has(parentKey)) {
       mutationGroups.set(parentKey, {
@@ -330,8 +360,10 @@ function buildBreedingPairsJsonc(merged, manualMutations = []) {
         childEntry.requirements.timeOfDay = mutation.conditions.timeOfDay;
       }
 
-      // Required block
-      if (mutation.conditions.requiredBlock) {
+      // Required block (check both property names for compatibility)
+      if (mutation.conditions.block) {
+        childEntry.requirements.block = mutation.conditions.block;
+      } else if (mutation.conditions.requiredBlock) {
         childEntry.requirements.block = mutation.conditions.requiredBlock;
       }
 
@@ -375,6 +407,26 @@ function buildBreedingPairsJsonc(merged, manualMutations = []) {
     }
 
     mutationGroups.get(parentKey).children.push(childEntry);
+  });
+
+  // Update manual groups in output with any new children that were added
+  output.forEach((group) => {
+    const parentKey = group.parents.sort().join("|");
+    const updatedGroup = mutationGroups.get(parentKey);
+    if (updatedGroup && updatedGroup.children.length > group.children.length) {
+      // Add new children that were merged into this manual group
+      const existingChildren = new Set(
+        group.children.map((c) => `${c.species}|${c.chance}`)
+      );
+      updatedGroup.children.forEach((child) => {
+        const childKey = `${child.species}|${child.chance}`;
+        if (!existingChildren.has(childKey)) {
+          group.children.push(child);
+        }
+      });
+      // Re-sort children
+      group.children.sort((a, b) => a.species.localeCompare(b.species));
+    }
   });
 
   // Convert map to array (only new entries not in manual mutations)
