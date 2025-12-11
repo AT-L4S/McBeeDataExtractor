@@ -106,17 +106,29 @@ function parseAllMods(modsToInclude = null) {
       .replace(/\/\/.*$/gm, "")
       .replace(/\/\*[\s\S]*?\*\//g, "");
     manualMutations = JSON.parse(jsonContent);
-    manualMutationCount = manualMutations.reduce(
-      (sum, group) => sum + group.children.length,
-      0
-    );
+    manualMutationCount = manualMutations.reduce((sum, group) => {
+      return (
+        sum +
+        Object.values(group.children).reduce((childSum, childData) => {
+          // Count requirements, or 1 if no requirements array (unconditional mutation)
+          return (
+            childSum +
+            (childData.requirements ? childData.requirements.length : 1)
+          );
+        }, 0)
+      );
+    }, 0);
     // Build set of exact mutation keys (parentKey|offspring|chance) and parent pairs
     manualMutations.forEach((group) => {
       const parentKey = group.parents.sort().join("|");
       manualParentPairs.add(parentKey);
-      group.children.forEach((child) => {
-        const mutationKey = `${parentKey}|${child.species}|${child.chance}`;
-        manualMutationSet.add(mutationKey);
+      Object.entries(group.children).forEach(([species, childData]) => {
+        const requirementsArray = childData.requirements || [];
+        requirementsArray.forEach((requirement) => {
+          const chance = requirement.chance || childData.chance;
+          const mutationKey = `${parentKey}|${species}|${chance}`;
+          manualMutationSet.add(mutationKey);
+        });
       });
     });
   }

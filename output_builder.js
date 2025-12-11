@@ -48,10 +48,18 @@ function buildOutput(intermediateData, outputDir) {
       .replace(/\/\*[\s\S]*?\*\//g, "");
     manualMutations = JSON.parse(jsonContent);
     // Save original count BEFORE any merges happen
-    originalManualMutationCount = manualMutations.reduce(
-      (sum, group) => sum + group.children.length,
-      0
-    );
+    originalManualMutationCount = manualMutations.reduce((sum, group) => {
+      return (
+        sum +
+        Object.values(group.children).reduce((childSum, childData) => {
+          // Count requirements, or 1 if no requirements array (unconditional mutation)
+          return (
+            childSum +
+            (childData.requirements ? childData.requirements.length : 1)
+          );
+        }, 0)
+      );
+    }, 0);
   }
 
   // Extract comb information from bee products
@@ -82,11 +90,19 @@ function buildOutput(intermediateData, outputDir) {
     "Honeycomb Data"
   );
 
-  // Calculate total mutations in output
-  const totalMutationCount = breedingOutput.reduce(
-    (sum, group) => sum + group.children.length,
-    0
-  );
+  // Calculate total mutations in output (count all mutation paths)
+  const totalMutationCount = breedingOutput.reduce((sum, group) => {
+    return (
+      sum +
+      Object.values(group.children).reduce((childSum, childData) => {
+        // Count requirements, or 1 if no requirements array (unconditional mutation)
+        return (
+          childSum +
+          (childData.requirements ? childData.requirements.length : 1)
+        );
+      }, 0)
+    );
+  }, 0);
 
   return {
     beeCount: Object.keys(beesOutput).length,
@@ -205,8 +221,8 @@ function buildBeesJsonc(merged) {
 }
 
 /**
- * Build mutations.jsonc content in the format matching existing data
- * Format: Array of {parents: [], children: [{species, chance, requirements?}]}
+ * Build mutations.jsonc content in Option D format
+ * Format: Array of {parents: [], children: {species: {chance, mutations: []}}}}
  */
 function buildBreedingPairsJsonc(merged, manualMutations = []) {
   // Start with manual mutations as template
@@ -220,14 +236,19 @@ function buildBreedingPairsJsonc(merged, manualMutations = []) {
   const manualMutationSet = new Set();
   manualMutations.forEach((group) => {
     const parentKey = group.parents.sort().join("|");
-    group.children.forEach((child) => {
-      const mutationKey = `${parentKey}|${child.species}|${child.chance}`;
-      manualMutationSet.add(mutationKey);
+    Object.entries(group.children).forEach(([species, childData]) => {
+      // For each mutation in the species' requirements array
+      const requirementsArray = childData.requirements || [];
+      requirementsArray.forEach((requirement) => {
+        const chance = requirement.chance || childData.chance;
+        const mutationKey = `${parentKey}|${species}|${chance}`;
+        manualMutationSet.add(mutationKey);
+      });
     });
-    // Add to mutation groups map
+    // Add to mutation groups map - deep copy the children structure
     mutationGroups.set(parentKey, {
       parents: [...group.parents],
-      children: [...group.children],
+      children: JSON.parse(JSON.stringify(group.children)),
     });
   });
 
@@ -321,111 +342,136 @@ function buildBreedingPairsJsonc(merged, manualMutations = []) {
     if (!mutationGroups.has(parentKey)) {
       mutationGroups.set(parentKey, {
         parents: [parent1, parent2].sort(),
-        children: [],
+        children: {},
       });
     }
 
-    // Add offspring to this parent pair
-    const childEntry = {
-      species: offspring,
-      chance: mutation.chance / 100, // Convert chance to decimal
-    };
+    // Get or create the offspring entry
+    const group = mutationGroups.get(parentKey);
+    if (!group.children[offspring]) {
+      group.children[offspring] = {
+        chance: mutation.chance / 100, // default chance
+        requirements: [],
+      };
+    }
+
+    // Build mutation entry (requirements + optional chance override)
+    const mutationEntry = {};
 
     // Add requirements if present
     if (mutation.conditions && Object.keys(mutation.conditions).length > 0) {
-      childEntry.requirements = {};
-
       // Temperature restrictions
       if (mutation.conditions.temperature) {
-        childEntry.requirements.temperature = mutation.conditions.temperature;
+        mutationEntry.temperature = mutation.conditions.temperature;
       }
 
       // Humidity restrictions
       if (mutation.conditions.humidity) {
-        childEntry.requirements.humidity = mutation.conditions.humidity;
+        mutationEntry.humidity = mutation.conditions.humidity;
       }
 
       // Biome restrictions
       if (mutation.conditions.biome) {
-        childEntry.requirements.biome = mutation.conditions.biome;
+        mutationEntry.biome = mutation.conditions.biome;
       }
 
       // Date range (seasonal bees)
       if (mutation.conditions.dateRange) {
-        childEntry.requirements.dateRange = mutation.conditions.dateRange;
+        mutationEntry.dateRange = mutation.conditions.dateRange;
       }
 
       // Time of day requirement
       if (mutation.conditions.timeOfDay) {
-        childEntry.requirements.timeOfDay = mutation.conditions.timeOfDay;
+        mutationEntry.timeOfDay = mutation.conditions.timeOfDay;
       }
 
       // Required block (check both property names for compatibility)
       if (mutation.conditions.block) {
-        childEntry.requirements.block = mutation.conditions.block;
+        mutationEntry.block = mutation.conditions.block;
       } else if (mutation.conditions.requiredBlock) {
-        childEntry.requirements.block = mutation.conditions.requiredBlock;
+        mutationEntry.block = mutation.conditions.requiredBlock;
       }
 
       // Moon phase (MagicBees)
       if (mutation.conditions.moonPhase) {
-        childEntry.requirements.moonPhase = mutation.conditions.moonPhase;
+        mutationEntry.moonPhase = mutation.conditions.moonPhase;
       }
 
       // Moon phase bonus multiplier (MagicBees)
       if (mutation.conditions.moonPhaseBonus) {
-        childEntry.requirements.moonPhaseBonus =
-          mutation.conditions.moonPhaseBonus;
+        mutationEntry.moonPhaseBonus = mutation.conditions.moonPhaseBonus;
       }
 
       // Thaumcraft vis requirement (MagicBees)
       if (mutation.conditions.thaumcraftVis) {
-        childEntry.requirements.thaumcraftVis =
-          mutation.conditions.thaumcraftVis;
+        mutationEntry.thaumcraftVis = mutation.conditions.thaumcraftVis;
       }
 
       // Recent explosion requirement (CareerBees)
       if (mutation.conditions.requireExplosion) {
-        childEntry.requirements.requireExplosion = true;
+        mutationEntry.requireExplosion = true;
       }
 
       // Player name requirement (ExtraBees easter egg)
       if (mutation.conditions.requirePlayer) {
-        childEntry.requirements.requirePlayer =
-          mutation.conditions.requirePlayer;
+        mutationEntry.requirePlayer = mutation.conditions.requirePlayer;
       }
 
       // Dimension requirement
       if (mutation.conditions.dimension) {
-        childEntry.requirements.dimension = mutation.conditions.dimension;
+        mutationEntry.dimension = mutation.conditions.dimension;
       }
 
       // Secret mutation flag
       if (mutation.conditions.isSecret) {
-        childEntry.isSecret = true;
+        mutationEntry.isSecret = true;
       }
     }
 
-    mutationGroups.get(parentKey).children.push(childEntry);
+    // Check if this mutation has a different chance than the default
+    const defaultChance = group.children[offspring].chance;
+    if (Math.abs(mutation.chance / 100 - defaultChance) > 0.0001) {
+      mutationEntry.chance = mutation.chance / 100;
+    }
+
+    // Only add the requirement if it has properties (not empty)
+    if (Object.keys(mutationEntry).length > 0) {
+      group.children[offspring].requirements.push(mutationEntry);
+    }
   });
 
   // Update manual groups in output with any new children that were added
   output.forEach((group) => {
     const parentKey = group.parents.sort().join("|");
     const updatedGroup = mutationGroups.get(parentKey);
-    if (updatedGroup && updatedGroup.children.length > group.children.length) {
-      // Add new children that were merged into this manual group
-      const existingChildren = new Set(
-        group.children.map((c) => `${c.species}|${c.chance}`)
-      );
-      updatedGroup.children.forEach((child) => {
-        const childKey = `${child.species}|${child.chance}`;
-        if (!existingChildren.has(childKey)) {
-          group.children.push(child);
+    if (updatedGroup) {
+      // Merge new species or requirements into existing children
+      Object.entries(updatedGroup.children).forEach(([species, childData]) => {
+        if (!group.children[species]) {
+          // New species - add it (omit empty requirements array)
+          if (childData.requirements && childData.requirements.length === 0) {
+            group.children[species] = { chance: childData.chance };
+          } else {
+            group.children[species] = childData;
+          }
+        } else {
+          // Existing species - merge requirements
+          const requirements = childData.requirements || [];
+          requirements.forEach((newRequirement) => {
+            // Check if this requirement already exists
+            const exists = (group.children[species].requirements || []).some(
+              (existing) =>
+                JSON.stringify(existing) === JSON.stringify(newRequirement)
+            );
+            if (!exists) {
+              if (!group.children[species].requirements) {
+                group.children[species].requirements = [];
+              }
+              group.children[species].requirements.push(newRequirement);
+            }
+          });
         }
       });
-      // Re-sort children
-      group.children.sort((a, b) => a.species.localeCompare(b.species));
     }
   });
 
@@ -448,9 +494,23 @@ function buildBreedingPairsJsonc(merged, manualMutations = []) {
   });
 
   sortedGroups.forEach((group) => {
-    // Sort children by species name
-    group.children.sort((a, b) => a.species.localeCompare(b.species));
     output.push(group);
+  });
+
+  // Sort children object keys alphabetically and clean up empty requirements for each group
+  output.forEach((group) => {
+    const sortedChildren = {};
+    Object.keys(group.children)
+      .sort()
+      .forEach((key) => {
+        const child = group.children[key];
+        // Remove empty requirements array
+        if (child.requirements && child.requirements.length === 0) {
+          delete child.requirements;
+        }
+        sortedChildren[key] = child;
+      });
+    group.children = sortedChildren;
   });
 
   return {
@@ -530,8 +590,66 @@ function buildCombsJsonc(merged) {
  */
 function writeJsonc(filePath, data, description) {
   const header = `// ${description}\n// Generated from mod source files\n// Do not edit manually - regenerate using scripts/build.js\n\n`;
-  const jsonContent = JSON.stringify(data, null, 2);
+
+  // Use custom formatter for mutations.jsonc to match example format
+  let jsonContent;
+  if (filePath.endsWith("mutations.jsonc")) {
+    jsonContent = formatMutationsJson(data);
+  } else {
+    jsonContent = JSON.stringify(data, null, 2);
+  }
+
   fs.writeFileSync(filePath, header + jsonContent);
+}
+
+/**
+ * Custom JSON formatter for mutations that:
+ * - Keeps arrays of primitives inline
+ * - Keeps arrays of objects multi-line
+ * - Adds blank lines between mutation groups
+ */
+function formatMutationsJson(data, indent = 0) {
+  const indentStr = "  ".repeat(indent);
+  const nextIndent = "  ".repeat(indent + 1);
+
+  if (Array.isArray(data)) {
+    if (data.length === 0) return "[]";
+
+    // Check if array contains only primitives
+    const allPrimitives = data.every(
+      (item) =>
+        typeof item === "string" ||
+        typeof item === "number" ||
+        typeof item === "boolean" ||
+        item === null
+    );
+
+    if (allPrimitives) {
+      // Format inline for primitive arrays
+      return "[" + data.map((item) => JSON.stringify(item)).join(", ") + "]";
+    } else {
+      // Format multi-line for object arrays
+      const items = data.map((item, index) => {
+        const formattedItem = formatMutationsJson(item, indent + 1);
+        const comma = index < data.length - 1 ? "," : "";
+        return nextIndent + formattedItem + comma;
+      });
+      return "[\n" + items.join("\n") + "\n" + indentStr + "]";
+    }
+  } else if (typeof data === "object" && data !== null) {
+    const keys = Object.keys(data);
+    if (keys.length === 0) return "{}";
+
+    const items = keys.map((key) => {
+      const value = data[key];
+      const formattedValue = formatMutationsJson(value, indent + 1);
+      return `${nextIndent}"${key}": ${formattedValue}`;
+    });
+
+    return "{\n" + items.join(",\n") + "\n" + indentStr + "}";
+  } else {
+    return JSON.stringify(data);
+  }
 }
 
 /**
