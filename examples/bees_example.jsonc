@@ -2,7 +2,7 @@
 // Bee genetic information + what products they produce
 
 {
-  "Minimal_Example:BasicBee": {
+  "minimalexample:basicbee": {
     "mod": "Minimal_Example",
     "name": "BasicBee",
     "idealTemperature": "",
@@ -18,8 +18,8 @@
     "products": []
   },
 
-  "Complete_Example:AdvancedBee": {
-    "mod": "Complete_Example",
+  "completeexample:advancedbee": {
+    "mod": "Complete Example",
     "name": "AdvancedBee",
     "idealTemperature": "HOT",
     "idealHumidity": "ARID",
@@ -54,8 +54,7 @@
     "runtimeConditions": {
       "type": "MOD", // | "BEE" | "MOD"
       "target": "MyMod", // | "MyMod:Bee1" | "MyMod"
-      "active": true,
-      "code_description": "MyMod.enabled()"
+      "active": true
     }
   }
 }

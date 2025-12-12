@@ -5,19 +5,19 @@
 
 [
   {
-    "parents": ["Minimal_Example:Parent1", "MINIMAL:Parent2"],
+    "parents": ["minimalexample:parent1", "minimalexample:parent2"],
     "children": {
-      "Minimal_Example:Offspring": {
+      "minimalexample:offspring": {
         "chance": 0.15
         // No requirements - unconditional mutation at default chance
       }
     }
   },
-  
+
   {
-    "parents": ["Complete_Example:Parent1", "Complete_Example:Parent2"],
+    "parents": ["completeexample:parent1", "completeexample:parent2"],
     "children": {
-      "Complete_Example:Offspring1": {
+      "completeexample:offspring1": {
         "chance": 0.25,
         "requirements": [
           {
@@ -39,7 +39,7 @@
           }
         ]
       },
-      "Complete_Example:Offspring2": {
+      "completeexample:offspring2": {
         "chance": 0.08,
         "requirements": [
           {
@@ -47,7 +47,7 @@
             "runtimeConditions": [
               {
                 "type": "BRANCH", // | "BEE" | "MOD"
-                "target": "MyBeeBranch", // | "MyMod:Bee1" | "MyMod"
+                "target": "MyBeeBranch", // | "mymod:bee1" | "MyMod"
                 "active": true
               }
             ]

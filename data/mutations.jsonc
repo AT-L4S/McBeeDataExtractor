@@ -4058,7 +4058,10 @@
     }
   },
   {
-    "parents": ["meatballcraft:apothecary", "meatballcraft:universalconstellation"],
+    "parents": [
+      "meatballcraft:apothecary",
+      "meatballcraft:universalconstellation"
+    ],
     "children": {
       "meatballcraft:ascendant": {
         "chance": 0.8,
