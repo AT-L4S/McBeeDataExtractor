@@ -15,6 +15,10 @@ const { parseCareerBees } = require("./parsers/careerbees_parser");
 const { parseMagicBees } = require("./parsers/magicbees_parser");
 const { parseGendustryConfig } = require("./parsers/gendustry_config_parser");
 const { buildOutputFiles } = require("./output_builder");
+const {
+  buildShortestPathMutations,
+  writeShortestMutationsJsonc,
+} = require("./shortest_path_builder");
 
 /**
  * Configuration for mod parsers
@@ -26,37 +30,43 @@ const MOD_CONFIGS = [
     key: "forestry",
     name: "Forestry",
     parser: parseForestry,
-    sourceFile: path.join(__dirname, "raw_data/BeeDefinition.java"),
+    sourceFile: path.join(__dirname, "raw_data/forestry/BeeDefinition.java"),
   },
   {
     key: "extrabees",
     name: "ExtraBees",
     parser: parseExtraBees,
-    sourceFile: path.join(__dirname, "raw_data/ExtraBeeDefinition.java"),
+    sourceFile: path.join(
+      __dirname,
+      "raw_data/extrabees/ExtraBeeDefinition.java"
+    ),
   },
   {
     key: "careerbees",
     name: "CareerBees",
     parser: parseCareerBees,
-    sourceFile: path.join(__dirname, "raw_data/CareerBeeSpecies.java"),
+    sourceFile: path.join(
+      __dirname,
+      "raw_data/careerbees/CareerBeeSpecies.java"
+    ),
   },
   {
     key: "magicbees",
     name: "MagicBees",
     parser: parseMagicBees,
-    sourceFile: path.join(__dirname, "raw_data/EnumBeeSpecies.java"),
+    sourceFile: path.join(__dirname, "raw_data/magicbees/EnumBeeSpecies.java"),
   },
   {
     key: "gendustry_color",
     name: "Gendustry Color Bees",
     parser: parseGendustryConfig,
-    sourceFile: path.join(__dirname, "raw_data/bees_color.cfg"),
+    sourceFile: path.join(__dirname, "raw_data/gendustry/bees_color.cfg"),
   },
   {
     key: "gendustry_patreon",
     name: "Gendustry Patreon Bees",
     parser: parseGendustryConfig,
-    sourceFile: path.join(__dirname, "raw_data/bees_patreon.cfg"),
+    sourceFile: path.join(__dirname, "raw_data/gendustry/bees_patreon.cfg"),
   },
   {
     key: "meatballcraft",
@@ -416,11 +426,49 @@ function build(options = {}) {
     // Build output files and get stats
     const stats = buildOutputFiles(intermediateData, outputDir);
 
+    // Build shortest path mutations
+    console.log("\nCalculating shortest breeding paths...");
+    const mutationsPath = path.join(outputDir, "mutations.jsonc");
+    const mutationsContent = fs.readFileSync(mutationsPath, "utf-8");
+    const mutationsJson = mutationsContent
+      .replace(/\/\/.*$/gm, "")
+      .replace(/\/\*[\s\S]*?\*\//g, "");
+    const allMutations = JSON.parse(mutationsJson);
+
+    // Get all bees from intermediate data
+    const allBees = {};
+    intermediateData.forEach((data) => {
+      Object.assign(allBees, data.bees);
+    });
+
+    const shortestMutations = buildShortestPathMutations(allBees, allMutations);
+    const shortestMutationsPath = path.join(
+      outputDir,
+      "shortest_mutations.jsonc"
+    );
+    writeShortestMutationsJsonc(shortestMutationsPath, shortestMutations);
+
+    // Count shortest mutations
+    const shortestMutationCount = shortestMutations.reduce((sum, group) => {
+      return (
+        sum +
+        Object.values(group.children).reduce((childSum, childData) => {
+          return (
+            childSum +
+            (childData.requirements ? childData.requirements.length : 1)
+          );
+        }, 0)
+      );
+    }, 0);
+
     // Display final summary
-    console.log("Output files written to data/");
+    console.log("\nOutput files written to data/");
     console.log(`  → bees.jsonc: ${stats.beeCount} bees`);
     console.log(
       `  → mutations.jsonc: ${stats.mutationCount} mutations (${stats.manualMutationCount} manual, ${stats.parsedMutationCount} parsed)`
+    );
+    console.log(
+      `  → shortest_mutations.jsonc: ${shortestMutationCount} mutations (shortest breeding paths)`
     );
     console.log(`  → combs.jsonc: ${stats.combCount} combs`);
 
