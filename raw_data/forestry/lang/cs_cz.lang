@@ -1,0 +1,2032 @@
+####################
+# CORE
+####################
+
+death.engine.clockwork.player=%1$s byl zapíchnut volnou pružinkou. %2$s byl nepozorný hodinář.
+death.engine.clockwork=%1$s byl zapíchnut volnou pružinkou.
+
+for.chat.cannotmemorizeagain=Už si pamatuješ tuto informaci.
+for.chat.memorizednote=Zapamatuješ si tuto poznámku a vyhodíš zbytek papíru.
+for.chat.memorizednote2=Nyní jsi se naučil křížit %1$s s %2$s aby jsi udělal %3$s!
+
+for.chat.command.aliases=Aliasy: %s
+for.chat.command.list=Podpříkazy:
+for.chat.command.permlevel=Úroveň oprávnění: %s
+for.chat.command.noperms=Nemáš oprávnění používat tento příkaz.
+
+for.chat.command.forestry.help=Různé příkazy pro Forestry
+for.chat.command.forestry.format=Formát: /%s <podpříkaz>
+
+for.chat.command.forestry.version.desc=- %s : Informace o verzi
+for.chat.command.forestry.version.help=Vypíše aktuální verzi
+for.chat.command.forestry.version.format=Formát: /%s
+
+for.chat.command.forestry.modules.desc=- %s : Seznam Forestry modulů
+for.chat.command.forestry.modules.help=Vypíše všechny moduly. Zelené jsou zapnuty, červené vypnuty
+for.chat.command.forestry.modules.format=Formát: /%s
+
+for.chat.command.forestry.modules.info.desc=- %s : Informace o modulu
+for.chat.command.forestry.modules.info.help=Vypíše informaci o modulu
+for.chat.command.forestry.modules.info.format=Format: /%s <module-name>
+
+for.chat.help=Napiš '%s' pro pomoc
+for.chat.modules.error=Pro modul %s nejsou k dispozici žádné informace.
+for.chat.version=Forestry %1$s pro Minecraft %2$s (Nejnovější: %3$s).
+
+for.circuit.dampener.1=Tlumič ohně
+for.circuit.dampener.1.description.1=Snižuje maximální výstup na 10 RF/t
+for.circuit.dampener.1.description.2=Šetří palivový výstup
+for.circuit.electric.boost.1=Elektrické zrychlení I
+for.circuit.electric.boost.1.description.1=Zvyšuje výstup o 10 RF/t
+for.circuit.electric.boost.1.description.2=Zvyšuje příjem o 4 EU/t
+for.circuit.electric.boost.2=Elektrické zrychlení II
+for.circuit.electric.boost.2.description.1=Zvyšuje výstup o 20 RF/t
+for.circuit.electric.boost.2.description.2=Zvyšuje příjem o 7 EU/t
+for.circuit.electric.choke.1=Elektrické dušení
+for.circuit.electric.choke.1.description.1=Snižuje výstup o 5 RF/t
+for.circuit.electric.choke.1.description.2=Snižuje příjem o 1 EU/t
+for.circuit.electric.efficiency.1=Elektrická účinnost
+for.circuit.electric.efficiency.1.description.1=Snižuje příjem o 1 EU/t
+for.circuit.machine.speed.boost.1=Zrychlení I
+for.circuit.machine.speed.boost.1.description.1=Zvyšuje rychlost o 12.5%
+for.circuit.machine.speed.boost.1.description.2=Zvyšuje využití energie o 5%
+for.circuit.machine.speed.boost.2=Zrychlení II
+for.circuit.machine.speed.boost.2.description.1=Zvyšuje rychlost o 25%
+for.circuit.machine.speed.boost.2.description.2=Zvyšuje využití energie o 10%
+for.circuit.machine.efficiency.1=Účinnost stroje
+for.circuit.machine.efficiency.1.description.1=Snižuje využití energie o 10%
+
+for.circuit.layout.dummy.name=Není k dispozici
+for.circuit.layout.dummy.usage=Nic
+
+for.circuit.layout.engine.tin.name=Elektrický motor
+for.circuit.layout.engine.tin.usage=V elektrických motorech
+
+for.circuit.layout.farms.managed.name=Automatická farma
+for.circuit.layout.farms.managed.usage=Automatické farmy
+
+for.circuit.layout.farms.manual.name=Manuální farma
+for.circuit.layout.farms.manual.usage=Manuální farmy
+
+for.circuit.layout.machine.upgrade.name=Vylepšení stroje
+for.circuit.layout.machine.upgrade.usage=Strojové jímky
+
+for.flowers.cacti=Kaktusy
+for.flowers.end=End
+for.flowers.gourd=Tykve
+for.flowers.jungle=Tropické kytky
+for.flowers.mushrooms=Houby
+for.flowers.nether=Nether
+for.flowers.vanilla=Kytky
+for.flowers.wheat=Pšenice
+for.flowers.snow=Sníh
+
+fluid.bio.ethanol=Ethanol
+fluid.biomass=Biomasa
+fluid.glass=Tekuté sklo
+fluid.for.honey=Med
+fluid.ice=Drcený led
+fluid.juice=Ovocná šťáva
+fluid.short.mead=Krátká medovina
+fluid.milk=Mléko
+fluid.seed.oil=Semínkový olej
+
+tile.forestry.fluid.bio.ethanol.name=Ethanol
+tile.forestry.fluid.biomass.name=Biomasa
+tile.forestry.fluid.glass.name=Tekuté sklo
+tile.forestry.fluid.for.honey.name=Med
+tile.forestry.fluid.ice.name=Drcený led
+tile.forestry.fluid.juice.name=Ovocná šťáva
+tile.forestry.fluid.short.mead.name=Krátká medovina
+tile.forestry.fluid.milk.name=Mléko
+tile.forestry.fluid.seed.oil.name=Semínkový olej
+
+for.gui.access=Přístup
+for.gui.active=Aktivní
+for.gui.addressee.player=Hráč
+for.gui.addressee.trader=Obchodní stanice
+
+for.gui.alyzer.authority=Autorita
+for.gui.alyzer.classification=Klasifikace
+for.gui.alyzer.extinct=Vyhynulé
+for.gui.alyzer.nodescription=Encyclopedia Minecraftia nemohla najít žádné informace o tomto druhu.
+for.gui.alyzer.overview=Analýzy k dispozici
+
+for.gui.area=Území
+for.gui.arid=Vyprahlé
+for.gui.beach=Pláž
+
+for.gui.portablealyzer=Přenosný genetický analyzér
+for.gui.portablealyzer.help=Vlož včelu, sazenici, motýla či jiného jedince a vlož med nebo medovici.
+
+for.gui.beealyzer.artificial=Umělý původ
+for.gui.beealyzer.behaviour=Chování
+for.gui.beealyzer.generations=%s generací v držení
+for.gui.beealyzer.mutations=Možné mutace
+for.gui.beealyzer.natural=Přírodní původ
+for.gui.beealyzer.produce=Možné produkty
+for.gui.beealyzer.specialty=Možná specialita
+
+for.gui.database.tab.active_species.name=Aktivní druh
+for.gui.database.tab.inactive_species.name=Neaktivní druh
+for.gui.database.tab.products.name=Výrobky
+for.gui.database.tab.mutations.name=Mutace
+for.gui.database.mutations.further=Další mutace
+for.gui.database.mutations.resultant=Výsledné mutace
+for.gui.database.support=Tento jedinec nemá zatím žádnou integraci pro databázi.
+
+for.gui.blank=Prázdné
+for.gui.cave=Jeskyňář
+for.gui.climate=Klima
+for.gui.cold=Studené
+for.gui.crop=Plodina
+for.gui.currentBiome=Aktuální biom
+for.gui.currentOutput=Aktuální výstup
+for.gui.damp=Vlkhé
+for.gui.derelict=Opuštěné
+for.gui.desert=Poušť
+for.gui.didyouknow=Věděl jsi
+for.gui.diurnal=Denní
+for.gui.drones=Dělnice
+for.gui.effect=Efekt
+for.gui.empty=Prázdné
+for.gui.emptysocket=Prázdná jímka
+for.gui.empty.slot.camouflage.multiblock=Políčko kamufláže multiblok
+for.gui.empty.slot.camouflage=Políčko kamufláže
+for.gui.socket.remove=Lze odstranit pájkou
+for.gui.energy=Energie
+for.gui.environment=Prostředí
+for.gui.evolution=Vývoj
+for.gui.fecundated=Spáření
+for.gui.fertility=Plodnost
+for.gui.fireresist=Ohnivzdorné
+for.gui.flowers=Typ kytky
+for.gui.flyer=Tolerantní letec
+for.gui.flyer.tooltip=Tolerantní letec
+for.gui.general=Obecné
+for.gui.heat=Teplo
+for.gui.hellish=Pekelné
+for.gui.hot=Žhavé
+for.gui.humidity=Vlhkost
+for.gui.humidtol=Tolerance vlhkosti
+for.gui.hybrid=Hybrid
+for.gui.icy=Ledové
+for.gui.imprinter.cheater=(Jsi podvodník!)
+for.gui.imprinter.name=Tisk genomů
+for.gui.inactive=Inactive
+for.gui.life=Život
+for.gui.lifespan=Životnost
+for.gui.normal=Normální
+
+for.gui.escritoire.probe=Průzkum druhů
+for.gui.escritoire.instructions=Vlož genetický vzorek do středu. Vlož další do levých políček a prozkoumej je pro pomoc.
+for.gui.escritoire.attempt.number=Pokus číslo. %s
+
+for.gui.escritoire.notes.level1.1=Našel jsem zajímavý druh na svých cestách.
+for.gui.escritoire.notes.level1.2=Tento zvláštní jedinec potřebuje výzkum.
+for.gui.escritoire.notes.level1.3=Chtěl jsem začít se svým výzkumem.
+
+for.gui.escritoire.notes.level2.1=Byl jsem překvapen podivuhodným chováním tohto jedince.
+for.gui.escritoire.notes.level2.2=Jedinec se kroutil, zatímco jsem ho prozkoumával.
+for.gui.escritoire.notes.level2.3=Divná znaménka na jeho spodku mě zaujala.
+for.gui.escritoire.notes.level2.4=Toto bude mluvou společnosti jakmile dokončím výzkum.
+
+for.gui.escritoire.notes.level3.1=Po dalším výzkumu jsem objevil novou stopu.
+for.gui.escritoire.notes.level3.2=Škrabal jsem si hlavu nad objevem a ptal jsem se na všechno.
+for.gui.escritoire.notes.level3.3=Myslel jsem si že mě klamou oči, ale opravdu tu byl.
+for.gui.escritoire.notes.level3.4=Jedna nevšimnutá tečka způsobila, že jsem se tázal kam tohoto jedince zařadit.
+
+for.gui.escritoire.notes.level4.1=Můj křik naštvání způsobil že se můj sluha na mně podíval.
+for.gui.escritoire.notes.level4.2=Roztrhal jsem všechny poznámky kvůli svému vzteku!
+for.gui.escritoire.notes.level4.3=Tohle nedává žádný smysl!
+for.gui.escritoire.notes.level4.4=Nemůže to být... Tohle se předtím nestalo!
+for.gui.escritoire.notes.level4.5=Tohle bourací kladivo sotva něco udělalo, takže si jdu pro pilu.
+for.gui.escritoire.notes.level4.6=Přísahám že se to na mě koukalo, se svýma malýma očima.
+for.gui.escritoire.notes.level4.7=Je toto smích? Slyším smích? Kdo se tu směje?
+
+for.gui.escritoire.notes.success.1=HEURÉKA!
+for.gui.escritoire.notes.success.2=Skvělé! Moje jméno se zapíše do historie!
+for.gui.escritoire.notes.success.3=Moji kolegové budou šokováni!
+for.gui.escritoire.notes.success.4=Budu závistí každého člověka!
+for.gui.escritoire.notes.success.5=Ano!
+
+for.gui.escritoire.notes.failure.1=Vše je ztraceno.
+for.gui.escritoire.notes.failure.2=Hodil jsem své poznámky do ohně.
+for.gui.escritoire.notes.failure.3=Proč? Udělal jsem velmi dobré pokusy..
+for.gui.escritoire.notes.failure.4=Selhal jsem... Znovu.
+for.gui.escritoire.notes.failure.5=Můj bože...
+
+for.gui.mail.foreveryattached=Za každou přílohu
+for.gui.mail.from=Od
+for.gui.mail.nametrader=Pojmenuj svojí obchodní stanici
+for.gui.mail.nothing.to.trade=Obchodní stanice nemá nic k prodeji.
+for.gui.mail.no.trader=Neexistuje žádná obchodní stanice s tímto jménem.
+for.gui.mail.pleasesend=Prosím odeslat
+for.gui.mail.order.attached=Prosím najdi svoji přiloženou žádost.
+for.gui.mail.order.filled.one=1 žádost od %SENDER byla naplněna.
+for.gui.mail.order.filled.multiple=%COUNT žádostí od %SENDER bylo naplněno.
+for.gui.mail.to=Pro
+for.gui.mail.receive=Přijmout
+for.gui.mail.send=Odeslat
+
+for.gui.maxenergy=Maximálni energie
+for.gui.maxenergyreceive=Maximální napájení
+for.gui.maxspeed=Maxiální
+for.gui.metabolism=Metabolismus
+for.gui.nether=Nether
+for.gui.nocturnal=Noční
+for.gui.noeffect=Žádný efekt
+for.gui.owner=Vlastník
+for.gui.page=Stránka
+
+for.gui.plains=Pláně
+for.gui.princesses=Princ.
+for.gui.produce=Výrobky
+for.gui.queens=Královny
+
+for.gui.solder.north=S
+for.gui.solder.south=J
+for.gui.solder.east=V
+for.gui.solder.west=Z
+
+forestry.allele.true=Ano
+forestry.allele.false=Ne
+
+forestry.allele.average=Průměrná
+forestry.allele.gigantic=Obrovská
+forestry.allele.normal=Normální
+
+forestry.allele.slowest=Nejpomalejší
+forestry.allele.slower=Pomalejší
+forestry.allele.slow=Pomalá
+forestry.allele.fast=Rychlá
+forestry.allele.faster=Rychlejší
+forestry.allele.fastest=Nejrychlejší
+forestry.allele.maximum=Maximální
+
+forestry.allele.smallest=Nejmenší
+forestry.allele.smaller=Menší
+forestry.allele.small=Malá
+forestry.allele.large=Velká
+forestry.allele.larger=Větší
+forestry.allele.largest=Největší
+
+forestry.allele.lowest=Nejnižší
+forestry.allele.lower=Nižší
+forestry.allele.low=Nízká
+forestry.allele.high=Vysoká
+forestry.allele.higher=Vyšší
+forestry.allele.highest=Nejvyšší
+
+forestry.allele.tolerance.both1=Obojí 1
+forestry.allele.tolerance.both2=Obojí 2
+forestry.allele.tolerance.both3=Obojí 3
+forestry.allele.tolerance.both4=Obojí 4
+forestry.allele.tolerance.both5=Obojí 5
+forestry.allele.tolerance.down1=Dolů 1
+forestry.allele.tolerance.down2=Dolů 2
+forestry.allele.tolerance.down3=Dolů 3
+forestry.allele.tolerance.down4=Dolů 4
+forestry.allele.tolerance.down5=Dolů 5
+forestry.allele.tolerance.none=Nic
+forestry.allele.tolerance.up1=Nahoru 1
+forestry.allele.tolerance.up2=Nahoru 2
+forestry.allele.tolerance.up3=Nahoru 3
+forestry.allele.tolerance.up4=Nahoru 4
+forestry.allele.tolerance.up5=Nahoru 5
+
+forestry.allele.lifespan.shortest=Nejkratší
+forestry.allele.lifespan.shorter=Kratší
+forestry.allele.lifespan.short=Krátká
+forestry.allele.lifespan.shortened=Zkrácená
+forestry.allele.lifespan.normal=Normální
+forestry.allele.lifespan.elongated=Prodloužená
+forestry.allele.lifespan.long=Dlouhá
+forestry.allele.lifespan.longer=Delší
+forestry.allele.lifespan.longest=Nejdelší
+
+for.gui.size=Velikost
+for.gui.slots=%USED/%SIZE políček
+for.gui.species=Druhy
+for.gui.speciescount=Druhy
+for.gui.speed=Výroba
+for.gui.pollination=Opylení
+for.gui.stored=Uloženo
+for.gui.temperature=Teplota
+for.gui.tolerance=Tolerance
+for.gui.temptol=Tolerance teploty.
+for.gui.tooltip.tmi=Podrž Shift pro detaily
+for.gui.tooltip.liquid.amount=%,d / %,d mB
+for.gui.triple=Trojité
+for.gui.unknown=Neznámý genom
+for.gui.warm=Teplé
+for.gui.water=Voda
+for.gui.worker=Dělník
+
+for.gui.camouflage_spray_can=Kamufláž ve spreji
+
+for.hints.apiaristsuit.desc=Plný včelařův oblek tě ochrání před negativními včelími efekty.
+for.hints.apiaristsuit.tag=Ochrana před včelami!
+for.hints.beebiomes.desc= Včely pracují pouze v biomech, které jsou pro ně vhodné. Použij svůj přenosný analyzér a lokátor místa výskytu abys to našel.
+for.hints.beebiomes.tag=Tvůj biom nás zajímá!
+for.hints.beebreeding.desc=Křížení dělnic a princezen může dát vzniku nových druhům.
+for.hints.beebreeding.tag=Množ své včely!
+for.hints.beeflowers.desc=Jakákoliv včela ve své blízkosti potřebuje květiny. Některým včelám stačí obyčejné květiny, jiné zase chtějí exotické květiny.
+for.hints.beeflowers.tag=Včely potřebují kytky
+for.hints.beejubilance.desc=Pouze štastné včely vyrobí svojí specialitu. Ujisti se že jsou ve správném klimatu.
+for.hints.beejubilance.tag=Včely musí být šťastné!
+for.hints.cooldownloss.desc=Motory které se dostanou do ochlazení ztratí část uložené energie.
+for.hints.cooldownloss.tag=Ochlazení je ztráta!
+for.hints.crating.desc=Hlavní úlohou dřevařů je lisování surovin navíc. Plno předmětů a věcí lze zabalit do beden.
+for.hints.crating.tag=Zabal své suroviny!
+for.hints.energybuffer.desc=Motory mohou uložit energii pokud nemůžou přenést energii do bloku naproti.
+for.hints.energybuffer.tag=Ukládání energie!
+for.hints.energyunit.desc=Výroba energie je počítána v RF/t, což znamená "Ruditový Flux na tick". Každá sekunda má 20 ticků.
+for.hints.energyunit.tag=Řekni rudííííííííít!
+for.hints.enginebronzefuels.desc=Můžeš použít různá paliva do tvého bioplynového motoru: Biomasu, semínkový olej, med, mléko a také vodu!
+for.hints.enginebronzefuels.tag=Vyzkoušej všechna paliva!
+for.hints.enginebronzeheatloss.desc=I když můžeš použít vodu v Bioplynovém motoru, je to velmi neúčinné a spotřebovává to lávu.
+for.hints.enginebronzeheatloss.tag=Opatrně s vodou!
+for.hints.enginebronzeoutput.desc=Rozdílná paliva ti dají různé hodnoty energie v Bioplynovém motoru. Výroba energie je mezi 10 RF/t až 50 RF/t.
+for.hints.enginebronzeoutput.tag=Vyber své palivo!
+for.hints.enginebronzewaste.desc=Na rozdíl od rašelinových motorů, bioplynové motory neutratí biomasu která je v systému.
+for.hints.enginebronzewaste.tag=Palivo je šetřeno!
+for.hints.enginecopperfuels.desc=Rašelinové motory mohou použít nezpracovanou rašelinu, ale také mohou použít živicovou rašelinu pro zdvojnásobení výroby energie.
+for.hints.enginecopperfuels.tag=Použij všechna paliva!
+for.hints.enginecopperwaste.desc=Vypnuté rašelinové motory spalují rašelinu která byla odstraněna z úložiště bez generace energie.
+for.hints.enginecopperwaste.tag=Šetři energií!
+for.hints.enginetinbatteries.desc=Můžeš použít baterie pro spuštění elektrických motorů bez napojení.
+for.hints.enginetinbatteries.tag=Nabíjej své baterie!
+for.hints.enginetinchoke.desc=Elektrické motory lze vybavit s obvody pro udušení výroby energie na 10 RF/t a snížení požadavků na energii.
+for.hints.enginetinchoke.tag=Regulace výstupu
+for.hints.flowerjungle.desc=Tropické kytky jsou liány nebo kapradiny.
+for.hints.flowerjungle.tag=Co jsou tropické kytky?
+for.hints.flowernether.desc=Bradavičníky jsou netherové kytky.
+for.hints.flowernether.tag=Co jsou netherové kytky?
+for.hints.forcedcooldown.desc=Motory se mohou přehřát pokud jejich energie není odebrána. Dosažení bodu přehřátí je donutí ochladit.
+for.hints.forcedcooldown.tag=Pozor na přehřívání!
+for.hints.generatorfuels.desc=Bio generátory příjmají biomasu a biopalivo, ale jsou nejvíc účinné s biopalivem.
+for.hints.generatorfuels.tag=Použij všechna paliva!
+for.hints.habitatlocatoruse.desc=Za nějaký čas, lokátor místa výskytu namíří svojí střelku na nejbližší vhodný biom. Po nalezení biomu se indikátor otáčí.
+for.hints.habitatlocatoruse.tag=Lokátor místa výskytu: shrnutá edice!
+for.hints.honeyfood.desc=Plno druhů jídla lze vyrobit z medu a včelích produktů.
+for.hints.honeyfood.tag=Popadni své jídlo!
+for.hints.manualpeat.desc=Rašelinu lze sklízet v automatických rašeliništích, ale než začneš, doporučujeme ti nasbírat nějakou rašelinu ručně.
+for.hints.manualpeat.tag=Není potřeba žádné rašeliniště!
+for.hints.moistenerproducts.desc=Pomocí správných surovin, tvůj zvlhčovač může vyrobit cihly či kamení porostlé mechem.
+for.hints.moistenerproducts.tag=Chceš nějaké kamení porostlé mechem?
+for.hints.nopowerrequired.desc=Stroje tohoto typu nevyžadují energii pro funkci.
+for.hints.nopowerrequired.tag=Není potřeba energie!
+for.hints.peatharvest.desc=Rašeliništní země u vody se ihned přemění na rašelinu, kterou můžeš sklidit lopatou.
+for.hints.peatharvest.tag=Sklízej svojí rašelinu!
+for.hints.pipette.desc=Pokud ti zůstala přebytečná tekutina v nádrži, můžeš na ní kliknout s pipetou, aby si ji vyprázdnil.
+for.hints.pipette.tag=Vyprázdni nádrže s pipetou
+for.hints.postage.desc=Posílání dopisů stojí známky. Kromě základního poplatku 1n, každá příloha přidává 1n ceny.
+for.hints.postage.tag=Zaplať za převoz
+for.hints.powerraintank.desc=I nepoháněná dešťová nádrž bude sbírat déšť, ale pro naplnění lahví a nádob je potřeba energie z motoru.
+for.hints.powerraintank.tag=Plnění vyžaduje energii!
+for.hints.shortmead.desc=Tvůj kvasič kromě biomasy umí také vyrábět z medovice a tekutého medu krátkou medovinu.
+for.hints.shortmead.tag=Vyrob svůj energetický nápoj!
+for.hints.usesofash.desc=Popel lze použít na výrobu hnojiva a je potřeba pro zpracování živicové rašeliny.
+for.hints.usesofash.tag=Použij svůj popel!
+
+for.item.crated.grammar=%s v bedně
+for.item.crated.unknown=Bedna s neznámým obsahem
+
+for.no=Ne
+
+for.researchNote.chance.highest=NEJVYŠŠÍ
+for.researchNote.chance.higher=VYŠŠÍ
+for.researchNote.chance.high=VYSOKÁ
+for.researchNote.chance.normal=NORMÁLNÍ
+for.researchNote.chance.low=NÍZKÁ
+for.researchNote.chance.lowest=NEJNIŽŠÍ
+for.researchNote.error.0=Tyto čmáranice je nemožné rozpoznat.
+for.researchNote.error.1=Poznámka se stala nečitelnou a bezcennou.
+for.researchNote.discovered.0=§aDruh vyzkoumán!
+for.researchNote.discovered.1=§e'%1$s'§7 (%2$s)
+for.researchNote.discovery.0=§aMutace vyzkoumána!
+for.researchNote.discovery.1=§e'%SPEC1'§7 a §e'%SPEC2'§7.
+for.researchNote.discovery.2=Šance na úspěch je §9%s§7.
+for.researchNote.discovery.3=Novým druhem je §d'%s'§7.
+
+for.mutation.condition.biome.single=Vyskytuje se v biomu %s .
+for.mutation.condition.biome.multiple=Vyskytuje se v biomech, jako: %s
+for.mutation.condition.daytime.day=Ve dne.
+for.mutation.condition.daytime.night=V noci.
+for.mutation.condition.humidity.range=Vyžaduje vlhkost mezi %LOW a %HIGH.
+for.mutation.condition.humidity.single=Vyžaduje vlhkost %s.
+for.mutation.condition.temperature.range=Vyžaduje teplotu mezi %LOW a %HIGH.
+for.mutation.condition.temperature.single=Vyžaduje teplotu %s.
+for.mutation.condition.resource=Vyžaduje %s jako základ.
+for.mutation.condition.date=Vzniká mezi %START a %END.
+
+for.storage.backpack.mode.locked=(Uzamčený režim)
+for.storage.backpack.mode.receiving=(Získavací režim)
+for.storage.backpack.mode.resupply=(Zásobovací režim)
+
+for.trigger.hasMail=Má poštu
+for.trigger.hasWork=Má práci
+for.trigger.lowFuel=Palivo
+for.trigger.lowGermlings=Klíčky
+for.trigger.lowInput=Vstup
+for.trigger.lowPaper=Papír
+for.trigger.lowResources=Suroviny
+for.trigger.lowStamps=Známky
+for.trigger.mailBuffer=Zesilovač
+for.trigger.missingDrone=Chybějící dělnice
+for.trigger.missingQueen=Chybějící královna nebo princezna
+for.trigger.noFrames=Žádné rámečky
+
+for.yes=Ano
+
+item.for.ambrosia.name=Ambrózie
+item.for.apatite.name=Apatit
+
+item.for.apiarist_bag.name=Včelařův batoh
+item.for.apiarist_boots.name=Včelařovy boty
+item.for.apiarist_chest.name=Včelařovo tričko
+item.for.apiarist_helmet.name=Včelařův klobouk
+item.for.apiarist_legs.name=Včelařovy kalhoty
+
+item.for.ash.name=Popel
+tile.for.ash_block_0.name=Blok z popela
+tile.for.ash_block_1.name=Blok z popela
+tile.for.ash_block_2.name=Blok z popela
+tile.for.ash_block_3.name=Blok z popela
+
+item.for.habitat_locator.name=Lokátor místa výskytu
+
+item.for.cart.beehouse.name=Vozík se včelím domečkem
+item.for.cart.apiary.name=Vozík se včelínem
+
+item.for.bee_combs.cocoa.name=Kakaová plástev
+item.for.bee_combs.darkened.name=Ztmavlá plástev
+item.for.bee_combs.dripping.name=Kapající plástev
+item.for.bee_combs.frozen.name=Zmrzlá plástev
+item.for.bee_combs.honey.name=Plástev
+item.for.bee_combs.irradiated.name=Ozářená plástev
+item.for.bee_combs.mellow.name=Měkká plástev
+item.for.bee_combs.mossy.name=Mechová plástev
+item.for.bee_combs.mysterious.name=Tajemná plástev
+item.for.bee_combs.omega.name=Omega plástev
+item.for.bee_combs.parched.name=Vyschlá plástev
+item.for.bee_combs.powdery.name=Prášková plástev
+item.for.bee_combs.reddened.name=Zrudlá plástev
+item.for.bee_combs.silky.name=Hedvábná plástev
+item.for.bee_combs.simmering.name=Dušená plástev
+item.for.bee_combs.stringy.name=Vláknitá plástev
+item.for.bee_combs.wheaten.name=Pšeničná plástev
+
+item.for.beeswax.name=Beeswax
+
+item.for.biome_finder.name=Lokátor místa výskytu
+item.for.bituminous_peat.name=Živicová rašelina
+item.for.broken_bronze_pickaxe.name=Rozbitý krumpáč
+item.for.broken_bronze_shovel.name=Rozbitá lopata
+item.for.bronze_pickaxe.name=Krumpáč přeživšího
+item.for.bronze_shovel.name=Lopata přeživšího
+
+item.for.can.empty.name=Plechovka
+item.for.can.grammar=%s v plechovce
+
+item.for.carton.name=Kartón
+
+item.for.circuitboard.basic.name=Základní deska obvodu
+item.for.circuitboard.enhanced.name=Vylepšená deska obvodu
+item.for.circuitboard.intricate.name=Složitá deska obvodu
+item.for.circuitboard.refined.name=Obohacená deska obvodu
+item.for.circuitboard.tooltip.singular=Kapacita: %s elektronová trubice.
+item.for.circuitboard.tooltip.plural=Kapacita: %s elektronových trubic.
+
+item.for.crafting_material.dissipation_charge.name=Rozptýlený náboj
+item.for.crafting_material.dissipation_charge.tooltip=Použij na přivolávač deště, aby jsi zastavil déšť.
+item.for.crafting_material.ice_shard.name==Úlomek ledu
+item.for.crafting_material.pulsating_dust.name=Pulzující prach
+item.for.crafting_material.pulsating_mesh.name=Pulzující síťka
+item.for.crafting_material.scented_paneling.name=Voňavé panelování
+item.for.crafting_material.camouflaged_paneling.name=Kamuflážované panelování
+item.for.crafting_material.silk_wisp.name=Hedvábný pramínek
+item.for.crafting_material.woven_silk.name=Tkané hedvábí
+
+item.for.crate.name=Bedna
+item.for.decaying_wheat.name= Usychající obilí
+
+item.for.fertilizer_bio.name=Kompost
+item.for.fertilizer_compound.name=Hnojivo
+
+item.for.frame_impregnated.name=Impregnovaný rám
+item.for.frame_proven.name=Odsvědčený rám
+item.for.frame_untreated.name=Neošetřený rám
+
+item.for.durability=Výdrž: %,d
+item.for.uses=Uses: %,d
+
+item.for.bee.modifier.production=Výroba: %.2fx
+item.for.bee.modifier.genetic.decay=Genetický rozpad: %.2fx
+
+item.for.fruits.cherry.name=Třešeň
+item.for.fruits.chestnut.name=Kaštanovník
+item.for.fruits.dates.name=Datle
+item.for.fruits.lemon.name=Citron
+item.for.fruits.papaya.name=Papája
+item.for.fruits.plum.name=Švestka
+item.for.fruits.walnut.name=Vlašský ořech
+
+item.for.gear_bronze.name=Bronzové ozubené kolo
+item.for.gear_copper.name=Měděné ozubené kolo
+item.for.gear_tin.name=Cínové ozubené kolo
+
+item.for.hardened_machine.name=Tvrzený kryt
+
+item.for.honeydew.name=Medovice
+
+item.for.portable_alyzer.name=Přenosný analyzér
+item.for.portable_alyzer.tooltip=Přenosný genetický analyzér pro včely, stromy, a motýly.
+item.for.portable_alyzer.charges=%s nabití
+
+item.for.honey_drop.charged.name=Nabitá kapka
+item.for.honey_drop.honey.name=Kapka medu
+item.for.honey_drop.omega.name=Omega kapka
+item.for.honeyed_slice.name=Medový plátek
+
+item.for.honey_pot.name=Hrnec medu
+
+item.for.impregnated_casing.name=Impregnovaný kryt
+item.for.imprinter.name=Tiskař
+item.for.infuser.name=Infuzér
+
+item.for.ingot_bronze.name=Bronzový ingot
+item.for.ingot_copper.name=Měděný ingot
+item.for.ingot_tin.name=Cínový ingot
+
+item.for.iodine_capsule.name=Kapsle jódu
+item.for.iodine_capsule.tooltip=Použij na přivolávač deště aby jsi přivolal déšť.
+item.for.kit_pickaxe.name=Krumpáčová sada
+item.for.kit_shovel.name=Lopatová sada
+item.for.letters.name=Psaní
+
+item.for.mouldy_wheat.name=Shnilé obilí
+item.for.mulch.name=Mulč
+item.for.naturalist_helmet.name=Brýle
+item.for.naturalist_helmet.tooltip=Nasaď si tyto brýle aby jsi viděl opylené listy a chyby na multiblocích.
+item.for.oak_stick.name=Impregnovaná tyčka
+item.for.peat.name=Rašelina
+item.for.phosphor.name=Fosfor
+item.for.pipette.name=Pipeta
+
+item.for.pollen.crystalline.name=Chomáč krystalového pylu
+item.for.pollen.normal.name=Chomáč pylu
+
+item.for.propolis.normal.name=Propolis
+item.for.propolis.pulsating.name=Pulzující propolis
+item.for.propolis.silky.name=Hedvábná propolis
+item.for.propolis.sticky.name=Lepivá propolis
+
+item.for.refractory.empty.name=Žáruvzdorná kapsle
+item.for.refractory.grammar=%s v kapsli
+
+item.for.refractory_wax.name=Žáruvzdorný vosk
+item.for.refractory_wax.tooltip=Vosk s vysokým bodem tavby.
+
+item.for.research_note.name=Poznámka %s 
+item.for.research_note.tooltip=Použij tuto poznámku aby jsi získal její vědomosti.
+item.for.royal_jelly.name=Mateří kašička
+item.for.scoop.name=Lžíce
+item.for.scoop.tooltip=Rozbij úly pro získání včel
+item.for.soldering_iron.name=Pájka
+item.for.soldering_iron.tooltip=Použita přo připájení elektronových trubic k obvodům.
+item.for.smoker.name=Dýmák
+item.for.smoker.tooltip=Uklidňuje divoké včely
+
+item.for.stamps.1n.name=Známka (1n)
+item.for.stamps.2n.name=Známka (2n)
+item.for.stamps.5n.name=Známka (5n)
+item.for.stamps.10n.name=Známka (10n)
+item.for.stamps.20n.name=Známka (20n)
+item.for.stamps.50n.name=Známka (50n)
+item.for.stamps.100n.name=Známka (100n)
+item.for.stamps.name=Známka
+
+item.for.sturdy_machine.name=Pevný kryt
+
+item.for.thermionic_tubes.copper.name=Měděná elektronová trubice
+item.for.thermionic_tubes.tin.name=Cínová elektronová trubice
+item.for.thermionic_tubes.bronze.name=Bronzová elektronová trubice
+item.for.thermionic_tubes.iron.name=Železná elektronová trubice
+item.for.thermionic_tubes.gold.name=Zlatá elektronová trubice
+item.for.thermionic_tubes.diamond.name=Diamantitová elektronová trubice
+item.for.thermionic_tubes.obsidian.name=Obsidiánová elektronová trubice
+item.for.thermionic_tubes.blaze.name=Žhnoucí elektronová trubice
+item.for.thermionic_tubes.rubber.name=Pogumovaná elektronová trubice
+item.for.thermionic_tubes.emerald.name=Smaragdová elektronová trubice
+item.for.thermionic_tubes.apatite.name=Apatitová elektronová trubice
+item.for.thermionic_tubes.lapis.name=Lazuritová elektronová trubice
+item.for.thermionic_tubes.ender.name=Endová elektronová trubice
+item.for.thermionic_tubes.orchid.name=Orchidejová elektronová trubice
+item.for.thermionic_tubes.tooltip=Použita pro naprogramování obvodů.
+
+item.for.capsule.empty.name=Vosková kapsle
+item.for.capsule.tooltip=Nemůže nosit žhavé kapaliny.
+item.for.capsule.grammar=%s v kapsli
+
+item.for.wax_cast.name=Voskový odlitek
+
+item.for.wood_pulp.name=Dřevovina
+item.for.wrench.name=Klíč
+item.for.wrench.tooltip=Shift + Klikni pravým tlačítkem pro otočení bloků
+
+item.for.camouflage_spray_can.name=Kamufláž ve spreji
+
+itemGroup.apiculture=Forestry Včelařství
+itemGroup.arboriculture=Forestry Arboristika
+itemGroup.forestry=Forestry
+itemGroup.lepidopterology=Forestry Lepidopterologie
+itemGroup.agriculture=Forestry Zemědělství
+
+tile.for.analyzer.name=Analyzér
+tile.for.escritoire.name=Sekretářský stůl
+
+tile.for.database.name=Databáze
+
+tile.for.engine_electrical.name=Elektrický motor
+tile.for.engine_electrical.tooltip=Převádí EU na RF.
+tile.for.engine_peat.name=Rašelinový motor
+tile.for.engine_peat.tooltip=Vyrábí RF z rašeliny.
+tile.for.engine_biogas.name=Bioplynový motor
+tile.for.engine_biogas.tooltip=Vyrábí RF z organických tekutin a lávy.
+tile.for.engine_generator.name=Bio generátor
+tile.for.engine_generator.tooltip=Vyrábí EU z biomasy nebo ethanolu.
+tile.for.engine_clockwork.name=Hodinový motor
+tile.for.engine_clockwork.tooltip=Vyrábí trochu RF. Klikni pravým tlačítkem, abys jej spustil.
+
+tile.for.bottler.name=Plnič
+tile.for.carpenter.name=Dřevař
+tile.for.centrifuge.name=Odstředivka
+tile.for.fermenter.name=Kvasič
+tile.for.moistener.name=Zvlhčovač
+tile.for.squeezer.name=Lisovač
+tile.for.still.name=Destilátor
+tile.for.rainmaker.name=Přivolávač deště
+tile.for.fabricator.name=Termionický fabrikátor
+tile.for.raintank.name=Dešťová nádrž
+tile.for.worktable.name=Výrobní stůl
+
+tile.for.mailbox.name=Poštovní schránka
+tile.for.trade_station.name=Obchodní stanice
+tile.for.stamp_collector.name=Sběrač známek
+
+tile.for.resources.apatite.name=Apatitová ruda
+tile.for.resources.copper.name=Měděná ruda
+tile.for.resources.tin.name=Cínová ruda
+
+tile.for.resource_storage.apatite.name=Blok z apatitu
+tile.for.resource_storage.copper.name=Blok z mědi
+tile.for.resource_storage.tin.name=Blok z cínu
+tile.for.resource_storage.bronze.name=Blok z bronzu
+
+tile.for.ash_brick.name=Cihly z popela
+tile.for.ash_stairs.name=Schody z popelových cihel
+
+tile.for.humus.name=Humus
+tile.for.bog_earth.bog_earth.name=Rašeliništní země
+tile.for.bog_earth.peat.name=Rašelina
+
+tile.for.bee_combs.cocoa.name=Blok kakaové plástve
+tile.for.bee_combs.darkened.name=Blok ztmavlé plástve
+tile.for.bee_combs.dripping.name=Blok kapající plástve
+tile.for.bee_combs.frozen.name=Blok zmrzlé plástve
+tile.for.bee_combs.honey.name=Blok plástve
+tile.for.bee_combs.irradiated.name=Blok ozářené plástve
+tile.for.bee_combs.mellow.name=Blok měkké plástve
+tile.for.bee_combs.mossy.name=Blok mechové plástve
+tile.for.bee_combs.mysterious.name=Blok tajemné plástve
+tile.for.bee_combs.omega.name=Blok omega plástve
+tile.for.bee_combs.parched.name=Blok vyschlé plástve
+tile.for.bee_combs.powdery.name=Blok práškové plástve
+tile.for.bee_combs.reddened.name=Blok zrudlé plástve
+tile.for.bee_combs.silky.name=Blok nežné plástve
+tile.for.bee_combs.simmering.name=Blok dušené plástve
+tile.for.bee_combs.stringy.name=Blok vláknité plástve
+tile.for.bee_combs.wheaten.name=Blok pšeničné plástve
+
+item.for.adventurer_bag.name=Dobrodruhův batoh
+item.for.adventurer_bag_t2.name=Tkaný dobrodruhův batoh
+
+item.for.builder_bag.name=Stavitelův batoh
+item.for.builder_bag_t2.name=Tkaný stavitelův batoh
+
+item.for.digger_bag.name=Tunelářův batoh
+item.for.digger_bag_t2.name=Tkaný tunelářův batoh
+
+item.for.forester_bag.name=Lesníkův batoh
+item.for.forester_bag_t2.name=Tkaný lesníkův batoh
+
+item.for.hunter_bag.name=Lovcův batoh
+item.for.hunter_bag_t2.name=Tkaný lovcův batoh
+
+item.for.miner_bag.name=Horníkův batoh
+item.for.miner_bag_t2.name=Tkaný horníkův batoh
+
+################
+# ERRORS
+################
+
+# BEES
+for.errors.is_raining.desc=Déšť
+for.errors.is_raining.help=Za deště mohou létat pouze tolerantní letci.
+for.errors.no_drone.desc=Žádná dělnice
+for.errors.no_drone.help=Páření vyžaduje dělnici.
+for.errors.no_flower.desc=Žádné květiny
+for.errors.no_flower.help=Včelstvo nenašlo správné květiny. Použij přenosný analyzér, aby jsi našel jejich preferenci rostlin.
+for.errors.no_queen.desc=Žádná královna
+for.errors.no_queen.help=Do tohoto úlu dej královnu nebo princeznu, a dělnici.
+for.errors.no_sky.desc=Nebe je zakryto
+for.errors.no_sky.help=Úl vyžaduje přímé sluneční světlo.
+for.errors.not_day.desc=Není den
+for.errors.not_day.help=Včely mohou létat pouze ve dne.
+for.errors.not_gloomy.desc=Nedostatečná tma
+for.errors.not_gloomy.help=Včely mohou létat pouze ve tmě.
+for.errors.not_lucid.desc=Nedostatečné světla
+for.errors.not_lucid.help=Včely mají problémy s navigací ve tmě.
+for.errors.not_night.desc=Není noc
+for.errors.not_night.help=Včely mohou létat pouze v noci.
+for.errors.too_hot.desc=Moc žhavé
+for.errors.too_hot.help=Včely nemají rády toto teplo a nemohou pracovat. Použij Lokátor místa výskytu, aby jsi našel chladnější klima.
+for.errors.too_cold.desc=Moc zima
+for.errors.too_cold.help=Včely nemají rády tuto zimu, a mrznou tu. Použij Lokátor místa výskytu, aby jsi našel teplejší klima.
+for.errors.too_humid.desc=Příliš vlhké
+for.errors.too_humid.help=Zdejší klima včelám navlhčilo křídla, a proto nemohou létat. Použij lokátor místa výskytu, aby jsi našel susší klima.
+for.errors.too_arid.desc=Příliš suché
+for.errors.too_arid.help=Zdejší klima způsobilo že včely vyprahly, a proto nemohou létat. Použij Lokátor místa výskytu, aby jsi našel vlhčí klima.
+
+# MACHINES
+for.errors.no_power.desc=Chybí napájení
+for.errors.no_power.help=Tento stroj vyžaduje RF z motorů, aby fungoval.
+for.errors.no_redstone.desc=Vyžadován rudit
+for.errors.no_redstone.help=Tento stroj vyžaduje ruditový signál pro aktivaci.
+for.errors.disabled_redstone.desc=Vypnuto ruditem
+for.errors.disabled_redstone.help=Tento stroj je vypnut ruditovým signálem.
+for.errors.no_recipe.desc=Žádný recept
+for.errors.no_recipe.help=Pro vložené suroviny nebyl nalezen žádný recept.
+for.errors.no_resource.desc=Chybějící suroviny
+for.errors.no_resource.help=Pro operaci jsou potřeba suroviny.
+for.errors.no_resource_inventory.desc=Inventář potřebuje suroviny
+for.errors.no_resource_inventory.help=Je potřeba vložit do inventáře suroviny pro započtení výroby.
+for.errors.no_resource_liquid.desc=Chybějící tekutiny
+for.errors.no_resource_liquid.help=Pro operaci jsou potřeba tekutiny.
+for.errors.no_space.desc=Nedostatek místa v inventáři
+for.errors.no_space.help=Vyprázdni stroj tohoto inventáře.
+for.errors.no_space_tank.desc=Nádrž je plná
+for.errors.no_space_tank.help=Vyprázdni nádrž tohoto stroje.
+for.errors.not_dark.desc=Nedostatečná tma
+for.errors.not_dark.help=Pro operaci je potřeba nízká úroveň světla.
+
+# RAIN TANK
+for.errors.not_raining.desc=Žádný déšť
+for.errors.not_raining.help=Operace je možná pouze za deště.
+for.errors.no_rain_biome.desc=Nikdy tu neprší
+for.errors.no_rain_biome.help=Na tomto místě nikdy neprší.
+for.errors.no_sky_rain_tank.desc=Nebe blokováno
+for.errors.no_sky_rain_tank.help=Uvolni oblast nad tímto strojem, aby přijmal déšť.
+
+# ALYZERS
+for.errors.no_honey.desc=Je vyžadován med
+for.errors.no_honey.help=Tato pomůcka vyžaduje kapky medu nebo medovici pro operaci.
+for.errors.no_specimen.desc=Nic k analýze
+for.errors.no_specimen.help=Pro analýzu vlož jedince.
+
+# ENGINES
+for.errors.forced_cooldown.desc=Nucené ochlazení
+for.errors.forced_cooldown.help=Tento motor se přehřál a musí se ochladit než může startovat znovu.
+for.errors.no_energy_net.desc=Žádná elektřina
+for.errors.no_energy_net.help=Tvůj svět je bez elektřiny. (Nainstaluj IndustrialCraft\u00b2.)
+for.errors.no_fuel.desc=Žádné palivo
+for.errors.no_fuel.help=Tento stroj potřebuje palivo, doplň ho prosím.
+for.errors.no_heat.desc=Není zahřátý
+for.errors.no_heat.help=Tento motor potřebuje tepelný zdroj Doplň ohřívací nádrž.
+
+# TRADE STATION
+for.errors.no_stamps.desc=Jsou vyžadovány známky
+for.errors.no_stamps.help=Obchodní stanice potřebuje známky pro zaplacení poštovného.
+for.errors.no_paper.desc=Je potřeba papír
+for.errors.no_paper.help=Obchodní stanice potřebuje papír pro posílání psaní.
+for.errors.no_supplies.desc=Vyžadované zásoby
+for.errors.no_supplies.help=Obchodní stanice potřebuje více zásob pro posílání.
+for.errors.no_trade.desc=Nenastaven žádný obchod
+for.errors.no_trade.help=Obchodní stanice vyžaduje předměty pro zaslání a přijmutí.
+
+# TRADE STATION NAMING
+for.errors.not_alpha_numeric.desc=Neplatné jméno
+for.errors.not_alpha_numeric.help=Jména obchodních stanic musí být pouze z písmen a číslic.
+for.errors.not_unique.desc=Není unikátní
+for.errors.not_unique.help=Jména obchodních stanic musí být unikátní a toto jméno je již zabrané.
+
+# LETTERS
+for.errors.no_recipient.desc=Žádný příjemce
+for.errors.no_recipient.help=Potřebuješ napsat příjemce aby jsi mohl odeslat svůj dopis.
+for.errors.not_postpaid.desc=Chybějící známky
+for.errors.not_postpaid.help=Aplikuj více známek pro zaplacení poštovného.
+
+# CIRCUIT BOARDS
+for.errors.circuit_mismatch.desc=Neshodné rozložení
+for.errors.circuit_mismatch.help=Počet trubic se neshoduje s velikostí obvodu.
+for.errors.no_circuit_board.desc=Chybějící obvod
+for.errors.no_circuit_board.help=Vlož obvod pro připájení trubic.
+for.errors.no_circuit_layout.desc=Žádná rozložení
+for.errors.no_circuit_layout.help=Kvůli nastavením hry nejsou k dispozici žádná rozložení.
+
+# FARMS
+for.errors.no_farmland.desc=Žádná ornice
+for.errors.no_farmland.help=Hladký pískovec, cihly či kamenné cihly vytvoří plošinu pro ornici.
+for.errors.no_fertilizer.desc=Žádné hnojivo
+for.errors.no_fertilizer.help=Farmy potřebují hnojivo pro fungování. Kompost není dostatečný.
+for.errors.no_liquid.desc=Žádná voda
+for.errors.no_liquid.help=Závisle na dešti, farmy co potřebují teplotu a vlhkost potřebují být zásobovány vodou.
+
+####################
+# APICULTURE
+####################
+
+entity.Villager.apiarist=Včelař
+
+death.bee.aggressive.player=%1$s objevil roj včel. %2$s ukradl jejich včelařský oblek.
+death.bee.aggressive=%1$s objevil roj včel. To muselo píchat.
+death.bee.hive.player=%1$s byl zabit divokými včelami. %2$s ukradl jejich včelařský oblek.
+death.bee.hive=%1$s byl zabit divokými včelami. Měl použít dýmák.
+death.bee.end.player=%1$s byl ukončen nepřátelským píchnutím při bojování s %2$s.
+death.bee.end=%1$s byl ukončen nepřátelským píchnutím.
+death.bee.radioactive.player=%1$s vstoupil do Černobylu bez jejich obleku. %2$s se smál a hihňal.
+death.bee.radioactive=%1$s vstoupil do Černobylu bez jejich obleku.
+death.bee.heroic.player=%1$s byl zabit hrdinskými včelami! %2$s je navždy v jejich dluzích.
+death.bee.heroic=%1$s byl zabit hrdinskými včelami!
+
+forestry.allele.effect.aggressive=Agresivní.
+forestry.allele.effect.beatific=Štastnost
+forestry.allele.effect.creeper=Syčák
+forestry.allele.effect.drunkard=Opilost
+forestry.allele.effect.exploration=Průzkumník
+forestry.allele.effect.glacial=Mráz
+forestry.allele.effect.fertile=Plodnost
+forestry.allele.effect.heroic=Hrdinství
+forestry.allele.effect.ignition=Hořlavost
+forestry.allele.effect.misanthrope=Ukončení
+forestry.allele.effect.miasmic=Jed
+forestry.allele.effect.mycophilic=Houbofilní
+forestry.allele.effect.none=Žádné
+forestry.allele.effect.radioactive=Radioakt.
+forestry.allele.effect.reanimation=Reanimace
+forestry.allele.effect.repulsion=Odražení
+forestry.allele.effect.resurrection=Oživení
+forestry.allele.effect.snowing=Sníh
+
+for.beemode.easy.desc=Snižuje křížení včel zvýšením mutací a odstranění genetické únavy.
+for.beemode.hard.desc=Snižuje mutace o trochu a zvyšuje životnost královen o 50%%.
+for.beemode.hardcore.desc=Půlí mutační rychlost, zvyšuje životnost královen o 500%% a snižuje plodnost o 20%%.
+for.beemode.insane.desc=Snižuje mutace na 20%%, zvyšuje životnost 10x a snižuje pldonost o 40%%.
+for.beemode.normal.desc=Doporučený mód pro normálního hráče.
+
+for.bees.grammar.drone.type=dělnice
+for.bees.grammar.drone=%SPECIES %TYPE
+for.bees.grammar.larvae.type=larva
+for.bees.grammar.larvae=%SPECIES %TYPE
+for.bees.grammar.princess.type=princezna
+for.bees.grammar.princess=%SPECIES %TYPE
+for.bees.grammar.queen.type=královna
+for.bees.grammar.queen=%SPECIES %TYPE
+
+for.bees.hybrid=Hybridní včela (%PRIMARY-%SECONDARY)
+
+for.bees.species.austere=Strohá
+for.bees.species.avenging=Pomstychtivá
+for.bees.species.boggy=Rašeliništní
+for.bees.species.common=Běžná
+for.bees.species.cultivated=Kultivovaná
+for.bees.species.darkened=Ztmavlá
+for.bees.species.demonic=Démonská
+for.bees.species.diligent=Pilná
+for.bees.species.edenic=Edenská
+for.bees.species.ended=Endová
+for.bees.species.exotic=Exotická
+for.bees.species.fiendish=Zlá
+for.bees.species.forest=Lesní
+for.bees.species.frugal=Frugal
+for.bees.species.glacial=Zmrzlá
+for.bees.species.hermitic=Hermitická
+for.bees.species.heroic=Hrdinská
+for.bees.species.icy=Ledová
+for.bees.species.imperial=Imperiální
+for.bees.species.industrious=Průmyslová
+for.bees.species.leporine=Zaječí
+for.bees.species.majestic=Majestická
+for.bees.species.marshy=Bažinná
+for.bees.species.meadows=Luční
+for.bees.species.merry=Veselá
+for.bees.species.miry=Močální
+for.bees.species.modest=Skromná
+for.bees.species.monastic=Mnišská
+for.bees.species.noble=Ušlechtilá
+for.bees.species.omega=Omega
+for.bees.species.phantasmal=Přízračná
+for.bees.species.reddened=Zrudlá
+for.bees.species.rural=Vesnická
+for.bees.species.farmerly=Farmářská
+for.bees.species.agrarian=Agrární
+for.bees.species.secluded=Oddělená
+for.bees.species.sinister=Strašidelná
+for.bees.species.spectral=Přízračná
+for.bees.species.steadfast=Pracovitá
+for.bees.species.tipsy=Opilá
+for.bees.species.tricky=Záludná
+for.bees.species.tropical=Tropická
+for.bees.species.unweary=Neunavená
+for.bees.species.valiant=Statečná
+for.bees.species.vengeful=Mstivá
+for.bees.species.vindictive=Trestající
+for.bees.species.wintry=Zimní
+
+for.bees.stock.ignoble=Neušlechtilý kmen
+for.bees.stock.pristine=Třpytivý kmen
+
+for.chat.command.forestry.bee.desc=- %s : Včelařské příkazy
+for.chat.command.forestry.bee.help=Příkazy společné se včelařstvím.
+for.chat.command.forestry.bee.format=Format: /%s <podpříkaz>
+
+for.chat.command.forestry.bee.give.desc=- %s : Získat včely
+for.chat.command.forestry.bee.give.help=Dá hráči včely, princezny, královny a larvy.
+for.chat.command.forestry.bee.give.format=Formát: /%s <jméno-druhu> <typ-včely> [<jméno-hráče>]
+for.chat.command.forestry.bee.give.available=Typy včel k dispozici: %s
+for.chat.command.forestry.bee.give.given=%1$s dostal %2$s %3$s.
+
+for.chat.command.forestry.bee.mode.desc=- %s : Příkazy o včelařských módech
+for.chat.command.forestry.bee.mode.help=Příkazy o včelařských módech.
+for.chat.command.forestry.bee.mode.format=Formát: /%s <podpříkaz>
+
+for.chat.command.forestry.bee.mode.info.desc=- %s : Informace o včelařských módech
+for.chat.command.forestry.bee.mode.info.help=Informace o včelařských módech, které jsou aktuální a vychozí.
+for.chat.command.forestry.bee.mode.info.format=Formát: /%s <jméno-módu>
+
+for.chat.command.forestry.bee.mode.set.desc=- %s : Nastavit včelařský mód
+for.chat.command.forestry.bee.mode.set.help=Nastaví včelařský mód pro určitý svět.
+for.chat.command.forestry.bee.mode.set.format=Formát: /%s [<svět-#>] <jméno-módu>
+
+for.chat.command.forestry.bee.save.desc=- %s : Uložit statistiky včelařství
+for.chat.command.forestry.bee.save.help=Uložit statistiky do souboru.
+for.chat.command.forestry.bee.save.format=Formát: /%s [<jméno-hráče>]
+for.chat.command.forestry.bee.save.stats=Statistiky %s na světě %s:
+
+for.chat.command.forestry.mode.info.error=Není k dispozici žádný mód se jménem '%s'.
+for.chat.command.forestry.mode.info.current=Aktuální: %1$s (#%2$s)
+for.chat.command.forestry.mode.info.available=Módy k dispozici: %s
+
+for.chat.command.forestry.mode.set.success=Mód nastaven na %s.
+for.chat.command.forestry.mode.set.error=Mód se jménem '%s' není k dispozici.
+
+for.chat.command.forestry.stats.save.error1=Výstupní soubor se nepodařilo vytvořit. Chyba při ukládání statistik.
+for.chat.command.forestry.stats.save.error2=Nelze zapsat data do souboru. Chyba při ukládání statistik.
+for.chat.command.forestry.stats.save.error3=Při zápisové operaci došlo k neošetřené výjimce. Chyba při ukládání statistik.
+for.chat.command.forestry.stats.save.error4=Nenalezeny žádné statistiky.
+for.chat.command.forestry.stats.save.saved=Statistiky pro hráče %s uloženy.
+for.chat.command.forestry.stats.save.key.discovered=Objeveno
+for.chat.command.forestry.stats.save.key.discovered.symbol=X
+for.chat.command.forestry.stats.save.key.blacklisted=Černá listina
+for.chat.command.forestry.stats.save.key.blacklisted.symbol=ČL
+for.chat.command.forestry.stats.save.key.notCounted=Nepočítá se
+for.chat.command.forestry.stats.save.key.notCounted.symbol=NS
+for.chat.command.forestry.stats.save.mode=Režim: %s
+
+for.description.speciesAgrarian="Nepáchne jako její alternativa. Vždycky to dokáže, že ano?"|Myrathi, Cannie Včelař
+for.description.speciesAustere=Nebezpečné a těkavé; Včelaři musí mít oblek když jsou okolo nich.|Včelařství 101
+for.description.speciesAvenging="Zdi mého domu se začaly sypat a střecha rozpadat, ale bylo mi to jedno! Cítil jsem píchání tísíce jedinců na mé ruce když jsem popadl královnu."|Anonym
+for.description.speciesBoggy="Viděl jsem, jak tyto včely bodly krávu. O chvíli později začaly z krávy růst houby ... Důkaz? Nevyfotil jsem to."|"Sir" Sengir, šílenec
+for.description.speciesCommon=Tyto včely jsou odznakem včelařství pro začátečníky.|Včelařství 101
+for.description.speciesCultivated=Rychle pracující včela; Myslí si cokoliv.|Včelařství 101
+for.description.speciesDarkened=Tyto včely jsou přitahovány alchymicky svázánou hmotou, tento druh byl silným zdrojem energie.|Včelařův Lexikon
+for.description.speciesDemonic=Narození v plamenech Netheru a stání se potomkem netherových včel proměnilo tento druh na démona.|Včelařství 101
+for.description.speciesDiligent=Většinou poznamenána jako jako základ všech průmyslových včel.|Včelařství 101
+for.description.speciesEdenic="Šíleně jsem čmáral ve své knížce zatímco jsem kreslil kresby obrázků. které mě lezly do mozku zatímco jsem se díval jak tito hmyzáci dělají jejich tanec."|Včelařství 101
+for.description.speciesEnded="Našel jsem jeden z těchto divných včelích druhů ve včelařově domku ve vesnici. Choval se divně, protože byl určitě vytrhnut z jeho světa a chtěl část jeho světa for a fragment."|Včelařství 101
+for.description.speciesExotic="Horečka se mnou třásla a můj oblek byl zamokřen potem, ale s třesoucíma rukama jsem vytáhl jednoho jedince."|Včelařství 101
+for.description.speciesFarmerly=Často spatřena v prériích, obilnicích světa.|Včelařství 101
+for.description.speciesFiendish=Zkušení včelaři v netheru nahlašují útoky zlých včel. Dávejte si pozor.|Včelařství 101
+for.description.speciesForest=Jeden z nejběžnějších druhů v lesích. Jsou velmi hodné.|Včelařství 101
+for.description.speciesFrugal=Generace včel upečených na slunci aby vznikl tento druh.|Včelařství 101
+for.description.speciesGlacial="Zima přichází!"|E. Stark, včelař
+for.description.speciesHermitic="Můj drahý kolego! Všiml jsem si že včely, které jsi mi poslal se nechtějí čistit a mají plnovousy. Jak to vysvětlíš?"|Binnie, Včelař
+for.description.speciesHeroic=Tento včelí druh je legendární. Brání svůj úl před nepřáteli.|Včelařův Grimoár
+for.description.speciesIcy=Teploty budou klesat a vytvoří se úlomky ledu, zatímco jsou tyto včely uvnitř.|Včelařství 101
+for.description.speciesImperial=Vysoce hledaná včela; specializuje se ve výrobě mateří kašičky.|Včelařství 101
+for.description.speciesIndustrious=Vysoce hledaná včela; specializuje se ve výrobě kvalitního pylu.|Včelařství 101
+for.description.speciesLeporine="Přísahám! Byla malá, měla křídla a také jsem viděl malá zaječí ouška! ... Ne! Nejsem sjetý!"|"Sir" Sengir, šílenec
+for.description.speciesMajestic="Pryč s hlavami!"|Královna srdcí
+for.description.speciesMarshy="Vážně? Houby? Dejte to pryč!"|Včelařství 101
+for.description.speciesMeadows=Objevuje se v pláních v teplejších biomech; Většinou přátelská.|Včelařství 101
+for.description.speciesMerry="Hohoho!"|Veselá včela
+for.description.speciesMiry="Jak včely vůbec mohou opylovat houby?"|Mezz, Včelař-amatér
+for.description.speciesModest=Teplá a suchá klimata umožnila adaptovat se této včele na teplo, což ji neumožní přežít v chladnějších klimatech.|Včelařství 101
+for.description.speciesMonastic="Zůstal jsem strohý a řekl jsem mu: 'Ne jenom princezna, ale i stack smaragdů? To je krádež!'|Včelařství 101
+for.description.speciesNoble="Ve světě není nic ušlechtilejšího než křížit další včely."|Binnie, Včelař
+for.description.speciesOmega="Jsem alfa a omega, začátek a konec, první a poslední."|Pahimar, včelař
+for.description.speciesPhantasmal="Cokoliv uděláš, nenič dračí ve..."|"Sir" Sengir, poslední slova
+for.description.speciesReddened=Vyžadující velké kvantity alchymicky spojené hmoty, tyto včely by mohly zaplavit svět energií.|Včelařův Lexikon
+for.description.speciesRural="Teplo v květnu přináší mnoho květů."|M. Ages, Vesnický včelař
+for.description.speciesSecluded="Křížení s pouštním druhem byla chyba. Mé včely se vzdalují pryč od tohoto světa."|Včelařství 101
+for.description.speciesSinister=Velmi málo druhů včel může přežít v Netheru. A i tyto jsou ovlivněny teplem Netheru.|Včelařství 101
+for.description.speciesSpectral="Nebyl jsem si jistý jestli žije, protože ležela v mé dlani, třpytící se a pulzující. Pak jsem za sebou slyšel chrastit kosti..."|Včelařství 101
+for.description.speciesSteadfast=Původně označeny jako "vyhynulé" předtím než je někdo našel v truhlách Dungeonu.|Včelařův Grimoár
+for.description.speciesTipsy="Tančete krásky! Tančete!"|Opilá čarodejnice východu
+for.description.speciesTricky="Koledu nebo tě provedu!"|Záludná včela
+for.description.speciesTropical="Při svých cestách přes řeku v džungli jsem našel tyto jedince. Bohužel jsem ztratil své strohé včely kvůli krokodýlům."|Včelařství 101
+for.description.speciesUnweary=Nebojácné. Ale pak umřou.|Včelařství 101
+for.description.speciesValiant=Vzácný poddruh vyskytující se spolu s jinými druhy.|Včelařův Grimoár
+for.description.speciesVengeful="Veni, vidi, vici!"|Apinus Julius Caesar
+for.description.speciesVindictive="Snědla mi můj obličej! Snědla mi můj obličej!"|K.M. 
+for.description.speciesWintry=Běžný, ale mrazuvzdorný kmen včel; Chování v teplejších klimatech je výzva.|Včelařství 101
+
+for.genus.bees.agrarian=Agrární
+for.genus.bees.austere=Strohé
+for.genus.bees.boggy=Rašelinné
+for.genus.bees.common=Běžné
+for.genus.bees.end=Endové
+for.genus.bees.festive=Vánoční
+for.genus.bees.frozen=Zmrzlé
+for.genus.bees.heroic=Hrdinské
+for.genus.bees.industrious=Průmyslové
+for.genus.bees.infernal=Pekelné
+for.genus.bees.monastic=Mnišské
+for.genus.bees.noble=Ušlechtilé
+for.genus.bees.reddened=Zrudlé
+for.genus.bees.tropical=Tropické
+for.genus.bees.vengeful=Mstivé
+
+item.for.bee_princess_ge.name=Princezna
+item.for.bee_drone_ge.name=Dělnice
+item.for.bee_queen_ge.name=Královna
+
+tile.for.alveary.tooltip=Multiblok: 3x3x3 s 3x1x3 dřevenými půlbloky na vrchu.
+tile.for.alveary.plain.name=Včelín
+tile.for.alveary.swarmer.name=Rojič včelína
+tile.for.alveary.fan.name=Větrák včelína
+tile.for.alveary.heater.name=Ohřívač včelína
+tile.for.alveary.hygro.name=Regulátor včelína
+tile.for.alveary.stabiliser.name=Stabilizér včelína
+tile.for.alveary.sieve.name=Síto včelína
+
+tile.for.apiary.name=Včelí úl
+tile.for.bee_chest.name=Včelařova truhla
+tile.for.bee_house.name=Včelí domeček
+
+tile.for.beehives.forest.name=Lesní úl
+tile.for.beehives.meadows.name=Luční úl
+tile.for.beehives.desert.name=Vyprahlý úl
+tile.for.beehives.jungle.name=Tropický úl
+tile.for.beehives.end.name=Endový úl
+tile.for.beehives.snow.name=Zimní úl
+tile.for.beehives.swamp.name=Bažinný úl
+tile.for.beehives.swarm.name=Rojící úl
+
+tile.for.candle.dyed.lit.name=Zapálená nabarvená svíčka
+tile.for.candle.dyed.stump.name=Nezapálená nabarvená svíčka
+tile.for.candle.lit.name=Zapálená svíčka
+tile.for.candle.stump.name=Nezapálená svíčka
+
+tile.for.stump.name=Zbytek svíčky
+
+####################
+# BOOK
+####################
+item.for.book_forester.name=Lesníkův manuál
+
+for.gui.book.element.crafting=Výroba
+for.gui.book.about.title=O knize
+for.gui.book.about=§oTyto zbytky vědomostí byly složeny od Binnie, a obsahují zbytky Včelařství 101 a Lesníkova Almanachu, dvě knihy napsané od 'Sir' Sengir.§r
+for.gui.book.about.author=| Binnie, Editor
+for.gui.book.categories=Kategorie
+
+for.gui.book.category.core.title=Jádro
+for.gui.book.category.lepidopterology.title=Motýli
+for.gui.book.category.mail.title=Pošta
+for.gui.book.category.habitat_former.title=Tvořič místa výskytu
+for.gui.book.category.beekeeping.title=Včelařství
+for.gui.book.category.arboriculture.title=Arboristika
+for.gui.book.category.farming.title=Farmářství
+for.gui.book.category.genetics.title=Genetika
+
+####################
+# MULTIBLOCK
+####################
+
+for.multiblock.error.notConnected=Multiblok není spojen s ovladačem. Toto může být způsobeno lagem, či chybami. Jestli problém přetrvává, zkus rozbít a znovu položit blok.
+for.multiblock.error.invalid.interior=(%s) - blok nelze použít v interiéru stroje.
+for.multiblock.error.invalid.part=Část multibloku není kompatibilní s tímto typem(%s).
+for.multiblock.error.small=Multiblok je příliš malý. Musí mít alespoň velikost %dx%dx%d.
+for.multiblock.error.large.x=Multiblok je příliš velký, měl by být alespoň %d bloků široký.
+for.multiblock.error.large.y=Multiblok je příliš velký, měl by být alespoň %d bloků vysoký.
+for.multiblock.error.large.z=Multiblok je příliš velký, měl by být alespoň %d bloků hluboký.
+for.multiblock.error.small.x=Multiblok je příliš malý, musí být alespoň %d bloků široký.
+for.multiblock.error.small.y=Multiblok je příliš malý, musí být alespoň %d bloků vysoký.
+for.multiblock.error.small.z=Multiblok je příliš malý, musí být alespoň %d bloků hluboký.
+
+for.multiblock.alveary.error.needSlabs=Včelín na vrchu musí mít dřevené půlbloky.
+for.multiblock.alveary.error.needSpace=Včelín musí mít místo na vrchu, aby mohly vylětět včely.
+for.multiblock.alveary.error.needPlainOnTop=Včelín musí mít základní bloky pro vrch.
+for.multiblock.alveary.error.needPlainInterior=Včelín musí mít základní bloky pro interiér.
+
+for.multiblock.farm.error.needPlainBand=Farma musí mít základní farmové bloky na vrchu.
+for.multiblock.farm.error.needPlainInterior=Farma musí mít základní bloky pro interiér.
+for.multiblock.farm.error.needGearbox=Farma musí mít převodovku, aby mohla přijmat energii a pracovat.
+
+for.multiblock.alveary.type=Včelín
+for.multiblock.farm.type=Farma
+
+####################
+# ARBORICULTURE
+####################
+
+entity.Villager.arborist=Arborista
+
+for.arboriculture.effect.none=Nic
+
+for.chat.command.forestry.tree.desc=- %s : Příkazy o stromech
+for.chat.command.forestry.tree.help=Příkazy o stromech.
+for.chat.command.forestry.tree.format=Formát:/%s <podpříkaz>
+
+for.chat.command.forestry.tree.spawnTree.desc=- %s : Spawnout strom
+for.chat.command.forestry.tree.spawnTree.help=Spawnout strom u hráče.
+for.chat.command.forestry.tree.spawnTree.format=Formát:/%s <jméno-druhu> [<jméno-hráče>]
+
+for.chat.command.forestry.tree.spawnForest.desc=- %s : Vytvořit les
+for.chat.command.forestry.tree.spawnForest.help=Vytvoří malý les okolo hráče.
+for.chat.command.forestry.tree.spawnForest.format=Formát:/%s <jméno-druhu> [<jméno-hráče>]
+
+for.chat.command.forestry.tree.mode.desc=- %s : Příkazy o stromovém módu
+for.chat.command.forestry.tree.mode.help=Příkazy o arboristických módech.
+for.chat.command.forestry.tree.mode.format=Formát: /%s <podpříkaz>
+
+for.chat.command.forestry.tree.mode.info.desc=- %s : Informace o arboristickém módu
+for.chat.command.forestry.tree.mode.info.help=Informace o arboristických módech které jsou aktuální a k dispozici.
+for.chat.command.forestry.tree.mode.info.format=Formát: /%s <jméno-módu>
+
+for.chat.command.forestry.tree.mode.set.desc=- %s : Nastavit arboristický mód
+for.chat.command.forestry.tree.mode.set.help=Nastaví arboristický mód v tomto světě.
+for.chat.command.forestry.tree.mode.set.format=Format: /%s [<svět-#>] <jméno-módu>
+
+for.chat.command.forestry.tree.save.desc=- %s : Uložit statistky arboristiky
+for.chat.command.forestry.tree.save.help=Uložit statistiky o arboristice do souboru.
+for.chat.command.forestry.tree.save.format=Format: /%s [<jméno-hráče>]
+
+for.chat.command.forestry.tree.save.stats=Arboristické statistiky pro hráče %s na světě %s:
+
+for.description.treeBirch=Běžně rozšířený strom, který je průměrně malý.|Codex Lignum
+for.description.treeCherry=Malý strom. V jeho přirodní formě nasadí třešně, které musí dozrát.|Codex Lignum
+for.description.treeChestnut=Vysoký, opadavý strom. Stromy v přírodě nosí ovoce, které musí dozrát.|Codex Lignum
+for.description.treeLime=Vysoký, opadavý strom. Byl přesunut do rodiny slézovitých.|Codex Lignum
+for.description.treeOak=Běžný dub, na kterém rostou z nějakého důvodu jablka.|Codex Lignum
+for.description.treeSipiri=Vysoké vždyzelené stromy s kvalitním řezivem. Dřevo a kůra krásně voní. Rostou pouze v tropických klimatech.|Codex Lignum
+for.description.treeWalnut=Vysoký opadavý strom s velkým kmenem. Přírodní stromy nosí ořechy které musí dozrát.|Codex Lignum
+for.description.treeWillow=Vysoký opadavý strom, který roste rychle. Roste pouze ve vlhkých klimatech.|Codex Lignum
+
+for.family.jungle=Tropické
+for.family.nuts=Ořechy
+for.family.pomes=Jádroviny
+for.family.prunes=Peckoviny
+
+for.fruits.apple=Jablko
+for.fruits.cherry=Třešeň
+for.fruits.chestnut=Kaštan
+for.fruits.cocoa=Kakao
+for.fruits.dates=Datle
+for.fruits.lemon=Citron
+for.fruits.none=Nic
+for.fruits.papaya=Papája
+for.fruits.plum=Švestka
+for.fruits.walnut=Vlašský ořech
+
+for.gui.family=Rod
+for.gui.fireproof=Ohnivzdorné
+for.gui.fruits=Ovoce
+for.gui.girth=Šířka
+for.gui.height=Výška
+for.gui.maturity=Dozrávání
+for.gui.native=Půda
+for.gui.saplings=Sazenice
+for.gui.sappiness=Míznatost
+for.gui.supports=Podpory
+for.gui.yield=Zisk
+for.gui.combustibility=Hořlavost
+for.gui.carbonization=Karbonizace
+
+for.trees.grammar.blossom.type=Květ
+for.trees.grammar.blossom=%TYPE %SPECIES 
+for.trees.grammar.germling.type=Klíček
+for.trees.grammar.germling=%TYPE z %SPECIES 
+for.trees.grammar.pollen.type=Pyl
+for.trees.grammar.pollen=%TYPE z %SPECIES 
+for.trees.grammar.sapling.type=Sazenice
+for.trees.grammar.sapling=%TYPE %SPECIES 
+for.trees.grammar.leaves.type=Listy
+for.trees.grammar.leaves=%TYPE z %SPECIES 
+for.trees.grammar.pile.type=Kupa dřeva
+for.trees.grammar.pile=%TYPE z %SPECIES 
+
+tile.for.wood_pile.name=Kupa dřeva
+tile.for.wood_pile_decorative.name=Okrasná kupa dřeva
+tile.for.loam.name=Smíšená půda
+tile.for.ash_block.name=Blok popela
+tile.for.charcoal.name=Blok z dřevěného uhlí
+
+for.trees.hybrid=Hybrid %PRIMARY a %SECONDARY 
+
+for.trees.species.acacia=akácie
+for.trees.species.appleOak=jablečného dubu
+for.trees.species.balsa=balsy
+for.trees.species.blueMahoe=modré mahoe
+for.trees.species.bullPine=borovice
+for.trees.species.coastSequoia=sekvoje
+for.trees.species.commonWalnut=ořešáku vlašského
+for.trees.species.darkOak=tmavého dubu
+for.trees.species.datePalm=datlovníku
+for.trees.species.desertAcacia=pouštní akácie
+for.trees.species.giantSequoia=sekvojovce obrovského
+for.trees.species.grandidierBaobab=baobabu Grandierova
+for.trees.species.hillCherry=sakury
+for.trees.species.jungle=tropického stromu
+for.trees.species.kapok=Kapok
+for.trees.species.lemon=citronovníku
+for.trees.species.mundaneLarch=modřínu
+for.trees.species.myrtleEbony=ebenu
+for.trees.species.papaya=papáji
+for.trees.species.plum=švestky
+for.trees.species.redSpruce=červeného smrku
+for.trees.species.silverBirch=břízy bělokoré
+for.trees.species.silverLime=limetky
+for.trees.species.sipiri=Sipiri
+for.trees.species.sugarMaple=javoru cukrového
+for.trees.species.sweetChestnut=kaštanovníku setého
+for.trees.species.teak=teaku
+for.trees.species.wenge=wenge
+for.trees.species.whitePoplar=topolu bílého
+for.trees.species.whiteWillow=vrby bílé
+for.trees.species.yellowMeranti=žluté meranti
+for.trees.species.ipe=poui
+for.trees.species.padauk=křídloku
+for.trees.species.cocobolo=palisandru cocobolo
+for.trees.species.zebrawood=zebřího stromu
+
+for.fence.grammar=Plot z %TYPE
+for.fence_gate.grammar=Branka z %TYPE
+for.log.grammar=Dřevo z %TYPE
+for.planks.grammar=Prkna z %TYPE
+for.slab.grammar=Půlblok z %TYPE
+for.slab.double.grammar=Půlblok z %TYPE
+for.stairs.grammar=Schody z %TYPE 
+for.door.grammar=Dveře z %TYPE 
+
+for.trees.woodType.larch=modřínu
+for.trees.woodType.teak=teaku
+for.trees.woodType.acacia=pouštní akácie
+for.trees.woodType.lime=limetky
+for.trees.woodType.chestnut=kaštanovníku
+for.trees.woodType.wenge=wenge
+for.trees.woodType.baobab=baobabu
+for.trees.woodType.sequoia=sekvoje
+for.trees.woodType.kapok=kapoku
+for.trees.woodType.ebony=ebenu
+for.trees.woodType.mahogany=mahagonu
+for.trees.woodType.balsa=balsy
+for.trees.woodType.willow=vrby
+for.trees.woodType.walnut=ořešáku
+for.trees.woodType.greenheart=zelenojádrového
+for.trees.woodType.cherry=třešně
+for.trees.woodType.mahoe=ibišku
+for.trees.woodType.poplar=topolu
+for.trees.woodType.palm=palmy
+for.trees.woodType.papaya=papáji
+for.trees.woodType.pine=borovice
+for.trees.woodType.plum=švestky
+for.trees.woodType.maple=javoru
+for.trees.woodType.citrus=citronovníku
+for.trees.woodType.giganteum=sekvojovce
+for.trees.woodType.ipe=poui
+for.trees.woodType.padauk=křídloku
+for.trees.woodType.cocobolo=palisandru cocobolo
+for.trees.woodType.zebrawood=zebřího dřeva
+
+tile.for.fireproof=%s (Ohnivzdorné)
+
+item.for.grafter.name=Roubovač
+item.for.grafter_proven.name=Odsvědčený roubovač
+
+tile.for.tree_chest.name=Arboristova truhla
+
+tile.for.saplingGE.0.name=Sazenice
+tile.for.leaves.0.name=Listy
+tile.for.pods.0.name=Lusk
+
+####################
+# FARMING
+####################
+for.farm.grammar.manual=%s (Ruční)
+for.farm.grammar.managed=%s (Sprav.)
+
+for.farm.arboretum=Arboretum
+for.farm.crops=Plodinová farma
+for.farm.shroom=Houbová farma
+for.farm.succulent=Sukulentová farma
+for.farm.peat=Rašeliniště
+for.farm.infernal=Pekelná farma
+for.farm.reed=Třtinová farma
+for.farm.orchard=Sad
+for.farm.gourd=Tykvová farma
+for.farm.cocoa=Kakaová plantáž
+for.farm.ender=Endová farma
+for.farm.orchid=Orchidejová farma
+for.farm.rubber=Gumovníková plantáž
+
+for.gui.farm.title=Farma
+for.gui.hydr.heat=Teplo
+for.gui.hydr.humid=Vlhkost
+for.gui.hydr.overall=Celkově
+for.gui.hydr.rainfall=Déšť
+for.gui.hydration=Navlhčení vyžadováno
+
+for.hints.circuitboard.desc=Použij pájku, aby jsi proměnil stromovou farmu na farmu, kterou si přeješ.
+for.hints.circuitboard.tag=Programuj své farmy!
+for.hints.farmgui.desc=Půda jde do levých políček, semínka či sazenice do pravých políček rezervoáru na pravé vrchní straně.
+for.hints.farmgui.tag=Půda = vlevo, semínka = vpravo!
+for.hints.farmland.desc=Hladký pískovec, kamenné cihly či cihly vytvoří plošinu na které farma postaví základy.
+for.hints.farmland.tag=Rozmístí svou ornici!
+for.hints.fertilizer.desc=Všechny farmy potřebují hnojivo. Kompost či mulč nestačí.
+for.hints.fertilizer.tag=Je vyžadováno hnojivo!
+for.hints.gearbox.desc=Použij převodovky aby jsi napojil motory či vedení do své farmy.
+for.hints.gearbox.tag=Napájení!
+for.hints.hatch.desc=Poklopy jsou nejlepším přítelem trubek či trubic Použij je, aby jsi automatizoval transport.
+for.hints.hatch.tag=Otevřít poklop!
+for.hints.manualfarms.desc=Kromě automatických farem existují i ruční farmy, ale tyto farmy pouze dokážou udržovat ornici, ale ne pokládat ji.
+for.hints.manualfarms.tag=Ruční farmy!
+for.hints.valve.desc=Většina farem vyžaduje vodu Použij ventily pro automatizaci.
+for.hints.valve.tag=Zalij své farmy!
+
+for.trigger.lowFertilizer=Hnojivo
+for.trigger.lowLiquid=Nádrž na vodu
+for.trigger.lowSoil=Půda
+
+tile.for.ffarm.tooltip=Multiblok: 3x4x3 - 5x4x5
+tile.for.ffarm.material.tooltip=Materiál:
+tile.for.ffarm.0.name=Blok farmy
+tile.for.ffarm.2.name=Převodovka farmy
+tile.for.ffarm.3.name=Kryt farmy
+tile.for.ffarm.4.name=Ventil farmy
+tile.for.ffarm.5.name=Ovladač farmy
+
+tile.for.mushroom.0.name=Houba
+tile.for.mushroom.1.name=Houba
+
+####################
+# CULTIVATION
+####################
+tile.for.arboretum.name=Arboretum
+tile.for.arboretum.tooltip=Stromová farma
+tile.for.farm_crops.name=Farma
+tile.for.farm_crops.tooltip=Plodinová farma
+tile.for.farm_mushroom.name=Houbová farma
+tile.for.farm_nether.name=Pekelná farma
+tile.for.farm_nether.tooltip=Bradavičníková farma
+tile.for.farm_gourd.name=Tykvová farma
+tile.for.farm_gourd.tooltip=Dýňová a melounová farma
+tile.for.farm_ender.name=Endová farma
+tile.for.farm_ender.tooltip=Chorusová a end-liliová farma
+tile.for.peat_bog.name=Rašeliniště
+tile.for.peat_bog.tooltip=Rašelinná farma
+tile.for.plantation.name=Gumovníková farma
+
+item.for.flexible_casing.name=Pružný kryt
+
+tile.for.planter.manual=%s (Ruční)
+tile.for.planter.managed=%s (Automat.)
+
+for.gui.planter.north=S
+for.gui.planter.south=J
+for.gui.planter.east=V
+for.gui.planter.west=Z
+
+####################
+# GREENHOUSE
+####################
+tile.for.greenhouse.deprecated1=Tento předmět byl odstraněn
+tile.for.greenhouse.deprecated2=Polož jej do výrobní mřížky, aby jsi získal nějaké suroviny
+tile.for.greenhouse.plain.name=Blok skleníku
+tile.for.greenhouse.gearbox.name=Energetický rozvadeč skleníku
+tile.for.greenhouse.control.name=Ovladač skleníku
+tile.for.greenhouse.screen.name=Obrazovka skleníku
+tile.for.greenhouse.window_up.name=Střešní okno skleníku
+tile.for.greenhouse.window.name=Okno skleníku
+tile.for.climatiser.fan.name=Větrák skleníku
+tile.for.climatiser.heater.name=Ohřívač skleníku
+tile.for.climatiser.dehumidifier.name=Odvlhčovač skleníku
+tile.for.climatiser.humidifier.name=Zvlhčovač skleníku
+tile.for.climatiser.hygro.name=Regulátor teploty skleníku
+
+####################
+# CLIMATOLAGY
+####################
+tile.for.habitat_former.name=Tvořič místa výskytu
+
+item.for.habitat_screen.name=Obrazovka místa výskytu
+
+for.gui.habitat_former.climate.target=Cíleno na: %s
+for.gui.habitat_former.climate.value=Hodnota: %s
+for.gui.habitat_former.climate.default=Vychozí: %s
+for.gui.habitat_former.climate.temperature=Teplota
+for.gui.habitat_former.climate.humidity=Vlhkost
+for.gui.habitat_former.climate.habitats=Místa výskytu
+for.gui.habitat_former.climate.selection=Výběr
+for.gui.habitat_former.climate.range=Rozsah
+for.gui.habitat_former.climate.range.blocks=%s bloků
+for.gui.habitat_former.climate.circle.enabled=Kruhový režim zapnut
+for.gui.habitat_former.climate.circle.disabled=Kruhový režim vypnut
+for.gui.habitat_former.climate.preview.enabled=Náhledový režim zapnut
+for.gui.habitat_former.climate.preview.disabled=Náhledový režim vypnut
+for.gui.habitat_former=Tvořič místa výskytu
+for.gui.habitat_former.range=Rozsah
+for.gui.habitat_former.resources=Suroviny
+for.gui.habitat_former.speed=Rychlost
+
+for.habitat_screen.mode.active=Režim náhledu: aktivní
+for.habitat_screen.mode.inactive=Režim náhledu: neaktivní
+for.habitat_screen.state.linked=Pozice '%s, %s, %s', Dimenze '%s'
+for.habitat_screen.state.fail=Nespojeno
+for.habitat_screen.temperature=Teplota: %s
+for.habitat_screen.humidity=Vlhkost: %s
+for.habitat_screen.status.state=Teplota: %s, Vlhkost: %s
+for.habitat_screen.status.nostate=Žádný stav nenalezen
+
+for.hints.formergui.tag=Klikni a zmáčkni!
+for.hints.formergui.desc=Můžeš použit tlačítka místa výskytu, nebo stupnice v horním středu nebo textová políčka pro změnu klimatu.
+for.hints.formerresources.tag=Co chceš?
+for.hints.formerresources.desc=Tvořič místa výskytu používá energii pro regulaci teploty. A tekutiny jako láva, voda či drcený led ho trochu ochladí.
+for.hints.formersettings.tag=Vše co chceš
+for.hints.formersettings.desc=Kromě těchto možností také můžeš použít políčka u tlačítek místa výskytu pro změnení cíleného klimatu či přepnutí na klima pro určité včely. Prostě na to klikni se včelou.
+
+for.errors.wrong_resource.desc=Špatná surovina
+for.errors.wrong_resource.help=Tvořič místa výskytu nemůže dosáhnout cílenou vlhkost s touto tekutinou.
+####################
+# LEPIDOPTEROLOGY
+####################
+
+for.chat.command.forestry.butterfly.desc=- %s : Příkazy o motýlech
+for.chat.command.forestry.butterfly.help=Různé příkazy o motýlech
+for.chat.command.forestry.butterfly.format=Formát: /%s <podpříkaz>
+
+for.chat.command.forestry.butterfly.kill.desc=- %s : Zabít všechny motýly
+for.chat.command.forestry.butterfly.kill.help=Zabije všechy motýly
+for.chat.command.forestry.butterfly.kill.format=Format: /%s [<dimenze#>]
+for.chat.command.forestry.butterfly.kill.response=Zabito %d motýlů
+
+for.butterflies.hybrid=Hybridní motýl (%PRIMARY a %SECONDARY)
+
+for.butterflies.grammar.butterfly.type=Motýl
+for.butterflies.grammar.butterfly=%TYPE %SPECIES
+for.butterflies.grammar.serum.type=Sérum
+for.butterflies.grammar.serum=%TYPE %SPECIES
+for.butterflies.grammar.caterpillar.type=Housenka
+for.butterflies.grammar.caterpillar=%TYPE %SPECIES
+for.butterflies.grammar.cocoon.type=Kokon
+for.butterflies.grammar.cocoon=%TYPE %SPECIES
+
+for.butterflies.species.geometridae.brimstone=zejkovce hlohového
+for.butterflies.species.geometridae.latticedHeath=kropenatce jetelového
+for.butterflies.species.nymphalidae.blueDuke=modrého vévody
+for.butterflies.species.nymphalidae.blueMorphoM=morpha menelaus
+for.butterflies.species.nymphalidae.blueMorphoP=morpha peleides
+for.butterflies.species.nymphalidae.blueMorphoR=morpha rhetenor
+for.butterflies.species.nymphalidae.blueWing=Modráska
+for.butterflies.species.nymphalidae.comma=babočky bílé c
+for.butterflies.species.nymphalidae.dianaFritillary=diana fritillary
+for.butterflies.species.nymphalidae.glasswing=grety ogo
+for.butterflies.species.nymphalidae.glassyTiger=skleněného tygra
+for.butterflies.species.nymphalidae.leopardLacewing=babočky cyanské
+for.butterflies.species.nymphalidae.malachite=malachitového motýla
+for.butterflies.species.nymphalidae.monarch=monarchy stěhovavého
+for.butterflies.species.nymphalidae.paintedBeauty=babočky bodlákové
+for.butterflies.species.nymphalidae.postman=poštovního motýla
+for.butterflies.species.nymphalidae.speckledWood=okáče pýrového
+for.butterflies.species.nymphalidae.speckledWoodC=okáče kanárského
+for.butterflies.species.nymphalidae.speckledWoodM=okáče madeirského
+for.butterflies.species.papilionidae.emeraldPeacock=otakárka smaragdového
+for.butterflies.species.papilionidae.swallowtailB=otakárka černého
+for.butterflies.species.papilionidae.swallowtailC=otakárka citrusového
+for.butterflies.species.papilionidae.swallowtailS=otakárka amerického
+for.butterflies.species.papilionidae.swallowtailT=otakárka královského
+for.butterflies.species.papilionidae.swallowtailZ=otakárka zebřího
+for.butterflies.species.pieridae.brimstone=zejkovce hlohového
+for.butterflies.species.pieridae.cabbageWhite=běláska zelného
+for.butterflies.species.pieridae.gozoraAzure=azurového motýla
+for.butterflies.species.pieridae.orangeTip=běláska řeřichového
+for.butterflies.species.pieridae.palaenoSulphur=žluťáska borůvkového
+for.butterflies.species.pieridae.postillion=žluťáska čilimníkového
+for.butterflies.species.pieridae.reseda=běláska rezedkového
+for.butterflies.species.pieridae.springAzure=modráska krušinového
+for.butterflies.species.saturniidae.atlas=atlasa velkého
+for.butterflies.species.bombycidae.bombyxMori=bource morušového
+
+for.gui.loot.butterfly=Možná kořist z motýla
+for.gui.loot.caterpillar=Možná kořist z housenky
+for.gui.loot.cocoon=Možná kořist ze zámotku
+
+for.lepidopterology.effect.none=Nic
+
+item.for.butterfly.name=Motýl
+item.for.lepidopterist_bag.name=Batoh lepidopterologa
+item.for.moth.name=Můra
+tile.for.butterfly_chest.name=Lepidopterologova truhla
+
+####################
+# MAIL
+####################
+
+for.chat.mail.already_mailed=Dopis nelze poslat znovu.
+
+for.chat.command.forestry.mail.desc=- %s : Příkazy poštovního systému
+for.chat.command.forestry.mail.help=Příkazy společné s poštovním systémem
+for.chat.command.forestry.mail.format=Formát: /%s <podpříkaz>
+
+for.chat.command.forestry.mail.trades.desc=- %s : Seznam všech obchodních stanic.
+for.chat.command.forestry.mail.trades.help=Vypíše všechny stanice a jejich obchody.
+for.chat.command.forestry.mail.trades.format=Formát: /%s
+
+for.chat.command.forestry.mail.virtualize.desc=- %s : Přepnout virtuální režim na specifické obchodní stanici.
+for.chat.command.forestry.mail.virtualize.help=Přepne virtuální režim na specifické obchodní stanici. Tento režim nespotřebovává předměty.
+for.chat.command.forestry.mail.virtualize.format=Formát: /%s <jméno-obchodní-stanice>
+for.chat.command.forestry.mail.virtualize.no_tradestation=Nebyla nalezena žádná stanice se jménem '%s'.
+for.chat.command.forestry.mail.virtualize.set=Virtualizace pro stanici '%s' byla nastavena na %s.
+
+for.chat.mail.insufficient.buffer=Obchodní stanice je plná.
+for.chat.mail.insufficient.offer=Obchodní stanice vyžaduje víc.
+for.chat.mail.insufficient.paper=Obchodní stanice nemá papír.
+for.chat.mail.insufficient.stamps=Obchodní stanice nemá žádné známky.
+for.chat.mail.insufficient.trade.good=Zásoby obchodní stanice došly.
+for.chat.mail.mailbox.full=Příjemcova schránka je plná.
+for.chat.mail.not.mailable=Psaní nelze poslat.
+for.chat.mail.not.postpaid=Psaní není oznámkované.
+for.chat.mail.no.mailbox=Příjemce nemá žádnou schránku.
+for.chat.mail.ok=Obchod je k dispozici.
+for.chat.mail.response.not.mailable.format=Obchodní stanice nemůže odeslat psaní. %s
+for.chat.mail.wrongstacksize=Můžeš poslat pouze jedno psaní najednou.
+
+for.gui.mail.address.copy=Použít
+for.gui.mail.catalogue.close=Zavřít
+for.gui.mail.catalogue.trade=Obchodovat
+for.gui.mail.filter.all=Vše
+for.gui.mail.filter.offline=Offline
+for.gui.mail.filter.online=Online
+for.gui.mail.notrades=Žádné obchody k dispozici
+for.gui.mail.tradefor=pro
+for.gui.mail.willtrade=%s chce obchodovat
+
+item.for.catalogue.name=Katalog
+item.for.catalogue.tooltip=Vypíše všechny obchody k dispozici.
+
+####################
+# PIPES
+####################
+
+item.PipeItemsPropolis.name=Včelařova trubka
+
+tile.for.genetic_filter.name=Genetický filtr
+tile.for.genetic_filter.0.name=Genetický filtr
+
+for.gui.filter.seletion=Výběr filtru
+
+for.gui.filter.forestry.default.anything=Cokoliv
+for.gui.filter.forestry.default.closed=Zavřeno
+for.gui.filter.forestry.default.item=Předměty
+for.gui.filter.forestry.default.cave=Jeskyňáři
+for.gui.filter.forestry.default.flyer=Silní letci
+for.gui.filter.forestry.default.nocturnal=Noční
+for.gui.filter.forestry.default.pure_breed=Čistokrevné
+for.gui.filter.forestry.default.pure_cave=Čistí jeskyňáři
+for.gui.filter.forestry.default.pure_flyer=Čistí letci
+for.gui.filter.forestry.default.pure_nocturnal=Čistě noční
+
+for.gui.filter.forestry.apiculture.bee=Jakékoliv včely
+for.gui.filter.forestry.apiculture.queen=Královny
+for.gui.filter.forestry.apiculture.drone=Dělnice
+for.gui.filter.forestry.apiculture.princess=Princezny
+
+for.gui.filter.forestry.arboriculture.tree=Jakýkoliv strom
+for.gui.filter.forestry.arboriculture.sapling=Sazenice
+for.gui.filter.forestry.arboriculture.pollen=Pyl
+
+for.gui.filter.forestry.lepidopterology.flutter=Jakýkoliv motýl
+for.gui.filter.forestry.lepidopterology.butterfly=Motýl
+for.gui.filter.forestry.lepidopterology.caterpillar=Housenka
+for.gui.filter.forestry.lepidopterology.serum=Sérum
+for.gui.filter.forestry.lepidopterology.cocoon=Kokon
+
+####################
+# MODULES
+####################
+for.module.apiculture.description=Přidává včely, včelařství a včelí produkty. Ovlivňuje generaci světa.
+for.module.arboriculture.description=Přidává další druhy stromů a produktů.
+for.module.backpacks.description=Přidává batohy.
+for.module.book.description=Přidává příručku, ve které jsou informace o všech modulech.
+for.module.charcoal.description=Přidává kupy dřeva, smíšenou půdu a výrobu uhlí.
+for.module.core.description=Hlavní mechaniky pro Forestry. Vyžadováno ostatními moduly.
+for.module.crates.description=Přidává bedny.
+for.module.cultivation.description=Přidává automatické farmy pro výrobu.
+for.module.database.description=Přídává nové úložiště pro včely, motýly a stromy.
+for.module.energy.description=Přidává RF motory.
+for.module.factory.description=Přidává stroje na výrobu, produkci a zpracování.
+for.module.farming.description=Přidává multiblokové farmy na výrobu produktů.
+for.module.fluids.description=Přidává tekutiny, tekutinové bloky a nádoby.
+for.module.food.description=Přidává jídlo.
+for.module.greenhouse.description=Přidává multiblokový skleník.
+for.module.lepidopterology.description=Motýli. Lesklé.
+for.module.mail.description=Přidává poštovní a obchodní systém.
+for.module.sorting.description=Přidává filtr pro třídění genetického materiálu.
+for.module.worktable.description=Přidává pracovní stůl který umí uložit až 8 receptů.
+
+for.module.actuallyadditions.description=Kompatibilita pro Actually Additions.
+for.module.betterwithmods.description=Kompatibilita pro Better With Mods. Umožňuje farmařit konopí.
+for.module.buildcraft6.description=Kompatibilita pro BuildCraft. Aktuálně pro verzi 7.99.
+for.module.biomesoplenty.description=Kompatibilita pro Biomes O' Plenty. Umožňuje farmařit sazenice z BoP.
+for.module.enderIO.description=Kompatibilita pro EnderIO.
+for.module.extrautilities.description=Kompatibilita pro Extra Utilities. Umožňuje farmařit endové lilie a červené orchideje.
+for.module.harvestcraft.description=Kompatibilita pro HarvestCraft. Umožňuje farmařit rostliny a stromy z módu HarvestCraft.
+for.module.ic2.description=Kompatibilita pro IC2. Přidává elektrický motor a generátor pro převod.
+for.module.immersiveengineering.description=Kompatibilita pro Immersive Engineering.
+for.module.mysticalagriculture.description=Kompatibilita pro Mystical Agriculture. Dovoluje farmařit plodiny z tohoto módu.
+for.module.natura.description=Kompatibilita pro for Natura. Dovoluje farmařit Natura sazenice.
+for.module.roots.description=Kompatibilita pro Roots.
+for.module.rustic.description=Kompatibilita pro Rustic.
+for.module.techreborn.description=Kompatibilita pro Tech reborn. Dovoluje sklízet gumu z gumovníků.
+
+####################
+# CONFIG FILES
+####################
+
+for.config.performance=Výkon
+for.config.performance.particleFX=Částice
+for.config.performance.particleFX.comment=Zapíná částice. Pamatuj si že Forestry respektuje úroveň kvality částic Minecraftu.
+for.config.performance.hiveLightLevels=Úroveň osvícení úlů
+for.config.performance.hiveLightLevels.comment=Nastaví úroveň osvícení úlů
+for.config.performance.backpacks.resupply=Zásobování batůžků
+for.config.performance.backpacks.resupply.comment=Zapnout doplňování batůžků. Toto by jsi měl nastavit na 'false' na jíných serverech.
+
+for.config.world.generate=Generace světa
+
+for.config.world.generate.retrogen.normal=Retrogenerace
+for.config.world.generate.retrogen.normal.comment=Vytváří generaci v prozkoumaných částech světa předtím něž byl mód nainstalován.
+for.config.world.generate.retrogen.forced=Nucená retrogenerace
+for.config.world.generate.retrogen.forced.comment=Vytváří světovou generaci i v chuncích, které již byly načteny.
+
+for.config.world.generate.ore.apatite=Generovat apatit
+for.config.world.generate.ore.apatite.comment=Generuje apatitovou rudu ve světě.
+for.config.world.generate.ore.copper=Generovat meď
+for.config.world.generate.ore.copper.comment=Generuje měděnou rudu ve světě.
+for.config.world.generate.ore.tin=Generovat cín
+for.config.world.generate.ore.tin.comment=Generuje cín ve světě.
+for.config.world.generate.ore.dimBlacklist=Černá listina pro generaci rud v dimenzích
+for.config.world.generate.ore.dimBlacklist.comment=Vypíná generaci rud ve všech specifikovaných dimenzích. Zadej jedno ID dimenze na řádek.
+
+for.config.world.generate.beehives.amount=Počet generace včelích úlů
+for.config.world.generate.beehives.amount.comment=Nastavuje, kolik včelích úlů se má spawnout ve světě.
+for.config.world.generate.beehives.debug=Ladění generace včelích úlů
+for.config.world.generate.beehives.debug.comment=Donutit mód Forestry, aby vygeneroval úl na každém místě. (Toto zničí tvůj svět. Vhodné pouze pro vývojáře.)
+for.config.world.generate.beehives.dimBlacklist=Černá listina dimenzní pro generaci úlů
+for.config.world.generate.beehives.dimBlacklist.comment=Vypíná generaci úlů ve specifikovaných dimenzích. Zadej jedno ID dimenze na řádek.
+for.config.world.generate.beehives.blacklist.category_comment=Vypíná generaci úlů ve specifických biomech nebo biomech se specifickým typem biomu. Stačí zadat jméno biomu v registru či jméno biomu do vlastností úlu. Každý typ biomu / jména registru musí být v jiném řádku. Globální typ může vypnout generaci úlu v celém biomu.
+
+for.config.world.generate.villagers=Generace vesničanů
+for.config.world.generate.villagers.comment=Generuje vesničany z módu Forestry a jejich domy.
+
+for.config.crafting=Výroba
+for.config.crafting.bronze=Výroba bronzu
+for.config.crafting.bronze.comment=Povoluje výrobní recept bronzu.
+for.config.crafting.stamps.enabled=Výroba známek
+for.config.crafting.stamps.enabled.comment=Povoluje vyrábět známky. Vypni, aby jsi použil známky pouze jako měnu.
+for.config.crafting.stamps.disabled=Vypnuté známky
+for.config.crafting.stamps.disabled.comment=Vypíná recept pro některé známky.
+
+for.config.tweaks=Úpravy
+
+for.config.tweaks.gui.mail.alert.enabled=Upozornění na poštu
+for.config.tweaks.gui.mail.alert.enabled.comment=Zapíná upozornění na poštu.
+for.config.tweaks.gui.mail.alert.xPosition=Vodorovná pozice
+for.config.tweaks.gui.mail.alert.xPosition.comment=Vodorovná pozice upozornění na obrazovce.
+for.config.tweaks.gui.mail.alert.yPosition=Svislá pozice
+for.config.tweaks.gui.mail.alert.yPosition.comment=Svislá pozice upozornění na obrazovce.
+
+for.config.tweaks.gui.tabs.hints=Tipy
+for.config.tweaks.gui.tabs.hints.comment=Zapíná tipy na strojích.
+for.config.tweaks.gui.tabs.speed=Rychlost panelů
+for.config.tweaks.gui.tabs.speed.comment=Nastavit rychlost, podle které se panely otevírají a zavírají.
+for.config.tweaks.gui.tabs.energy=Panel energie
+for.config.tweaks.gui.tabs.energy.comment=Ukazuje statistiky energie na energických žroutech.
+
+for.config.tweaks.gui.tooltip.liquidamount=Text počtu kapaliny
+for.config.tweaks.gui.tooltip.liquidamount.comment=Ukazuje počet kapaliny v informacích o nádrži.
+
+for.config.tweaks.permissions=Oprávnění
+for.config.tweaks.permissions.comment=Povoluje omezení přístupu pro Forestry stroje.
+for.config.tweaks.version.check=Vyhledání aktualizací
+for.config.tweaks.version.check.comment=Zapíná zprávu o aktualizaci a verzi
+
+for.config.tweaks.humus.degradeDelimiter=Odstranění omezení degradace humusu
+for.config.tweaks.humus.degradeDelimiter.comment=Nastavit, kolik času potrvá než se humus promění na písek.
+
+for.config.tweaks.farms.size=Velikost farmy
+for.config.tweaks.farms.size.comment=Nastavuje násobič velikosti ornice.
+for.config.tweaks.farms.fertilizer=Hnojivo
+for.config.tweaks.farms.fertilizer.comment=Nastavuje násobič hnojiva v multifarmě a kultivačních farmách. Všechny kultivační farmy využívají dvojnásobek hnojiva.
+for.config.tweaks.farms.square=Čtvercové farmy
+for.config.tweaks.farms.square.comment=Nastaví, jestli farmy budou využívat čtvercový či kosočtvercový tvar.
+for.config.tweaks.farms.enderlily=Podpora end-lilové farmy
+for.config.tweaks.farms.enderlily.comment=Zapíná podporu pro semínka Endové-lilie z módu Extra Utilities.
+for.config.tweaks.farms.redorchid=Podpora červenoorchidejové farmy
+for.config.tweaks.farms.redorchid.comment=Zapíná podporu pro Červenou orchidej z módu Extra Utilities.
+for.config.tweaks.farms.magicalcrops=Podpora Magical Crops pro farmy
+for.config.tweaks.farms.magicalcrops.comment=Zapíná podporu farem pro mód Magical Crops.
+
+for.config.tweaks.cultivation.extend=Velikost kultivačních farem
+for.config.tweaks.cultivation.extend.comment=Nastavuje velikost ornice která je použita všemi kultivačními farmami.
+for.config.tweaks.cultivation.ring=Prstencové kultivační farmy
+for.config.tweaks.cultivation.ring.comment=Nastavuje tvar ornice kultivačních farem na tvar prstence. Velikost tvaru prstence je vždy menší o jeden blok.
+for.config.tweaks.cultivation.ring_size=Velikost vnitřního prstence
+for.config.tweaks.cultivation.ring_size.comment=Nastaví velikost vnitřního prstence.
+
+for.config.tweaks.capsule.capsulePickup=Kapsle sbírají tekutiny
+for.config.tweaks.capsule.capsulePickup.comment=Dovoluje plechovkám a kapslím sbírat tekutiny ze světa.
+for.config.tweaks.capsule.capsuleReuseable=Znovupoužitelné kapsle
+for.config.tweaks.capsule.capsuleReuseable.comment=Kapsle po využití nejsou odstraněny z inventáře.
+
+for.config.tweaks.charcoal.amount.base=Základní počet
+for.config.tweaks.charcoal.amount.base.comment=Počet bloků dřevěné kupy které vypadnou pokud stěny nejsou z registrovaných bloků stěny.
+for.config.tweaks.charcoal.check.range=Dosah detekce stěn
+for.config.tweaks.charcoal.check.range.comment=Nastavit počet bloků, které jsou detekovány jako stěna dřevouhelné kupy.
+
+for.config.tweaks.book.spawn=Lesníkův manuál
+for.config.tweaks.book.spawn.comment=Hráči kteří poprvé načtou svět dostanou Lesníkův manuál.
+
+for.config.genetics=Genetics
+for.config.genetics.pollinate.vanilla.trees=Opylovat Vanilla stromy
+for.config.genetics.pollinate.vanilla.trees.comment=Povoluje včelám opylovat Vanilla stromy. Když je toto vypnuto, vanilla stromy musí být analyzovány, předtím než jsou opyleny.
+for.config.genetics.analyzerblock.energy.use=Využití energie pro blok analyzéru
+for.config.genetics.analyzerblock.energy.use.comment=Využití energie pro blok analyzéru na každý cyklus.
+for.config.genetics.research.boost.multiplier=Násobič vyzkoumaných mutací
+for.config.genetics.research.boost.multiplier.comment=Zvyšuje šanci na určitou mutaci, která byla vyzkoumána v sekretářském stole.
+for.config.genetics.research.boost.max.percent=Maximum vyzkoumaných mutací
+for.config.genetics.research.boost.max.percent.comment=Maximální procenta, která jsou aplikována po vyzkoumání.
+
+for.config.difficulty=Obtížnost
+for.config.difficulty.game.mode=Herní mód
+for.config.difficulty.game.mode.comment=Nastav herní mód na svůj preferovaný mód. Neshoda se serverem může způsobit vizuální chyby.
+for.config.difficulty.recreate.definitions=Znovuvytvořit definice
+for.config.difficulty.recreate.definitions.comment=Vynutí rekreaci definic herních módů v config/forestry/gamemodes.
+
+for.config.structures=Struktury
+for.config.structures.disabled=Vypnuté struktury
+for.config.structures.disabled.comment=Zapiš specifické struktury, aby jsi je vypnul.
+
+for.config.farm.fertilizers.items=Přidává hnojiva. Klíč musí vypadat takto: modID:itemName:MetaData;fertilizerValue. Musíš oddělit každý klíč na řádek. Nemůžeš odstranit deaktivované klíče, ale můžeš je vypnout když nastavíš jejich hodnotu na 0.
+
+for.config.fluids=Kapaliny
+for.config.fluids.enable.format=Zapíná kapalinu %s
+for.config.fluid.blocks=Kapalinové bloky
+for.config.fluid.blocks.enable.format=Zapíná blok kapaliny %s
+
+for.config.debug.enabled=Režim ladění
+for.config.debug.enabled.comment=Zapnout režim ladění (dobré pouze pro vývojáře).
+
+for.config.beekeeping.mode=Včelařský mód
+for.config.beekeeping.mode.comment=Změnit včelařský mód.
+for.config.beekeeping.second.princess=Šance na druhou princeznu
+for.config.beekeeping.second.princess.comment=Šance na získání druhé princezny, pro omezené nebo skyblock mapy.
+for.config.beekeeping.flowers.accepted=Přijaté kytky
+for.config.beekeeping.flowers.accepted.comment=Přijaté kytky dovolují včelám, aby pracovaly. Formát je 'modid:name:meta', jeden na každý řádek. Formát pro náhodná metadata je 'modid:name'.
+for.config.beekeeping.flowers.plantable=Zasaditelné kytky
+for.config.beekeeping.flowers.plantable.comment=Zasaditelné kytky jsou položeny včelami. Všechny zasaditelné kytky jsou automaticky přijaty. Formát je 'modid:name:meta', jeden na každý řádek. Formát pro náhodná metadata je 'modid:name'.
+for.config.beekeeping.flowers.spawn=Maximální počet spawnutých kytek
+for.config.beekeeping.flowers.spawn.comment=Maximální počet kytek, který se spawne přesčas.
+for.config.beekeeping.ticks.work=Ticky na cyklus
+for.config.beekeeping.ticks.work.comment=Počet ticků na cyklus včelí práce.
+for.config.beekeeping.hivedamage.peaceful=Poškození od včel na mírumilovné obtížnosti
+for.config.beekeeping.hivedamage.peaceful.comment=Jestli včely mohou poškodit hráče hrajícího na mírumilovné obtížnosti
+for.config.beekeeping.hivedamage.underwater=Poškození od včel pod vodou
+for.config.beekeeping.hivedamage.underwater.comment=Jestli včely mohou poškodit hráče pod vodou.
+for.config.beekeeping.hivedamage.onlyAfterAttack=Poškození od včel při obraně
+for.config.beekeeping.hivedamage.onlyAfterAttack.comment=Včely útočí pouze když hráč se snaží zničit úl.
+for.config.beekeeping.hivedamage.onlyPlayers=Poškození hráčů od včel
+for.config.beekeeping.hivedamage.onlyPlayers.comment=Jestli včely mohou zranit jiné entity kromě hráče
+for.config.beekeeping.hivedamage.pierceArmor=Poškození včel proráží zbroj
+for.config.beekeeping.hivedamage.pierceArmor.comment=Jestli včely mohou prorazit hráčovo brnění.
+for.config.beekeeping.self.pollination=Samoopylení listů
+for.config.beekeeping.self.pollination.comment=Jestli včely budou opylovat listy pro zrychlení homozygotního genomu.
+for.config.beekeeping.ignoble.decay=Neušlechtilý rozpad
+for.config.beekeeping.ignoble.decay.comment=Jestli neušlechtilé včely odumřou.
+
+for.config.species.blacklist=Černá listina druhů
+for.config.species.blacklist.comment=Přidat druhy do černé listiny, dle jejich UID, jeden na řádek.
+
+for.config.butterfly.alleles.rarity=Získat šanci na spawnutí motýlů podle jejich uid, jeden na řádek
+for.config.butterfly.entities.spawn.limit=Spawnovací limit motýlů
+for.config.butterfly.entities.spawn.limit.comment=Motýli se přestanou spawnovat, jakmile je dosažen tento limit.
+for.config.butterfly.entities.spawn.leaves=Spawnovat motýly z listů
+for.config.butterfly.entities.spawn.leaves.comment=Určit jestli se motýli budou spawnovat z listů.
+for.config.butterfly.entities.maximum=Maximální motýli
+for.config.butterfly.entities.maximum.comment=Noví motýli zůstanou ve formě předmětu a neodletí, jakmile je dosažen tento limit.
+for.config.butterfly.entities.maxDistance=Maximální dálka domů
+for.config.butterfly.entities.maxDistance.comment=Motýli poletí domů, jakmile jsou moc daleko od svého domu.
+for.config.butterfly.entities.maxLifespan=Maximální životnost
+for.config.butterfly.entities.maxLifespan.comment=Motýli zemřou pokud jejich životnost v ticků vyprší. Motýli budou žít nekonečně pokud je toto nastaveno na 0.
+for.config.butterfly.entities.pollination=Opylení motýli
+for.config.butterfly.entities.pollination.comment=Povolit motýlům opylovat listy.
+for.config.butterfly.cocoons.generate=Generovat motýlí zámotky
+for.config.butterfly.cocoons.generate.comment=Jestli zámotky s motýly se budou generovat ve světě
+for.config.butterfly.cocoons.amount=Četnost motýlích zámotků
+for.config.butterfly.cocoons.amount.comment=Jak četně se budou motýlí zámotky generovat
+for.config.butterfly.cocoons.serum=Šance na sérum
+for.config.butterfly.cocoons.serum.comment=Jak často ze zámotků vypadne sérum
+for.config.butterfly.cocoons.second.serum=Šance na druhé sérum
+for.config.butterfly.cocoons.second.serum.comment=Jak často ze zámotků vypadne druhé sérum
+for.config.butterfly.alleles.loot=Kořist ze zámotků. Formát je modid:name:meta;chance
+
+for.config.backpacks.item.stacks.format=Přidat itemStacks pro %s zde ve formátu 'modid:name:meta'. Pro náhodná metadata tento formát je 'modid:name'.
+for.config.backpacks.ore.dict.format=Přidat názvy oreDictionary pro %s zde ve formátu 'oreDictName'. Také lze použít regulární výrazy.
+
+for.config.crates.items.accepted.comment=Přidané předměty. Formát je 'modid:meta:name'. Pro náhodná metadata tento formát je 'modid:name'.
+for.config.crates.items.rejected.comment=Zakázáné předměty. Formát je 'modid:meta:name'. Pro náhodná metadata tento formát je 'modid:name'.
+for.config.crates.oredict.accepted.comment=Přidaný oredict. Formát je'oreDictName'. Také lze použít regulární výrazy. Viz konfigurace batohů pro informace.
+for.config.crates.oredict.rejected.comment=Zakázáný oredict Formát je 'oreDictName'. Také lze použít regulární výrazy. Viz konfigurace batohů pro informace.
+
+for.config.gamemode=Herní mód
+
+for.config.gamemode.energy.demand.modifier.comment=Upravuje energii vyžadovanou pro aktivaci strojů as well a také maximální počet uložené a přijaté energie.
+for.config.gamemode.farms.fertilizer.modifier.value.comment=Upravuje, jak dlouho vydrží kus hnojiva ve farmě.
+
+for.config.gamemode.fuel.ethanol.generator.comment=upravuje vyráběnou energii z ethanolu v Bio generátoru.
+for.config.gamemode.fuel.ethanol.combustion.comment=upravuje vyráběnou energii z ethanolu v Buildcraft Vznětových motorech.
+for.config.gamemode.fuel.biomass.generator.comment=upravuje vyráběnou energii z biomasy v Bio generátoru.
+for.config.gamemode.fuel.biomass.biogas.comment=upravuje vyráběnou energii z biomasy v Bioplynových motorech.
+
+for.config.gamemode.recipe.output.fertilizer.apatite.comment=počet hnojiva vyrobeného receptem s použitím apatitu.
+for.config.gamemode.recipe.output.fertilizer.ash.comment=počet hnojiva vyrobeného receptem s použitím popela.
+for.config.gamemode.recipe.output.compost.wheat.comment=počet kompostu vyrobeného receptem s použitím pšenice.
+for.config.gamemode.recipe.output.compost.ash.comment=počet kompostu vyrobeného receptem s použitím popela.
+for.config.gamemode.recipe.output.humus.fertilizer.comment=počet humusu vyrobeného receptem s použitím hnojiva.
+for.config.gamemode.recipe.output.humus.compost.comment=počet humusu vyrobeného receptem s použitím kompostu.
+for.config.gamemode.recipe.output.bogearth.bucket.comment=počet rašelinné zeminy vyrobené receptem s použitím kbelíku.
+for.config.gamemode.recipe.output.bogearth.can.comment=počet rašelinné zeminy vyrobené receptem s použitím plechovek, článků a kapslí
+for.config.gamemode.recipe.output.can.comment=počet vyrobených plechovek.
+for.config.gamemode.recipe.output.capsule.comment=počet vyrobených voskových kapslí.
+for.config.gamemode.recipe.output.refractory.comment=počet vyrobených žáruvzdorných kapslí
+
+for.config.gamemode.fermenter.cycles.fertilizer.comment=počet cyklů hnojiva, které udrží kvasič spušteny.
+for.config.gamemode.fermenter.cycles.compost.comment=počet cyklů kompostu, které udrží kvasič spušteny.
+for.config.gamemode.fermenter.cycles.mulch.comment=počet cyklů mulče, které udrží kvasič spušteny.
+for.config.gamemode.fermenter.value.fertilizer.comment=počet biomasy na cyklus, které kvasič vyrobí z hnojiva.
+for.config.gamemode.fermenter.value.compost.comment=počet biomasy na cyklus, které kvasič vyrobí z kompostu.
+for.config.gamemode.fermenter.value.mulch.comment=počet biomasy na cyklus, které kvasič vyrobí z mulče.
+for.config.gamemode.fermenter.yield.sapling.comment=počet biomasy ze sazenic v kvasiči, ovlivněno vlastnostní míznatost.
+for.config.gamemode.fermenter.yield.cactus.comment=počet biomasy, která vznikne z kusu kaktusu v kvasiči.
+for.config.gamemode.fermenter.yield.wheat.comment=počet biomasy, která vznikne z kusu pšenice v kvasiči.
+for.config.gamemode.fermenter.yield.cane.comment=počet biomasy, která vznikne z kusu cukrové třtiny v kvasiči.
+for.config.gamemode.fermenter.yield.mushroom.comment=počet biomasy, která vznikne z hub v kvasiči.
+
+for.config.gamemode.squeezer.liquid.seed.comment=počet semínkového oleje vylisovaného ze semínek. ostatní zdroje na tomto zakládají.
+for.config.gamemode.squeezer.liquid.apple.comment=počet šťávy z jednoho jablka. ostatní zdroje na tomto zakládají.
+for.config.gamemode.squeezer.mulch.apple.comment=šance na mulč z lisovaného jablka.
+
+for.config.gamemode.energy.engine.clockwork.comment=Zapnout hodinový motor.
+
+for.config.power.types.rf=Ruditový Flux
+for.config.power.types.rf.comment=Zapnout podporu Ruditového Fluxu.
+for.config.power.types.mj=MJ
+for.config.power.types.mj.comment=Zapnout podporu MJ.
+for.config.power.types.tesla=Tesla
+for.config.power.types.tesla.comment=Zapnout podporu Tesly.
+for.config.power.display.mode=Režim ukázání napětí
+for.config.power.display.mode.comment=Formát, ve kterém se ukáže napětí rozhraní strojů či motorů.
+
+for.config.machines.enabled=Povolené stroje.
+for.config.machines.enabled.comment=Seznam povolených strojů. Pamatuj si že toto ti znemožní nějaké věci, když toto upravíš!
+
+
+###################################
+# CUSTOM BEE AND TREE SPECIES NAMES
+###################################
+# Syntaxe:
+# for.bees.custom.<type>.<species>=Nový název vlastní včely
+# for.trees.custom.<type>.<species>=Nový název vlastního stromu
+# Příklady:
+# for.bees.custom.drone.forest=Lesní dělnice
+# for.trees.custom.pollen.darkOak=Nové jméno pylu z tmavého dubu
+# Beealyzer/Treealyzer syntax:
+# for.bees.custom.beealyzer.<type>.<species>=Nový název vlastní včely
+# for.trees.custom.treealyzer.<type>.<species>=Nový název vlastního stromu
+# Příklady:
+# for.bees.custom.beealyzer.drone.forest=Nový druh lesní dělnice když je použita ve včelím analyzéru
+# for.trees.custom.treealyzer.pollen.darkOak=Nové jméno pylu tmavého dubu, když je použit ve stromovém analyzéru
+
+###################################
+# CUSTOM ALLELE ADJECTIVES
+###################################
+# Replaces forestry.allele.<adjective>
+#
+# Syntaxe:
+# forestry.allele.<category>.<adjective>=Nové vlastní přídavné jméno
+#
+# Kategorie a [přídavná jména] k dispozici:
+# rychlost: 	[nejpomalejší, pomalejší, pomalá, normální, rychlá, rychlejší, nejrychlejší]
+# zrání: 	    [nejpomalejší, pomalejší, pomalé, normální, rychlé, rychlejší, nejrychlejší]
+# kvetení:	    [nejpomalejší, pomalejší, pomalé, normální, rychlé, rychlejší, nejrychlejší, maximální]
+#
+# velikost: 	[nejmenší, menší, průměrná, velká, větší, největší, obrovská]
+# výška: 		[nejmenší, menší, průměrná, velká, větší, největší, obrovská]
+# území:	    [průměrné, větší, větší, největší]
+#
+# sazenice: 	[nejnižší, nižší, nízká, průměrná, velká, větší, největší]
+# výtěžnost: 	[nejnižší, nižší, nízká, průměrná, velká, větší, největší]
+# míznatost:	[nejnižší, nižší, nízká, průměrná, velká, větší, největší]
+#
+# Příklady
+# forestry.allele.speed.slowest=Nové vlastní přídavné jméno pro nejpomalejší rychlost, nahrazující forestry.allele.slowest
+# forestry.allele.flowering.slowest=Nové vlastní přídavné jméno pro nejpomalejší rychlost opylení, nahrazující forestry.allele.slowest
+# forestry.allele.yield.low=Nové vlastní přídavné jméno pro nízkou výtěžnost, nahrazující forestry.allele.low
+
+###################################
+# CUSTOM TOOLTIPS
+###################################
+# Vlastní popisky k dispozici:
+# for.tooltip.worker.<přídavné jméno rychlosti> pro rychlost.
+#
+# Příklad:
+# for.tooltip.worker.slowest=Nejpomalejší pracovník
+
+###################################
+# CUSTOM WOOD NAMES
+###################################
+#
+# Příklady:
+# tile.for.stairs.4.name=Schody z kaštavoníku
+# tile.for.planks.8.name=Prkna z kapoku
+# tile.for.slab.5.name=Půlblok z wenge
+# tile.for.log.10.name=Dřevo z mahagonu
+# tile.for.fences.0.name=Plot z modřínu
+
+####################
+# JEI Descriptions
+####################
+for.jei.description.frames=Polož Forestry rámečky do včelího úlu pro zvýšení rychlosti výroby a snížení rozpadu neušlechtilých včel.
+for.jei.description.apiarist.suit=Díly včelařova obleku chrání před včelími efekty. Plný oblek dává plnou ochranu.
+for.jei.description.habitat_locator=Lokátor místa výskytu hledá nejbližší místo výskytu včel. Jakmile najde nejbližší místo, ukáže tam. Jakmile jsi v ideálním místě, bude se rychle otáčet.
+for.jei.description.scoop=Síto je použito pro rozbití divokých úlů. Také ho lze použít pravým kliknutím pro chycení motýlů.
+for.jei.description.imprinter=Pouze tvořivý režim. Vytváří hybridní včely všech typů.
+
+for.jei.description.infuser=Použit pro napuštění medoviny s pylem a vytvoření léčivé medoviny.
+
+for.jei.description.chipsets=Obvody lze osázet známkami použitím pájky. Po dokončení je lze položit do strojových jímek. Použij pájku aby jsi je odstranil.
+for.jei.description.soldering_iron=Klikni pravým tlačítkem s pájkou v ruce, aby jsi otevřel pájení. Zde můžeš vybrat druh obvodu a zatavit elektronové trubice na obvody. Také lze použít pro odstranění obvodů z jímky.
+for.jei.description.thermionic_tubes=Elektronové trubice lze připájit pomocí pájky. V popisku je mnoho jejich účelů, které záleží na vybraném typu obvodu v pájce. Po připájení je již nelze odstranit.
+for.jei.description.humus=Bohatá půda na které lze pěstovat rostliny, ale za čas se promění v písek.
+for.jei.description.bog_earth=Pomalu se promění na rašelinu po nasáknutí.
+for.jei.description.analyzer=Přenosný analyzér v bloku. Vyžaduje napájení a med.
+for.jei.description.escritoire=Zahraj si minihru pro vyzkoumání mutací včel, stromů a motýlů. Dává psaní které vylepšují rychlost mutace a jiné odměny.
+for.jei.description.pipette=S pipetou můžeš brát malé hodnoty kapalin. Ve Forestry rozhraní můžeš držet pipetu a naplnit či vyprázdnit nádrže.
+for.jei.description.kit_shovel=Balíček, který obsahuje bronzovou lopatu. Použij ve své ruce pro otevření.
+for.jei.description.kit_pickaxe=Balíček, který obsahuje bronzový krumpáč. Použij ve své ruce pro otevření.
+for.jei.description.fertilizer_compound=Bohaté hnojivo, které lze použít jako kostní moučku pro sazenice a plodiny. Vyžadováno pro spuštění Forestry farmy.
+
+for.jei.description.raintank=Sbírá vodu za deště a pumpuje jí pryč spodním otvorem.
+for.jei.description.worktable=Pokročilý pracovní stůl s inventářem, který si pamatuje až 9 receptů a má možnost výběru receptu, je li tu konflikt mezi recepty.
+
+for.jei.description.grafter=Garantuje sazenici při rozbití Forestry listů a má velmi málo použití.
+for.jei.description.grafter_proven=Garantuje sazenici při rozbití Forestry listů a lze je koupit pouze od vesničanů.
+
+for.jei.description.mailbox=Dovoluje hráčům odesílat psaní do obchodních stanic a ostatním hráčům. Otevření jakékoliv schránky ukáže hráči jejich vlastní poštu.
+for.jei.description.trade_station=Automatická schránka která dovoluje hráčům také obchodovat.
+for.jei.description.stamp_collector=Pouze v tvořivém režimu. Sbírá známky z odeslání psaní. Dobré pro servery s razítkovou ekonomikou.
+
+for.jei.description.adventurer_bag=Extra inventář který drží co je nastaveno v /config/forestry/backpacks.cfg
+for.jei.description.builder_bag=Extra inventář, který sbírá stavební předměty.
+for.jei.description.digger_bag=Extra inventář, který sbírá kámen, hlínu a další bezcenné předměty.
+for.jei.description.forester_bag=Extra inventář, který sbírá rostliny a přírodniny.
+for.jei.description.hunter_bag=Extra inventář, který sbírá dropy z mobů a podobné předměty.
+for.jei.description.miner_bag=Extra inventář, který sbírá rudy a další podobné cenné předměty.
+for.jei.description.apiarist_bag=Extra inventář, který automaticky sbírá včely.
+for.jei.description.lepidopterist_bag=Extra inventory, který automatický sbírá motýly.
+####################
+# JEI Recipes
+####################
+for.jei.rainmaker.causes.rain=Způsobuje déšť
+for.jei.rainmaker.stops.rain=Zastavuje déšť
+for.jei.rainmaker.speed=Rychlost: %s
+for.jei.rainmaker.duration=Výdrž: %s ticks
+for.jei.farming.name=Farmářství
+for.jei.farming.soil=Půda
+for.jei.farming.germlings=Klíčky
+for.jei.farming.products=Produkty
+for.jei.charcoal.pile.name=Kupa dřeveného uhlí
+for.jei.chance=Šance: %s
+for.jei.fortune=Počet tohoto předmětu je ovlivněn očarováním 'Štěstí'.
