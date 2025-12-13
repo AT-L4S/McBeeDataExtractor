@@ -2678,6 +2678,22 @@
     }
   },
   {
+    "parents": ["forestry:common", "magicbees:attuned"],
+    "children": {
+      "forestry:cultivated": {
+        "chance": 0.12
+      }
+    }
+  },
+  {
+    "parents": ["forestry:common", "magicbees:mystical"],
+    "children": {
+      "forestry:cultivated": {
+        "chance": 0.12
+      }
+    }
+  },
+  {
     "parents": ["forestry:common", "magicbees:skulking"],
     "children": {
       "magicbees:beef": {
@@ -2687,6 +2703,22 @@
         "chance": 0.12
       },
       "magicbees:pork": {
+        "chance": 0.12
+      }
+    }
+  },
+  {
+    "parents": ["forestry:common", "magicbees:sorcerous"],
+    "children": {
+      "forestry:cultivated": {
+        "chance": 0.12
+      }
+    }
+  },
+  {
+    "parents": ["forestry:common", "magicbees:unusual"],
+    "children": {
+      "forestry:cultivated": {
         "chance": 0.12
       }
     }
@@ -2732,6 +2764,14 @@
     }
   },
   {
+    "parents": ["forestry:cultivated", "magicbees:attuned"],
+    "children": {
+      "magicbees:eldritch": {
+        "chance": 0.12
+      }
+    }
+  },
+  {
     "parents": ["forestry:cultivated", "magicbees:eldritch"],
     "children": {
       "magicbees:charmed": {
@@ -2739,6 +2779,30 @@
       },
       "magicbees:esoteric": {
         "chance": 0.1
+      }
+    }
+  },
+  {
+    "parents": ["forestry:cultivated", "magicbees:mystical"],
+    "children": {
+      "magicbees:eldritch": {
+        "chance": 0.12
+      }
+    }
+  },
+  {
+    "parents": ["forestry:cultivated", "magicbees:sorcerous"],
+    "children": {
+      "magicbees:eldritch": {
+        "chance": 0.12
+      }
+    }
+  },
+  {
+    "parents": ["forestry:cultivated", "magicbees:unusual"],
+    "children": {
+      "magicbees:eldritch": {
+        "chance": 0.12
       }
     }
   },
@@ -3001,9 +3065,41 @@
     }
   },
   {
+    "parents": ["forestry:forest", "magicbees:attuned"],
+    "children": {
+      "forestry:common": {
+        "chance": 0.15
+      }
+    }
+  },
+  {
     "parents": ["forestry:forest", "magicbees:eldritch"],
     "children": {
       "magicbees:botrooted": {
+        "chance": 0.15
+      }
+    }
+  },
+  {
+    "parents": ["forestry:forest", "magicbees:mystical"],
+    "children": {
+      "forestry:common": {
+        "chance": 0.15
+      }
+    }
+  },
+  {
+    "parents": ["forestry:forest", "magicbees:sorcerous"],
+    "children": {
+      "forestry:common": {
+        "chance": 0.15
+      }
+    }
+  },
+  {
+    "parents": ["forestry:forest", "magicbees:unusual"],
+    "children": {
+      "forestry:common": {
         "chance": 0.15
       }
     }
@@ -3165,6 +3261,38 @@
     }
   },
   {
+    "parents": ["forestry:marshy", "magicbees:attuned"],
+    "children": {
+      "forestry:common": {
+        "chance": 0.15
+      }
+    }
+  },
+  {
+    "parents": ["forestry:marshy", "magicbees:mystical"],
+    "children": {
+      "forestry:common": {
+        "chance": 0.15
+      }
+    }
+  },
+  {
+    "parents": ["forestry:marshy", "magicbees:sorcerous"],
+    "children": {
+      "forestry:common": {
+        "chance": 0.15
+      }
+    }
+  },
+  {
+    "parents": ["forestry:marshy", "magicbees:unusual"],
+    "children": {
+      "forestry:common": {
+        "chance": 0.15
+      }
+    }
+  },
+  {
     "parents": ["forestry:meadows", "forestry:valiant"],
     "children": {
       "extrabees:yellow": {
@@ -3192,10 +3320,74 @@
     }
   },
   {
+    "parents": ["forestry:meadows", "magicbees:attuned"],
+    "children": {
+      "forestry:common": {
+        "chance": 0.15
+      }
+    }
+  },
+  {
+    "parents": ["forestry:meadows", "magicbees:mystical"],
+    "children": {
+      "forestry:common": {
+        "chance": 0.15
+      }
+    }
+  },
+  {
+    "parents": ["forestry:meadows", "magicbees:sorcerous"],
+    "children": {
+      "forestry:common": {
+        "chance": 0.15
+      }
+    }
+  },
+  {
+    "parents": ["forestry:meadows", "magicbees:unusual"],
+    "children": {
+      "forestry:common": {
+        "chance": 0.15
+      }
+    }
+  },
+  {
+    "parents": ["forestry:modest", "magicbees:attuned"],
+    "children": {
+      "forestry:common": {
+        "chance": 0.15
+      }
+    }
+  },
+  {
     "parents": ["forestry:modest", "magicbees:eldritch"],
     "children": {
       "magicbees:skulking": {
         "chance": 0.12
+      }
+    }
+  },
+  {
+    "parents": ["forestry:modest", "magicbees:mystical"],
+    "children": {
+      "forestry:common": {
+        "chance": 0.15
+      }
+    }
+  },
+  {
+    "parents": ["forestry:modest", "magicbees:sorcerous"],
+    "children": {
+      "forestry:common": {
+        "chance": 0.15
+      }
+    }
+  },
+  {
+    "parents": ["forestry:modest", "magicbees:unusual"],
+    "children": {
+      "forestry:common": {
+        "chance": 0.15
       }
     }
   },
@@ -3305,10 +3497,42 @@
     }
   },
   {
+    "parents": ["forestry:tropical", "magicbees:attuned"],
+    "children": {
+      "forestry:common": {
+        "chance": 0.15
+      }
+    }
+  },
+  {
+    "parents": ["forestry:tropical", "magicbees:mystical"],
+    "children": {
+      "forestry:common": {
+        "chance": 0.15
+      }
+    }
+  },
+  {
     "parents": ["forestry:tropical", "magicbees:skulking"],
     "children": {
       "magicbees:spidery": {
         "chance": 0.1
+      }
+    }
+  },
+  {
+    "parents": ["forestry:tropical", "magicbees:sorcerous"],
+    "children": {
+      "forestry:common": {
+        "chance": 0.15
+      }
+    }
+  },
+  {
+    "parents": ["forestry:tropical", "magicbees:unusual"],
+    "children": {
+      "forestry:common": {
+        "chance": 0.15
       }
     }
   },
@@ -3329,10 +3553,42 @@
     }
   },
   {
+    "parents": ["forestry:wintry", "magicbees:attuned"],
+    "children": {
+      "forestry:common": {
+        "chance": 0.15
+      }
+    }
+  },
+  {
+    "parents": ["forestry:wintry", "magicbees:mystical"],
+    "children": {
+      "forestry:common": {
+        "chance": 0.15
+      }
+    }
+  },
+  {
     "parents": ["forestry:wintry", "magicbees:skulking"],
     "children": {
       "magicbees:teblizzy": {
         "chance": 0.12
+      }
+    }
+  },
+  {
+    "parents": ["forestry:wintry", "magicbees:sorcerous"],
+    "children": {
+      "forestry:common": {
+        "chance": 0.15
+      }
+    }
+  },
+  {
+    "parents": ["forestry:wintry", "magicbees:unusual"],
+    "children": {
+      "forestry:common": {
+        "chance": 0.15
       }
     }
   },

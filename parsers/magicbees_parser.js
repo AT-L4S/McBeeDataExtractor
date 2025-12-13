@@ -114,6 +114,16 @@ function parseMagicBeesSpecies(filePath) {
       linesBeforeMatch
     );
     result.mutations.push(...beeMutations);
+
+    // Check if this bee calls registerMundaneMutations()
+    if (body.includes("registerMundaneMutations()")) {
+      const mundaneMutations = createMundaneMutations(
+        uid,
+        filePath,
+        linesBeforeMatch
+      );
+      result.mutations.push(...mundaneMutations);
+    }
   }
 
   // Extract branch names
@@ -339,6 +349,67 @@ function parseMutations(content, bees) {
 
     mutations.push(mutation);
   }
+
+  return mutations;
+}
+
+/**
+ * Create mutations based on the registerMundaneMutations() method
+ * This method creates mutations for mundane bees (MYSTICAL, SORCEROUS, UNUSUAL, ATTUNED)
+ */
+function createMundaneMutations(beeUID, filePath, lineNumber) {
+  const mutations = [];
+
+  // Forestry mundane bees that participate in these mutations
+  const forestryMundane = [
+    "Forest",
+    "Meadows",
+    "Modest",
+    "Wintry",
+    "Tropical",
+    "Marshy",
+  ];
+
+  // Each mundane bee + each Forestry mundane bee → Common (15% chance)
+  for (const forestryBee of forestryMundane) {
+    mutations.push({
+      parent1: beeUID,
+      parent2: `forestry:${forestryBee.toLowerCase()}`,
+      offspring: "forestry:common",
+      chance: 15,
+      source: {
+        file: filePath,
+        line: lineNumber,
+        note: "Generated from registerMundaneMutations()",
+      },
+    });
+  }
+
+  // Each mundane bee + Common → Cultivated (12% chance)
+  mutations.push({
+    parent1: beeUID,
+    parent2: "forestry:common",
+    offspring: "forestry:cultivated",
+    chance: 12,
+    source: {
+      file: filePath,
+      line: lineNumber,
+      note: "Generated from registerMundaneMutations()",
+    },
+  });
+
+  // Each mundane bee + Cultivated → Eldritch (12% chance)
+  mutations.push({
+    parent1: beeUID,
+    parent2: "forestry:cultivated",
+    offspring: "magicbees:eldritch",
+    chance: 12,
+    source: {
+      file: filePath,
+      line: lineNumber,
+      note: "Generated from registerMundaneMutations()",
+    },
+  });
 
   return mutations;
 }
