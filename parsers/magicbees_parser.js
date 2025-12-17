@@ -54,8 +54,12 @@ function parseMagicBeesSpecies(filePath) {
       body,
     ] = match;
 
-    // Create storage key using final format: mod:name (lowercase, no spaces)
-    // This matches the format used in manual/mutations.jsonc and final output
+    // Create UID directly from enum name (lowercase, no underscores)
+    // This ensures consistent IDs regardless of display name formatting
+    // e.g., "AE_SKYSTONE" → "magicbees:aeskystone"
+    const uid = `magicbees:${enumName.toLowerCase().replace(/_/g, "")}`;
+
+    // Create display name for the name field (will be overridden by lang file if available)
     const displayName = enumName
       .split("_")
       .map((part) => {
@@ -66,7 +70,6 @@ function parseMagicBeesSpecies(filePath) {
         return part.charAt(0).toUpperCase() + part.slice(1).toLowerCase();
       })
       .join(" ");
-    const uid = `magicbees:${displayName.toLowerCase().replace(/\s+/g, "")}`;
 
     // Calculate line number where this enum body starts
     const linesBeforeMatch = content
@@ -269,20 +272,11 @@ function parseBeeMutations(body, enumName, bees, filePath, bodyStartLine) {
     const lineNumber =
       bodyStartLine + linesBeforeMethodStart + linesInMethodBeforeMatch;
 
-    // Create offspring using final format: mod:name
-    const offspringName = enumName
-      .split("_")
-      .map((part) => {
-        if (part.length === 2 && /^[A-Z]{2}$/.test(part)) {
-          return part;
-        }
-        return part.charAt(0).toUpperCase() + part.slice(1).toLowerCase();
-      })
-      .join(" ");
+    // Create offspring UID directly from enum name (lowercase, no underscores)
     const mutation = {
       parent1: resolveSpeciesReference(parent1.trim(), bees),
       parent2: resolveSpeciesReference(parent2.trim(), bees),
-      offspring: `magicbees:${offspringName.toLowerCase().replace(/\s+/g, "")}`,
+      offspring: `magicbees:${enumName.toLowerCase().replace(/_/g, "")}`,
       chance: parseFloat(chance),
       source: {
         file: filePath,
@@ -523,26 +517,80 @@ function resolveSpeciesReference(ref, bees) {
   // Pattern: Bare ALL_CAPS reference - assume MagicBees if not found in dictionary yet
   // This handles forward references to bees defined later in the file
   if (ref.match(/^[A-Z_]+$/)) {
-    const displayName = ref
-      .split("_")
-      .map((part) => {
-        if (part.length === 2 && /^[A-Z]{2}$/.test(part)) {
-          return part;
-        }
-        return part.charAt(0).toUpperCase() + part.slice(1).toLowerCase();
-      })
-      .join(" ");
-    return `magicbees:${displayName.toLowerCase().replace(/\s+/g, "")}`;
+    // Remove underscores for consistent UID format (e.g., "AE_SKYSTONE" → "aeskystone")
+    return `magicbees:${ref.toLowerCase().replace(/_/g, "")}`;
   }
 
   return ref;
 }
 
 /**
+ * Parse MagicBees lang file to extract bee names
+ * @param {string} langFilePath - Path to en_US.lang file
+ * @returns {Object} Map of bee UID to display name
+ */
+function parseMagicBeesLangFile(langFilePath) {
+  const nameMap = {};
+
+  if (!fs.existsSync(langFilePath)) {
+    console.warn(`Lang file not found: ${langFilePath}`);
+    return nameMap;
+  }
+
+  const content = fs.readFileSync(langFilePath, "utf-8");
+  const lines = content.split("\n");
+
+  // Pattern: magicbees.species<EnumName>=<Display Name>
+  // EnumName matches the Java enum (e.g., AESkystone, TEBlizzy)
+  const namePattern = /^magicbees\.species([A-Z]\w+)=(.+)$/;
+
+  for (const line of lines) {
+    const match = line.trim().match(namePattern);
+    if (match) {
+      const [, langEnumName, displayName] = match;
+      // Convert langEnumName to normalized UID format for lookup
+      // Lang file uses CamelCase: "AESkystone" → "aeskystone"
+      // But we need to match UIDs that preserve underscores from Java enums
+      // e.g., Java "AE_SKYSTONE" → UID "ae_skystone", Lang "AESkystone" → "aeskystone"
+      // Store both with and without underscores to handle matching
+      const normalizedName = langEnumName.toLowerCase();
+      nameMap[normalizedName] = displayName.trim();
+    }
+  }
+
+  return nameMap;
+}
+
+/**
+ * Apply lang names to parsed bees using normalized key matching
+ * @param {Object} bees - Parsed bees object
+ * @param {Object} nameMap - Map of normalized names to display names
+ */
+function applyLangNames(bees, nameMap) {
+  for (const [uid, bee] of Object.entries(bees)) {
+    // Extract the bee name part from UID (e.g., "magicbees:aeskystone" → "aeskystone")
+    const beeId = uid.split(":")[1];
+    // UIDs are already normalized (lowercase, no underscores)
+    if (nameMap[beeId]) {
+      bee.name = nameMap[beeId];
+    }
+  }
+}
+
+/**
  * Main export function
  */
-function parseMagicBees(javaFilePath) {
-  return parseMagicBeesSpecies(javaFilePath);
+function parseMagicBees(javaFilePath, langFilePath = null) {
+  const result = parseMagicBeesSpecies(javaFilePath);
+
+  // If lang file path provided, read names from it
+  if (langFilePath) {
+    const nameMap = parseMagicBeesLangFile(langFilePath);
+    // Apply names using normalized key matching
+    applyLangNames(result.bees, nameMap);
+  }
+
+  return result;
 }
 
 module.exports = { parseMagicBees };

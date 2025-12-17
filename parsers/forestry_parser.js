@@ -328,10 +328,55 @@ function hexToRGB(hex) {
 }
 
 /**
+ * Parse Forestry lang file to extract bee names
+ * @param {string} langFilePath - Path to en_us.lang file
+ * @returns {Object} Map of bee UID to display name
+ */
+function parseForestryLangFile(langFilePath) {
+  const nameMap = {};
+
+  if (!fs.existsSync(langFilePath)) {
+    console.warn(`Lang file not found: ${langFilePath}`);
+    return nameMap;
+  }
+
+  const content = fs.readFileSync(langFilePath, "utf-8");
+  const lines = content.split("\n");
+
+  // Pattern: for.bees.species.<bee_name>=<Display Name>
+  const namePattern = /^for\.bees\.species\.(\w+)=(.+)$/;
+
+  for (const line of lines) {
+    const match = line.trim().match(namePattern);
+    if (match) {
+      const [, beeName, displayName] = match;
+      const uid = `forestry:${beeName.toLowerCase()}`;
+      nameMap[uid] = displayName.trim();
+    }
+  }
+
+  return nameMap;
+}
+
+/**
  * Main export function
  */
-function parseForestry(javaFilePath) {
-  return parseForestryBeeDefinition(javaFilePath);
+function parseForestry(javaFilePath, langFilePath = null) {
+  const result = parseForestryBeeDefinition(javaFilePath);
+
+  // If lang file path provided, read names from it
+  if (langFilePath) {
+    const nameMap = parseForestryLangFile(langFilePath);
+
+    // Update bee names from lang file
+    for (const [uid, bee] of Object.entries(result.bees)) {
+      if (nameMap[uid]) {
+        bee.name = nameMap[uid];
+      }
+    }
+  }
+
+  return result;
 }
 
 module.exports = { parseForestry };

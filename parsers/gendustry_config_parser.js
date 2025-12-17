@@ -633,11 +633,43 @@ function parseInlineRequirements(reqStr) {
 }
 
 /**
+ * Parse Gendustry lang file to extract bee names
+ * @param {string} langFilePath - Path to en_US.lang file
+ * @returns {Object} Map of bee UID to display name
+ */
+function parseGendustryLangFile(langFilePath) {
+  const nameMap = {};
+
+  if (!fs.existsSync(langFilePath)) {
+    console.warn(`Lang file not found: ${langFilePath}`);
+    return nameMap;
+  }
+
+  const content = fs.readFileSync(langFilePath, "utf-8");
+  const lines = content.split("\n");
+
+  // Pattern: gendustry.bees.species.<bee_name>=<Display Name>
+  const namePattern = /^gendustry\.bees\.species\.(\w+)=(.+)$/;
+
+  for (const line of lines) {
+    const match = line.trim().match(namePattern);
+    if (match) {
+      const [, beeName, displayName] = match;
+      const uid = `gendustry:${beeName.toLowerCase()}`;
+      nameMap[uid] = displayName.trim();
+    }
+  }
+
+  return nameMap;
+}
+
+/**
  * Main export function
  * @param {string} configPath - Path to the config file
  * @param {string} modName - Name of the mod (default: auto-detect from path)
+ * @param {string} langFilePath - Optional path to lang file for names
  */
-function parseGendustryConfig(configPath, modName = null) {
+function parseGendustryConfig(configPath, modName = null, langFilePath = null) {
   // Auto-detect mod name from file path if not provided
   if (!modName) {
     if (configPath.includes("meatball_bees.cfg")) {
@@ -647,7 +679,21 @@ function parseGendustryConfig(configPath, modName = null) {
     }
   }
 
-  return parseGendustryConfigFile(configPath, modName);
+  const result = parseGendustryConfigFile(configPath, modName);
+
+  // If lang file path provided, read names from it
+  if (langFilePath) {
+    const nameMap = parseGendustryLangFile(langFilePath);
+
+    // Update bee names from lang file (only for Gendustry built-in bees)
+    for (const [uid, bee] of Object.entries(result.bees)) {
+      if (nameMap[uid]) {
+        bee.name = nameMap[uid];
+      }
+    }
+  }
+
+  return result;
 }
 
 module.exports = { parseGendustryConfig };

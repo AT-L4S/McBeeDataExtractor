@@ -31,6 +31,7 @@ const MOD_CONFIGS = [
     name: "Forestry",
     parser: parseForestry,
     sourceFile: path.join(__dirname, "raw_data/forestry/BeeDefinition.java"),
+    langFile: path.join(__dirname, "raw_data/forestry/lang/en_us.lang"),
   },
   {
     key: "extrabees",
@@ -40,6 +41,7 @@ const MOD_CONFIGS = [
       __dirname,
       "raw_data/extrabees/ExtraBeeDefinition.java"
     ),
+    langFile: path.join(__dirname, "raw_data/extrabees/lang/en_US.lang"),
   },
   {
     key: "careerbees",
@@ -49,30 +51,36 @@ const MOD_CONFIGS = [
       __dirname,
       "raw_data/careerbees/CareerBeeSpecies.java"
     ),
+    langFile: path.join(__dirname, "raw_data/careerbees/lang/en_us.lang"),
   },
   {
     key: "magicbees",
     name: "MagicBees",
     parser: parseMagicBees,
     sourceFile: path.join(__dirname, "raw_data/magicbees/EnumBeeSpecies.java"),
+    langFile: path.join(__dirname, "raw_data/magicbees/lang/en_US.lang"),
   },
   {
     key: "gendustry_color",
     name: "Gendustry Color Bees",
     parser: parseGendustryConfig,
     sourceFile: path.join(__dirname, "raw_data/gendustry/bees_color.cfg"),
+    langFile: path.join(__dirname, "raw_data/gendustry/lang/en_US.lang"),
   },
   {
     key: "gendustry_patreon",
     name: "Gendustry Patreon Bees",
     parser: parseGendustryConfig,
     sourceFile: path.join(__dirname, "raw_data/gendustry/bees_patreon.cfg"),
+    langFile: path.join(__dirname, "raw_data/gendustry/lang/en_US.lang"),
   },
   {
     key: "meatballcraft",
     name: "MeatballCraft",
     parser: parseGendustryConfig,
     sourceFile: path.join(__dirname, "raw_data/meatball_bees.cfg"),
+    // MeatballCraft uses Gendustry's lang file for built-in bees, but custom bees don't have lang entries
+    langFile: path.join(__dirname, "raw_data/gendustry/lang/en_US.lang"),
   },
 ];
 
@@ -148,7 +156,24 @@ function parseAllMods(modsToInclude = null) {
   for (const config of modsConfig) {
     if (!fs.existsSync(config.sourceFile)) continue;
     try {
-      const data = config.parser(config.sourceFile);
+      // Pass lang file to parser if it exists
+      const langFile =
+        config.langFile && fs.existsSync(config.langFile)
+          ? config.langFile
+          : null;
+
+      // Handle different parser signatures
+      let data;
+      if (
+        config.key.startsWith("gendustry") ||
+        config.key === "meatballcraft"
+      ) {
+        // Gendustry parser signature: (configPath, modName, langFilePath)
+        data = config.parser(config.sourceFile, config.name, langFile);
+      } else {
+        // Other parsers signature: (sourceFile, langFilePath)
+        data = config.parser(config.sourceFile, langFile);
+      }
       Object.assign(allBees, data.bees);
     } catch (error) {
       // Ignore errors in first pass
@@ -181,7 +206,24 @@ function parseAllMods(modsToInclude = null) {
     }
 
     try {
-      const data = config.parser(config.sourceFile);
+      // Pass lang file to parser if it exists
+      const langFile =
+        config.langFile && fs.existsSync(config.langFile)
+          ? config.langFile
+          : null;
+
+      // Handle different parser signatures
+      let data;
+      if (
+        config.key.startsWith("gendustry") ||
+        config.key === "meatballcraft"
+      ) {
+        // Gendustry parser signature: (configPath, modName, langFilePath)
+        data = config.parser(config.sourceFile, config.name, langFile);
+      } else {
+        // Other parsers signature: (sourceFile, langFilePath)
+        data = config.parser(config.sourceFile, langFile);
+      }
       data._configName = config.name;
       data._sourceFile = path.basename(config.sourceFile);
       intermediateData.push(data);

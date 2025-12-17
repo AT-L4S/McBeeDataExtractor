@@ -130,12 +130,9 @@ function extractCombs(merged) {
               producers: [],
             };
           }
-          // Convert UID to "mod:name" format for comb producers (fully lowercase, no spaces)
-          const modName = bee.mod.toLowerCase();
-          const beeName = bee.name.toLowerCase().replace(/\s+/g, "");
-          const beeKey = `${modName}:${beeName}`;
+          // Use the original UID directly (already in mod:name format, lowercase, no spaces)
           merged.combs[combId].producers.push({
-            bee: beeKey,
+            bee: uid,
             chance: product.chance,
           });
         }
@@ -168,10 +165,8 @@ function buildBeesJsonc(merged) {
   });
 
   sortedBees.forEach(([uid, bee]) => {
-    // Convert UID to "mod:name" format (fully lowercase, no spaces)
-    const key = `${bee.mod.toLowerCase()}:${bee.name
-      .toLowerCase()
-      .replace(/\s+/g, "")}`;
+    // Use the original parser UID as the key (already in mod:name format, lowercase, no spaces/underscores)
+    const key = uid;
 
     // Build bee object matching existing format
     const beeData = {
