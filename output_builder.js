@@ -266,20 +266,19 @@ function buildBreedingPairsJsonc(merged, manualMutations = []) {
   };
 
   merged.mutations.forEach((mutation) => {
-    // Find bees by mod:name key (new standardized format)
-    const findBee = (identifier) => {
-      // Check for null/undefined identifier
-      if (!identifier) {
-        return null;
-      }
+    // Check for null/undefined identifiers
+    if (!mutation.parent1 || !mutation.parent2 || !mutation.offspring) {
+      skippedMutations.push({
+        offspring: mutation.offspring,
+        inManual: false,
+      });
+      return;
+    }
 
-      // Direct lookup using mod:name format
-      return merged.bees[identifier] || null;
-    };
-
-    const parent1Bee = findBee(mutation.parent1);
-    const parent2Bee = findBee(mutation.parent2);
-    const offspringBee = findBee(mutation.offspring);
+    // Check if all bees exist in the bees map
+    const parent1Bee = merged.bees[mutation.parent1];
+    const parent2Bee = merged.bees[mutation.parent2];
+    const offspringBee = merged.bees[mutation.offspring];
 
     if (!parent1Bee || !parent2Bee || !offspringBee) {
       // Check if this mutation is in manual/mutations.jsonc
@@ -297,15 +296,10 @@ function buildBreedingPairsJsonc(merged, manualMutations = []) {
       return;
     }
 
-    const parent1 = `${parent1Bee.mod.toLowerCase()}:${parent1Bee.name
-      .toLowerCase()
-      .replace(/\s+/g, "")}`;
-    const parent2 = `${parent2Bee.mod.toLowerCase()}:${parent2Bee.name
-      .toLowerCase()
-      .replace(/\s+/g, "")}`;
-    const offspring = `${offspringBee.mod.toLowerCase()}:${offspringBee.name
-      .toLowerCase()
-      .replace(/\s+/g, "")}`;
+    // Use the UIDs directly from the mutation data - they are already in the correct format
+    const parent1 = mutation.parent1;
+    const parent2 = mutation.parent2;
+    const offspring = mutation.offspring;
 
     // Create sorted key for parent pair (so [A,B] and [B,A] are treated the same)
     const parentKey = [parent1, parent2].sort().join("|");

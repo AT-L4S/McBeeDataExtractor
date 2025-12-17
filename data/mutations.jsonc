@@ -928,6 +928,45 @@
     }
   },
   {
+    "parents": ["careerbees:acceleration", "magicbees:forlorn"],
+    "children": {
+      "meatballcraft:balanced": {
+        "chance": 0.1,
+        "requirements": [
+          {
+            "temperature": ["NORMAL"]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "parents": ["careerbees:acceleration", "magicbees:lordly"],
+    "children": {
+      "meatballcraft:pyramid": {
+        "chance": 0.25,
+        "requirements": [
+          {
+            "temperature": ["NORMAL"]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "parents": ["careerbees:acceleration", "magicbees:sorcerous"],
+    "children": {
+      "meatballcraft:lordraine": {
+        "chance": 0.6,
+        "requirements": [
+          {
+            "temperature": ["NORMAL"]
+          }
+        ]
+      }
+    }
+  },
+  {
     "parents": ["careerbees:armorer", "careerbees:graduate"],
     "children": {
       "careerbees:sharpening": {
@@ -944,7 +983,7 @@
     }
   },
   {
-    "parents": ["careerbees:artistic", "careerbees:phd"],
+    "parents": ["careerbees:artist", "careerbees:phd"],
     "children": {
       "careerbees:rainbow": {
         "chance": 0.001
@@ -952,15 +991,15 @@
     }
   },
   {
-    "parents": ["careerbees:artistic", "careerbees:smelter"],
+    "parents": ["careerbees:artist", "careerbees:smelter"],
     "children": {
-      "careerbees:chef": {
+      "careerbees:cook": {
         "chance": 0.002
       }
     }
   },
   {
-    "parents": ["careerbees:artistic", "forestry:boggy"],
+    "parents": ["careerbees:artist", "forestry:boggy"],
     "children": {
       "careerbees:bensen": {
         "chance": 0.0001
@@ -968,7 +1007,7 @@
     }
   },
   {
-    "parents": ["careerbees:buisness", "forestry:common"],
+    "parents": ["careerbees:buisnessman", "forestry:common"],
     "children": {
       "careerbees:junkseller": {
         "chance": 0.004
@@ -976,7 +1015,7 @@
     }
   },
   {
-    "parents": ["careerbees:clockwork", "careerbees:electrician"],
+    "parents": ["careerbees:clock", "careerbees:electrician"],
     "children": {
       "careerbees:robot": {
         "chance": 0.002
@@ -984,7 +1023,7 @@
     }
   },
   {
-    "parents": ["careerbees:clockwork", "careerbees:engineer"],
+    "parents": ["careerbees:clock", "careerbees:engineer"],
     "children": {
       "careerbees:electrician": {
         "chance": 0.002
@@ -992,7 +1031,7 @@
     }
   },
   {
-    "parents": ["careerbees:clockwork", "careerbees:repair"],
+    "parents": ["careerbees:clock", "careerbees:repair"],
     "children": {
       "careerbees:energy": {
         "chance": 0.0005
@@ -1010,7 +1049,7 @@
   {
     "parents": ["careerbees:devil", "careerbees:politician"],
     "children": {
-      "careerbees:n.c.a.": {
+      "careerbees:nca": {
         "chance": 0.001
       }
     }
@@ -1037,7 +1076,7 @@
     }
   },
   {
-    "parents": ["careerbees:digging.silky", "careerbees:miner"],
+    "parents": ["careerbees:digging", "careerbees:digging.silky"],
     "children": {
       "careerbees:digging.fortune": {
         "chance": 0.001
@@ -1045,9 +1084,17 @@
     }
   },
   {
+    "parents": ["careerbees:digging", "careerbees:engineer"],
+    "children": {
+      "careerbees:digging.silky": {
+        "chance": 0.001
+      }
+    }
+  },
+  {
     "parents": ["careerbees:doctor", "forestry:sinister"],
     "children": {
-      "careerbees:plague": {
+      "careerbees:plaguedoctor": {
         "chance": 0.003
       }
     }
@@ -1055,15 +1102,7 @@
   {
     "parents": ["careerbees:engineer", "careerbees:graduate"],
     "children": {
-      "careerbees:miner": {
-        "chance": 0.001
-      }
-    }
-  },
-  {
-    "parents": ["careerbees:engineer", "careerbees:miner"],
-    "children": {
-      "careerbees:digging.silky": {
+      "careerbees:digging": {
         "chance": 0.001
       }
     }
@@ -1084,7 +1123,7 @@
   {
     "parents": ["careerbees:engineer", "careerbees:smelter"],
     "children": {
-      "careerbees:clockwork": {
+      "careerbees:clock": {
         "chance": 0.002
       }
     }
@@ -1140,7 +1179,7 @@
   {
     "parents": ["careerbees:graduate", "forestry:cultivated"],
     "children": {
-      "careerbees:artistic": {
+      "careerbees:artist": {
         "chance": 0.004
       }
     }
@@ -1212,7 +1251,7 @@
   {
     "parents": ["careerbees:mason", "careerbees:sharpening"],
     "children": {
-      "careerbees:orecrusher": {
+      "careerbees:crusher": {
         "chance": 0.001
       }
     }
@@ -1233,7 +1272,7 @@
   {
     "parents": ["careerbees:phd", "forestry:imperial"],
     "children": {
-      "careerbees:buisness": {
+      "careerbees:buisnessman": {
         "chance": 0.002
       }
     }
@@ -1263,10 +1302,10 @@
     }
   },
   {
-    "parents": ["careerbees:phd", "magicbees:pyro"],
+    "parents": ["careerbees:phd", "magicbees:scholarly"],
     "children": {
-      "meatballcraft:thermallyexpanded": {
-        "chance": 0.55,
+      "meatballcraft:kurrycat": {
+        "chance": 0.69,
         "requirements": [
           {
             "temperature": ["NORMAL"]
@@ -1276,10 +1315,10 @@
     }
   },
   {
-    "parents": ["careerbees:phd", "magicbees:scholarly"],
+    "parents": ["careerbees:phd", "magicbees:tepyro"],
     "children": {
-      "meatballcraft:kurrycat": {
-        "chance": 0.69,
+      "meatballcraft:thermallyexpanded": {
+        "chance": 0.55,
         "requirements": [
           {
             "temperature": ["NORMAL"]
@@ -1328,7 +1367,7 @@
   {
     "parents": ["careerbees:quantumcharm", "careerbees:quantumstrange"],
     "children": {
-      "careerbees:temporal": {
+      "careerbees:acceleration": {
         "chance": 0.0001
       }
     }
@@ -1342,7 +1381,7 @@
     }
   },
   {
-    "parents": ["careerbees:rainbow", "extrabees:abyssal"],
+    "parents": ["careerbees:rainbow", "extrabees:abyss"],
     "children": {
       "meatballcraft:luctor": {
         "chance": 0.55,
@@ -1355,7 +1394,7 @@
     }
   },
   {
-    "parents": ["careerbees:robot", "gendustry color bees:lightblue"],
+    "parents": ["careerbees:robot", "gendustry:lightblue"],
     "children": {
       "meatballcraft:chevron": {
         "chance": 0.14,
@@ -1378,7 +1417,7 @@
   {
     "parents": ["careerbees:student", "forestry:common"],
     "children": {
-      "careerbees:collecting": {
+      "careerbees:collectors": {
         "chance": 0.005
       },
       "careerbees:graduate": {
@@ -1390,45 +1429,6 @@
     "parents": ["careerbees:student", "forestry:imperial"],
     "children": {
       "meatballcraft:oxygen": {
-        "chance": 0.6,
-        "requirements": [
-          {
-            "temperature": ["NORMAL"]
-          }
-        ]
-      }
-    }
-  },
-  {
-    "parents": ["careerbees:temporal", "magicbees:forlorn"],
-    "children": {
-      "meatballcraft:balanced": {
-        "chance": 0.1,
-        "requirements": [
-          {
-            "temperature": ["NORMAL"]
-          }
-        ]
-      }
-    }
-  },
-  {
-    "parents": ["careerbees:temporal", "magicbees:lordly"],
-    "children": {
-      "meatballcraft:pyramid": {
-        "chance": 0.25,
-        "requirements": [
-          {
-            "temperature": ["NORMAL"]
-          }
-        ]
-      }
-    }
-  },
-  {
-    "parents": ["careerbees:temporal", "magicbees:sorcerous"],
-    "children": {
-      "meatballcraft:lordraine": {
         "chance": 0.6,
         "requirements": [
           {
@@ -1452,15 +1452,7 @@
     }
   },
   {
-    "parents": ["extrabees:abnormal", "forestry:hermitic"],
-    "children": {
-      "extrabees:spatial": {
-        "chance": 0.05
-      }
-    }
-  },
-  {
-    "parents": ["extrabees:abyssal", "magicbees:savant"],
+    "parents": ["extrabees:abyss", "magicbees:savant"],
     "children": {
       "meatballcraft:necronomibee": {
         "chance": 0.55,
@@ -1477,6 +1469,19 @@
     "children": {
       "meatballcraft:formic": {
         "chance": 0.1,
+        "requirements": [
+          {
+            "temperature": ["NORMAL"]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "parents": ["extrabees:alcohol", "magicbees:transmuting"],
+    "children": {
+      "meatballcraft:shadow": {
+        "chance": 0.12,
         "requirements": [
           {
             "temperature": ["NORMAL"]
@@ -1518,6 +1523,14 @@
     }
   },
   {
+    "parents": ["extrabees:artic", "extrabees:ocean"],
+    "children": {
+      "extrabees:freezing": {
+        "chance": 0.1
+      }
+    }
+  },
+  {
     "parents": ["extrabees:barren", "forestry:forest"],
     "children": {
       "extrabees:gnawing": {
@@ -1534,42 +1547,68 @@
     }
   },
   {
-    "parents": ["extrabees:bleached", "extrabees:ebony"],
+    "parents": ["extrabees:basalt", "forestry:fiendish"],
     "children": {
-      "extrabees:slate": {
+      "extrabees:tempered": {
+        "chance": 0.3,
+        "requirements": [
+          {
+            "biome": ["NETHER"]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "parents": ["extrabees:black", "extrabees:ocean"],
+    "children": {
+      "extrabees:ink": {
+        "chance": 0.08
+      }
+    }
+  },
+  {
+    "parents": ["extrabees:black", "extrabees:white"],
+    "children": {
+      "extrabees:gray": {
         "chance": 0.05
       }
     }
   },
   {
-    "parents": ["extrabees:bleached", "extrabees:maroon"],
+    "parents": ["extrabees:blue", "extrabees:green"],
     "children": {
-      "extrabees:lavender": {
+      "extrabees:cyan": {
         "chance": 0.05
       }
     }
   },
   {
-    "parents": ["extrabees:bleached", "extrabees:natural"],
+    "parents": ["extrabees:blue", "extrabees:red"],
     "children": {
-      "extrabees:lime": {
+      "extrabees:purple": {
         "chance": 0.05
       }
     }
   },
   {
-    "parents": ["extrabees:bleached", "extrabees:prussian"],
+    "parents": ["extrabees:blue", "extrabees:white"],
     "children": {
-      "extrabees:azure": {
+      "extrabees:lightblue": {
         "chance": 0.05
       }
     }
   },
   {
-    "parents": ["extrabees:bleached", "extrabees:slate"],
+    "parents": ["extrabees:bone", "magicbees:scholarly"],
     "children": {
-      "extrabees:ashen": {
-        "chance": 0.05
+      "meatballcraft:aedial": {
+        "chance": 0.2,
+        "requirements": [
+          {
+            "temperature": ["NORMAL"]
+          }
+        ]
       }
     }
   },
@@ -1595,7 +1634,7 @@
     }
   },
   {
-    "parents": ["extrabees:classical", "gendustry color bees:lightblue"],
+    "parents": ["extrabees:classical", "gendustry:lightblue"],
     "children": {
       "meatballcraft:fiotic": {
         "chance": 0.42,
@@ -1608,7 +1647,15 @@
     }
   },
   {
-    "parents": ["extrabees:corroded", "extrabees:unstable"],
+    "parents": ["extrabees:coal", "extrabees:distilled"],
+    "children": {
+      "extrabees:creosote": {
+        "chance": 0.08
+      }
+    }
+  },
+  {
+    "parents": ["extrabees:copper", "extrabees:unstable"],
     "children": {
       "extrabees:nuclear": {
         "chance": 0.05
@@ -1616,9 +1663,9 @@
     }
   },
   {
-    "parents": ["extrabees:corroded", "forestry:majestic"],
+    "parents": ["extrabees:copper", "forestry:majestic"],
     "children": {
-      "extrabees:glittering": {
+      "extrabees:gold": {
         "chance": 0.02
       }
     }
@@ -1640,20 +1687,9 @@
     }
   },
   {
-    "parents": ["extrabees:damp", "forestry:boggy"],
+    "parents": ["extrabees:darkened", "extrabees:shadow"],
     "children": {
-      "extrabees:fungal": {
-        "chance": 0.08
-      },
-      "extrabees:sodden": {
-        "chance": 0.08
-      }
-    }
-  },
-  {
-    "parents": ["extrabees:darkened", "extrabees:shadowed"],
-    "children": {
-      "extrabees:abyssal": {
+      "extrabees:abyss": {
         "chance": 0.08
       }
     }
@@ -1669,7 +1705,7 @@
   {
     "parents": ["extrabees:desolate", "forestry:forest"],
     "children": {
-      "extrabees:skeletal": {
+      "extrabees:bone": {
         "chance": 0.15
       }
     }
@@ -1677,7 +1713,7 @@
   {
     "parents": ["extrabees:desolate", "forestry:meadows"],
     "children": {
-      "extrabees:decaying": {
+      "extrabees:rotten": {
         "chance": 0.15
       }
     }
@@ -1685,53 +1721,24 @@
   {
     "parents": ["extrabees:desolate", "forestry:modest"],
     "children": {
-      "extrabees:creepy": {
+      "extrabees:creeper": {
         "chance": 0.15
       }
     }
   },
   {
-    "parents": ["extrabees:distilled", "extrabees:fossilised"],
+    "parents": ["extrabees:distilled", "extrabees:oil"],
     "children": {
-      "extrabees:tarry": {
+      "extrabees:fuel": {
         "chance": 0.08
       }
     }
   },
   {
-    "parents": ["extrabees:distilled", "extrabees:oily"],
+    "parents": ["extrabees:distilled", "extrabees:resin"],
     "children": {
-      "extrabees:refined": {
+      "extrabees:latex": {
         "chance": 0.08
-      }
-    }
-  },
-  {
-    "parents": ["extrabees:distilled", "extrabees:resinous"],
-    "children": {
-      "extrabees:elastic": {
-        "chance": 0.08
-      }
-    }
-  },
-  {
-    "parents": ["extrabees:ebony", "extrabees:ocean"],
-    "children": {
-      "extrabees:stained": {
-        "chance": 0.08
-      }
-    }
-  },
-  {
-    "parents": ["extrabees:embittered", "forestry:fiendish"],
-    "children": {
-      "extrabees:furious": {
-        "chance": 0.3,
-        "requirements": [
-          {
-            "biome": ["NETHER"]
-          }
-        ]
       }
     }
   },
@@ -1757,9 +1764,9 @@
     }
   },
   {
-    "parents": ["extrabees:excited", "extrabees:furious"],
+    "parents": ["extrabees:excited", "extrabees:tempered"],
     "children": {
-      "extrabees:glowering": {
+      "extrabees:glowstone": {
         "chance": 0.05
       }
     }
@@ -1781,57 +1788,15 @@
     }
   },
   {
-    "parents": ["extrabees:fermented", "magicbees:transmuting"],
+    "parents": ["extrabees:glutinous", "extrabees:viscous"],
     "children": {
-      "meatballcraft:shadow": {
-        "chance": 0.12,
-        "requirements": [
-          {
-            "temperature": ["NORMAL"]
-          }
-        ]
+      "extrabees:sticky": {
+        "chance": 0.08
       }
     }
   },
   {
-    "parents": ["extrabees:frigid", "extrabees:ocean"],
-    "children": {
-      "extrabees:absolute": {
-        "chance": 0.1
-      }
-    }
-  },
-  {
-    "parents": ["extrabees:furious", "forestry:demonic"],
-    "children": {
-      "extrabees:volcanic": {
-        "chance": 0.2,
-        "requirements": [
-          {
-            "biome": ["NETHER"]
-          }
-        ]
-      }
-    }
-  },
-  {
-    "parents": ["extrabees:galvanized", "extrabees:unstable"],
-    "children": {
-      "extrabees:nuclear": {
-        "chance": 0.05
-      }
-    }
-  },
-  {
-    "parents": ["extrabees:galvanized", "forestry:majestic"],
-    "children": {
-      "extrabees:shining": {
-        "chance": 0.02
-      }
-    }
-  },
-  {
-    "parents": ["extrabees:glittering", "extrabees:nuclear"],
+    "parents": ["extrabees:gold", "extrabees:nuclear"],
     "children": {
       "extrabees:radioactive": {
         "chance": 0.05
@@ -1839,15 +1804,15 @@
     }
   },
   {
-    "parents": ["extrabees:glittering", "extrabees:shining"],
+    "parents": ["extrabees:gold", "extrabees:silver"],
     "children": {
-      "extrabees:valuable": {
+      "extrabees:platinum": {
         "chance": 0.02
       }
     }
   },
   {
-    "parents": ["extrabees:glittering", "magicbees:endearing"],
+    "parents": ["extrabees:gold", "magicbees:teendearing"],
     "children": {
       "meatballcraft:ringbearer": {
         "chance": 0.14,
@@ -1860,10 +1825,31 @@
     }
   },
   {
-    "parents": ["extrabees:glutinous", "extrabees:viscous"],
+    "parents": ["extrabees:granite", "forestry:industrious"],
     "children": {
-      "extrabees:sticky": {
-        "chance": 0.08
+      "extrabees:mineral": {
+        "chance": 0.06
+      }
+    }
+  },
+  {
+    "parents": ["extrabees:granite", "meatballcraft:ringbearer"],
+    "children": {
+      "meatballcraft:mathias": {
+        "chance": 0.22,
+        "requirements": [
+          {
+            "temperature": ["NORMAL"]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "parents": ["extrabees:gray", "extrabees:white"],
+    "children": {
+      "extrabees:lightgray": {
+        "chance": 0.05
       }
     }
   },
@@ -1876,15 +1862,23 @@
     }
   },
   {
+    "parents": ["extrabees:green", "extrabees:white"],
+    "children": {
+      "extrabees:limegreen": {
+        "chance": 0.05
+      }
+    }
+  },
+  {
     "parents": ["extrabees:growing", "extrabees:primeval"],
     "children": {
-      "extrabees:fossilised": {
+      "extrabees:coal": {
         "chance": 0.08
       }
     }
   },
   {
-    "parents": ["extrabees:growing", "extrabees:sweetened"],
+    "parents": ["extrabees:growing", "extrabees:sweet"],
     "children": {
       "extrabees:ripening": {
         "chance": 0.05
@@ -1900,22 +1894,6 @@
     }
   },
   {
-    "parents": ["extrabees:impregnable", "forestry:majestic"],
-    "children": {
-      "extrabees:shining": {
-        "chance": 0.02
-      }
-    }
-  },
-  {
-    "parents": ["extrabees:indigo", "extrabees:lavender"],
-    "children": {
-      "extrabees:fuchsia": {
-        "chance": 0.05
-      }
-    }
-  },
-  {
     "parents": ["extrabees:infectious", "extrabees:malicious"],
     "children": {
       "extrabees:virulent": {
@@ -1924,10 +1902,26 @@
     }
   },
   {
-    "parents": ["extrabees:invincible", "forestry:majestic"],
+    "parents": ["extrabees:iron", "extrabees:unstable"],
     "children": {
-      "extrabees:glittering": {
+      "extrabees:nuclear": {
+        "chance": 0.05
+      }
+    }
+  },
+  {
+    "parents": ["extrabees:iron", "forestry:majestic"],
+    "children": {
+      "extrabees:gold": {
         "chance": 0.02
+      }
+    }
+  },
+  {
+    "parents": ["extrabees:iron", "forestry:sinister"],
+    "children": {
+      "extrabees:pyrite": {
+        "chance": 0.05
       }
     }
   },
@@ -1972,7 +1966,7 @@
     }
   },
   {
-    "parents": ["extrabees:leaden", "extrabees:unstable"],
+    "parents": ["extrabees:lead", "extrabees:unstable"],
     "children": {
       "extrabees:nuclear": {
         "chance": 0.05
@@ -1980,25 +1974,9 @@
     }
   },
   {
-    "parents": ["extrabees:leaden", "forestry:majestic"],
+    "parents": ["extrabees:lead", "forestry:majestic"],
     "children": {
-      "extrabees:shining": {
-        "chance": 0.02
-      }
-    }
-  },
-  {
-    "parents": ["extrabees:lustered", "extrabees:unstable"],
-    "children": {
-      "extrabees:nuclear": {
-        "chance": 0.05
-      }
-    }
-  },
-  {
-    "parents": ["extrabees:lustered", "forestry:majestic"],
-    "children": {
-      "extrabees:glittering": {
+      "extrabees:silver": {
         "chance": 0.02
       }
     }
@@ -2036,31 +2014,150 @@
     }
   },
   {
-    "parents": ["extrabees:maroon", "extrabees:prussian"],
+    "parents": ["extrabees:mineral", "extrabees:prehistoric"],
     "children": {
-      "extrabees:indigo": {
+      "extrabees:unstable": {
         "chance": 0.05
       }
     }
   },
   {
-    "parents": ["extrabees:maroon", "extrabees:saffron"],
+    "parents": ["extrabees:mineral", "extrabees:water"],
     "children": {
-      "extrabees:amber": {
+      "extrabees:lapis": {
         "chance": 0.05
       }
     }
   },
   {
-    "parents": ["extrabees:natural", "extrabees:prussian"],
+    "parents": ["extrabees:mineral", "forestry:common"],
     "children": {
-      "extrabees:turquoise": {
+      "extrabees:tungstate": {
+        "chance": 0.03
+      }
+    }
+  },
+  {
+    "parents": ["extrabees:mineral", "forestry:cultivated"],
+    "children": {
+      "extrabees:titanium": {
+        "chance": 0.03
+      }
+    }
+  },
+  {
+    "parents": ["extrabees:mineral", "forestry:diligent"],
+    "children": {
+      "extrabees:bauxite": {
         "chance": 0.05
       }
     }
   },
   {
-    "parents": ["extrabees:nuclear", "extrabees:shining"],
+    "parents": ["extrabees:mineral", "forestry:forest"],
+    "children": {
+      "extrabees:iron": {
+        "chance": 0.05
+      },
+      "extrabees:nickel": {
+        "chance": 0.05
+      }
+    }
+  },
+  {
+    "parents": ["extrabees:mineral", "forestry:marshy"],
+    "children": {
+      "extrabees:nickel": {
+        "chance": 0.05
+      },
+      "extrabees:tin": {
+        "chance": 0.05
+      }
+    }
+  },
+  {
+    "parents": ["extrabees:mineral", "forestry:meadows"],
+    "children": {
+      "extrabees:iron": {
+        "chance": 0.05
+      },
+      "extrabees:lead": {
+        "chance": 0.05
+      }
+    }
+  },
+  {
+    "parents": ["extrabees:mineral", "forestry:modest"],
+    "children": {
+      "extrabees:copper": {
+        "chance": 0.05
+      },
+      "extrabees:lead": {
+        "chance": 0.05
+      }
+    }
+  },
+  {
+    "parents": ["extrabees:mineral", "forestry:sinister"],
+    "children": {
+      "extrabees:cinnabar": {
+        "chance": 0.05
+      }
+    }
+  },
+  {
+    "parents": ["extrabees:mineral", "forestry:tropical"],
+    "children": {
+      "extrabees:tin": {
+        "chance": 0.05
+      },
+      "extrabees:zinc": {
+        "chance": 0.05
+      }
+    }
+  },
+  {
+    "parents": ["extrabees:mineral", "forestry:wintry"],
+    "children": {
+      "extrabees:copper": {
+        "chance": 0.05
+      },
+      "extrabees:zinc": {
+        "chance": 0.05
+      }
+    }
+  },
+  {
+    "parents": ["extrabees:mineral", "magicbees:supernatural"],
+    "children": {
+      "meatballcraft:spoonypanda": {
+        "chance": 0.33,
+        "requirements": [
+          {
+            "temperature": ["NORMAL"]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "parents": ["extrabees:nickel", "extrabees:unstable"],
+    "children": {
+      "extrabees:nuclear": {
+        "chance": 0.05
+      }
+    }
+  },
+  {
+    "parents": ["extrabees:nickel", "forestry:majestic"],
+    "children": {
+      "extrabees:gold": {
+        "chance": 0.02
+      }
+    }
+  },
+  {
+    "parents": ["extrabees:nuclear", "extrabees:silver"],
     "children": {
       "extrabees:radioactive": {
         "chance": 0.05
@@ -2086,13 +2183,13 @@
   {
     "parents": ["extrabees:ocean", "extrabees:primeval"],
     "children": {
-      "extrabees:oily": {
+      "extrabees:oil": {
         "chance": 0.08
       }
     }
   },
   {
-    "parents": ["extrabees:oily", "forestry:industrious"],
+    "parents": ["extrabees:oil", "forestry:industrious"],
     "children": {
       "extrabees:distilled": {
         "chance": 0.08
@@ -2100,10 +2197,23 @@
     }
   },
   {
-    "parents": ["extrabees:prehistoric", "extrabees:resilient"],
+    "parents": ["extrabees:pink", "extrabees:purple"],
     "children": {
-      "extrabees:unstable": {
+      "extrabees:magenta": {
         "chance": 0.05
+      }
+    }
+  },
+  {
+    "parents": ["extrabees:platinum", "magicbees:aeskystone"],
+    "children": {
+      "meatballcraft:buried": {
+        "chance": 0.18,
+        "requirements": [
+          {
+            "temperature": ["NORMAL"]
+          }
+        ]
       }
     }
   },
@@ -2131,7 +2241,7 @@
   {
     "parents": ["extrabees:primeval", "forestry:frugal"],
     "children": {
-      "extrabees:oily": {
+      "extrabees:oil": {
         "chance": 0.08
       }
     }
@@ -2139,7 +2249,7 @@
   {
     "parents": ["extrabees:primeval", "forestry:miry"],
     "children": {
-      "extrabees:resinous": {
+      "extrabees:resin": {
         "chance": 0.08
       }
     }
@@ -2147,7 +2257,7 @@
   {
     "parents": ["extrabees:primeval", "forestry:rural"],
     "children": {
-      "extrabees:fossilised": {
+      "extrabees:coal": {
         "chance": 0.08
       }
     }
@@ -2179,7 +2289,23 @@
     }
   },
   {
-    "parents": ["extrabees:relic", "forestry:ender"],
+    "parents": ["extrabees:red", "extrabees:white"],
+    "children": {
+      "extrabees:pink": {
+        "chance": 0.05
+      }
+    }
+  },
+  {
+    "parents": ["extrabees:red", "extrabees:yellow"],
+    "children": {
+      "extrabees:orange": {
+        "chance": 0.05
+      }
+    }
+  },
+  {
+    "parents": ["extrabees:relic", "forestry:ended"],
     "children": {
       "extrabees:jaded": {
         "chance": 0.02,
@@ -2192,147 +2318,7 @@
     }
   },
   {
-    "parents": ["extrabees:resilient", "extrabees:water"],
-    "children": {
-      "extrabees:lapis": {
-        "chance": 0.05
-      }
-    }
-  },
-  {
-    "parents": ["extrabees:resilient", "forestry:common"],
-    "children": {
-      "extrabees:invincible": {
-        "chance": 0.03
-      }
-    }
-  },
-  {
-    "parents": ["extrabees:resilient", "forestry:cultivated"],
-    "children": {
-      "extrabees:impregnable": {
-        "chance": 0.03
-      }
-    }
-  },
-  {
-    "parents": ["extrabees:resilient", "forestry:diligent"],
-    "children": {
-      "extrabees:bauxite": {
-        "chance": 0.05
-      }
-    }
-  },
-  {
-    "parents": ["extrabees:resilient", "forestry:forest"],
-    "children": {
-      "extrabees:lustered": {
-        "chance": 0.05
-      },
-      "extrabees:rusty": {
-        "chance": 0.05
-      }
-    }
-  },
-  {
-    "parents": ["extrabees:resilient", "forestry:marshy"],
-    "children": {
-      "extrabees:lustered": {
-        "chance": 0.05
-      },
-      "extrabees:tarnished": {
-        "chance": 0.05
-      }
-    }
-  },
-  {
-    "parents": ["extrabees:resilient", "forestry:meadows"],
-    "children": {
-      "extrabees:leaden": {
-        "chance": 0.05
-      },
-      "extrabees:rusty": {
-        "chance": 0.05
-      }
-    }
-  },
-  {
-    "parents": ["extrabees:resilient", "forestry:modest"],
-    "children": {
-      "extrabees:corroded": {
-        "chance": 0.05
-      },
-      "extrabees:leaden": {
-        "chance": 0.05
-      }
-    }
-  },
-  {
-    "parents": ["extrabees:resilient", "forestry:sinister"],
-    "children": {
-      "extrabees:cinnabar": {
-        "chance": 0.05
-      }
-    }
-  },
-  {
-    "parents": ["extrabees:resilient", "forestry:tropical"],
-    "children": {
-      "extrabees:galvanized": {
-        "chance": 0.05
-      },
-      "extrabees:tarnished": {
-        "chance": 0.05
-      }
-    }
-  },
-  {
-    "parents": ["extrabees:resilient", "forestry:wintry"],
-    "children": {
-      "extrabees:corroded": {
-        "chance": 0.05
-      },
-      "extrabees:galvanized": {
-        "chance": 0.05
-      }
-    }
-  },
-  {
-    "parents": ["extrabees:resilient", "magicbees:supernatural"],
-    "children": {
-      "meatballcraft:spoonypanda": {
-        "chance": 0.33,
-        "requirements": [
-          {
-            "temperature": ["NORMAL"]
-          }
-        ]
-      }
-    }
-  },
-  {
-    "parents": ["extrabees:robust", "forestry:industrious"],
-    "children": {
-      "extrabees:resilient": {
-        "chance": 0.06
-      }
-    }
-  },
-  {
-    "parents": ["extrabees:robust", "meatballcraft:ringbearer"],
-    "children": {
-      "meatballcraft:mathias": {
-        "chance": 0.22,
-        "requirements": [
-          {
-            "temperature": ["NORMAL"]
-          }
-        ]
-      }
-    }
-  },
-  {
-    "parents": ["extrabees:rocky", "extrabees:shadowed"],
+    "parents": ["extrabees:rock", "extrabees:shadow"],
     "children": {
       "extrabees:darkened": {
         "chance": 0.08
@@ -2340,63 +2326,26 @@
     }
   },
   {
-    "parents": ["extrabees:rocky", "forestry:diligent"],
+    "parents": ["extrabees:rock", "forestry:diligent"],
     "children": {
-      "extrabees:tolerant": {
+      "extrabees:stone": {
         "chance": 0.12
       }
     }
   },
   {
-    "parents": ["extrabees:rocky", "forestry:sinister"],
+    "parents": ["extrabees:rock", "forestry:sinister"],
     "children": {
-      "extrabees:shadowed": {
+      "extrabees:shadow": {
         "chance": 0.1
       }
     }
   },
   {
-    "parents": ["extrabees:rocky", "forestry:valiant"],
+    "parents": ["extrabees:rock", "forestry:valiant"],
     "children": {
-      "extrabees:ebony": {
+      "extrabees:black": {
         "chance": 0.05
-      }
-    }
-  },
-  {
-    "parents": ["extrabees:rusty", "extrabees:unstable"],
-    "children": {
-      "extrabees:nuclear": {
-        "chance": 0.05
-      }
-    }
-  },
-  {
-    "parents": ["extrabees:rusty", "forestry:majestic"],
-    "children": {
-      "extrabees:glittering": {
-        "chance": 0.02
-      }
-    }
-  },
-  {
-    "parents": ["extrabees:rusty", "forestry:sinister"],
-    "children": {
-      "extrabees:pyrite": {
-        "chance": 0.05
-      }
-    }
-  },
-  {
-    "parents": ["extrabees:skeletal", "magicbees:scholarly"],
-    "children": {
-      "meatballcraft:aedial": {
-        "chance": 0.2,
-        "requirements": [
-          {
-            "temperature": ["NORMAL"]
-          }
-        ]
       }
     }
   },
@@ -2409,23 +2358,42 @@
     }
   },
   {
-    "parents": ["extrabees:sweetened", "extrabees:thriving"],
+    "parents": ["extrabees:stone", "forestry:unweary"],
     "children": {
-      "extrabees:fruity": {
+      "extrabees:granite": {
+        "chance": 0.1
+      }
+    }
+  },
+  {
+    "parents": ["extrabees:swamp", "forestry:boggy"],
+    "children": {
+      "extrabees:boggy": {
+        "chance": 0.08
+      },
+      "extrabees:fungal": {
+        "chance": 0.08
+      }
+    }
+  },
+  {
+    "parents": ["extrabees:sweet", "extrabees:thriving"],
+    "children": {
+      "extrabees:fruit": {
         "chance": 0.05
       }
     }
   },
   {
-    "parents": ["extrabees:sweetened", "forestry:rural"],
+    "parents": ["extrabees:sweet", "forestry:rural"],
     "children": {
-      "extrabees:sugary": {
+      "extrabees:sugar": {
         "chance": 0.15
       }
     }
   },
   {
-    "parents": ["extrabees:sweetened", "meatballcraft:alchemical"],
+    "parents": ["extrabees:sweet", "meatballcraft:alchemical"],
     "children": {
       "meatballcraft:freeky": {
         "chance": 0.3,
@@ -2438,26 +2406,15 @@
     }
   },
   {
-    "parents": ["extrabees:tarnished", "extrabees:unstable"],
+    "parents": ["extrabees:tempered", "forestry:demonic"],
     "children": {
-      "extrabees:nuclear": {
-        "chance": 0.05
-      }
-    }
-  },
-  {
-    "parents": ["extrabees:tarnished", "forestry:majestic"],
-    "children": {
-      "extrabees:shining": {
-        "chance": 0.02
-      }
-    }
-  },
-  {
-    "parents": ["extrabees:tarnished", "forestry:sinister"],
-    "children": {
-      "extrabees:sphalerite": {
-        "chance": 0.05
+      "extrabees:volcanic": {
+        "chance": 0.2,
+        "requirements": [
+          {
+            "biome": ["NETHER"]
+          }
+        ]
       }
     }
   },
@@ -2470,23 +2427,58 @@
     }
   },
   {
-    "parents": ["extrabees:tolerant", "forestry:unweary"],
+    "parents": ["extrabees:tin", "extrabees:unstable"],
     "children": {
-      "extrabees:robust": {
-        "chance": 0.1
+      "extrabees:nuclear": {
+        "chance": 0.05
       }
     }
   },
   {
-    "parents": ["extrabees:valuable", "magicbees:skystone"],
+    "parents": ["extrabees:tin", "forestry:majestic"],
     "children": {
-      "meatballcraft:buried": {
-        "chance": 0.18,
-        "requirements": [
-          {
-            "temperature": ["NORMAL"]
-          }
-        ]
+      "extrabees:silver": {
+        "chance": 0.02
+      }
+    }
+  },
+  {
+    "parents": ["extrabees:tin", "forestry:sinister"],
+    "children": {
+      "extrabees:sphalerite": {
+        "chance": 0.05
+      }
+    }
+  },
+  {
+    "parents": ["extrabees:titanium", "forestry:majestic"],
+    "children": {
+      "extrabees:silver": {
+        "chance": 0.02
+      }
+    }
+  },
+  {
+    "parents": ["extrabees:tungstate", "forestry:majestic"],
+    "children": {
+      "extrabees:gold": {
+        "chance": 0.02
+      }
+    }
+  },
+  {
+    "parents": ["extrabees:unstable", "extrabees:zinc"],
+    "children": {
+      "extrabees:nuclear": {
+        "chance": 0.05
+      }
+    }
+  },
+  {
+    "parents": ["extrabees:unusual", "forestry:hermitic"],
+    "children": {
+      "extrabees:spatial": {
+        "chance": 0.05
       }
     }
   },
@@ -2543,7 +2535,7 @@
   {
     "parents": ["extrabees:water", "forestry:farmerly"],
     "children": {
-      "extrabees:bovine": {
+      "extrabees:milk": {
         "chance": 0.1
       }
     }
@@ -2551,7 +2543,7 @@
   {
     "parents": ["extrabees:water", "forestry:miry"],
     "children": {
-      "extrabees:damp": {
+      "extrabees:swamp": {
         "chance": 0.1
       }
     }
@@ -2559,15 +2551,23 @@
   {
     "parents": ["extrabees:water", "forestry:valiant"],
     "children": {
-      "extrabees:prussian": {
+      "extrabees:blue": {
         "chance": 0.05
+      }
+    }
+  },
+  {
+    "parents": ["extrabees:zinc", "forestry:majestic"],
+    "children": {
+      "extrabees:silver": {
+        "chance": 0.02
       }
     }
   },
   {
     "parents": ["forestry:austere", "forestry:imperial"],
     "children": {
-      "magicbees:esmeraldi": {
+      "magicbees:emerald": {
         "chance": 0.06
       }
     }
@@ -2589,9 +2589,9 @@
     }
   },
   {
-    "parents": ["forestry:austere", "magicbees:auric"],
+    "parents": ["forestry:austere", "magicbees:gold"],
     "children": {
-      "magicbees:diamandi": {
+      "magicbees:diamond": {
         "chance": 0.07
       }
     }
@@ -2599,7 +2599,7 @@
   {
     "parents": ["forestry:austere", "magicbees:smouldering"],
     "children": {
-      "magicbees:dante": {
+      "magicbees:tedante": {
         "chance": 0.12
       }
     }
@@ -2634,7 +2634,7 @@
   {
     "parents": ["forestry:common", "forestry:diligent"],
     "children": {
-      "gendustry color bees:red": {
+      "gendustry:red": {
         "chance": 0.1
       }
     }
@@ -2642,7 +2642,7 @@
   {
     "parents": ["forestry:common", "forestry:industrious"],
     "children": {
-      "magicbees:ferrous": {
+      "magicbees:iron": {
         "chance": 0.12
       },
       "meatballcraft:meatball": {
@@ -2696,13 +2696,13 @@
   {
     "parents": ["forestry:common", "magicbees:skulking"],
     "children": {
-      "magicbees:beefy": {
+      "magicbees:beef": {
         "chance": 0.12
       },
-      "magicbees:porcine": {
+      "magicbees:chicken": {
         "chance": 0.12
       },
-      "magicbees:poultry": {
+      "magicbees:pork": {
         "chance": 0.12
       }
     }
@@ -2734,7 +2734,7 @@
   {
     "parents": ["forestry:cultivated", "forestry:industrious"],
     "children": {
-      "magicbees:aluminum": {
+      "magicbees:aluminium": {
         "chance": 0.1
       }
     }
@@ -2742,7 +2742,7 @@
   {
     "parents": ["forestry:cultivated", "forestry:marshy"],
     "children": {
-      "gendustry patreon bees:derpious": {
+      "gendustry:derpious": {
         "chance": 0.1
       }
     }
@@ -2846,7 +2846,7 @@
       "extrabees:growing": {
         "chance": 0.1
       },
-      "gendustry color bees:blue": {
+      "gendustry:blue": {
         "chance": 0.1
       }
     }
@@ -2880,7 +2880,7 @@
   {
     "parents": ["forestry:diligent", "forestry:modest"],
     "children": {
-      "gendustry color bees:yellow": {
+      "gendustry:yellow": {
         "chance": 0.1
       }
     }
@@ -2896,7 +2896,7 @@
   {
     "parents": ["forestry:diligent", "forestry:tropical"],
     "children": {
-      "gendustry color bees:brown": {
+      "gendustry:brown": {
         "chance": 0.1
       }
     }
@@ -2912,7 +2912,7 @@
   {
     "parents": ["forestry:diligent", "forestry:valiant"],
     "children": {
-      "extrabees:sweetened": {
+      "extrabees:sweet": {
         "chance": 0.15
       }
     }
@@ -2920,24 +2920,24 @@
   {
     "parents": ["forestry:diligent", "forestry:wintry"],
     "children": {
-      "extrabees:frigid": {
+      "extrabees:artic": {
         "chance": 0.1
       },
-      "gendustry color bees:white": {
+      "gendustry:white": {
         "chance": 0.1
       }
     }
   },
   {
-    "parents": ["forestry:diligent", "gendustry color bees:white"],
+    "parents": ["forestry:diligent", "gendustry:white"],
     "children": {
-      "gendustry color bees:black": {
+      "gendustry:black": {
         "chance": 0.1
       }
     }
   },
   {
-    "parents": ["forestry:ender", "forestry:hermitic"],
+    "parents": ["forestry:ended", "forestry:hermitic"],
     "children": {
       "forestry:spectral": {
         "chance": 0.04
@@ -2945,15 +2945,15 @@
     }
   },
   {
-    "parents": ["forestry:ender", "forestry:secluded"],
+    "parents": ["forestry:ended", "forestry:secluded"],
     "children": {
-      "extrabees:abnormal": {
+      "extrabees:unusual": {
         "chance": 0.05
       }
     }
   },
   {
-    "parents": ["forestry:ender", "forestry:spectral"],
+    "parents": ["forestry:ended", "forestry:spectral"],
     "children": {
       "forestry:phantasmal": {
         "chance": 0.02
@@ -2984,10 +2984,10 @@
   {
     "parents": ["forestry:farmerly", "forestry:meadows"],
     "children": {
-      "extrabees:farmed": {
+      "extrabees:alcohol": {
         "chance": 0.1
       },
-      "extrabees:fermented": {
+      "extrabees:farm": {
         "chance": 0.1
       }
     }
@@ -2995,7 +2995,7 @@
   {
     "parents": ["forestry:farmerly", "forestry:tropical"],
     "children": {
-      "extrabees:caffeinated": {
+      "extrabees:coffee": {
         "chance": 0.1
       }
     }
@@ -3028,7 +3028,7 @@
     }
   },
   {
-    "parents": ["forestry:fiendish", "gendustry color bees:red"],
+    "parents": ["forestry:fiendish", "gendustry:red"],
     "children": {
       "meatballcraft:uselessforce": {
         "chance": 0.25,
@@ -3051,7 +3051,7 @@
   {
     "parents": ["forestry:forest", "forestry:industrious"],
     "children": {
-      "magicbees:stannum": {
+      "magicbees:tin": {
         "chance": 0.12
       }
     }
@@ -3059,7 +3059,7 @@
   {
     "parents": ["forestry:forest", "forestry:valiant"],
     "children": {
-      "extrabees:maroon": {
+      "extrabees:red": {
         "chance": 0.05
       }
     }
@@ -3075,7 +3075,7 @@
   {
     "parents": ["forestry:forest", "magicbees:eldritch"],
     "children": {
-      "magicbees:rooted": {
+      "magicbees:botrooted": {
         "chance": 0.15
       }
     }
@@ -3140,9 +3140,9 @@
     }
   },
   {
-    "parents": ["forestry:icy", "magicbees:blizzy"],
+    "parents": ["forestry:icy", "magicbees:teblizzy"],
     "children": {
-      "magicbees:gelid": {
+      "magicbees:tegelid": {
         "chance": 0.08
       }
     }
@@ -3150,7 +3150,7 @@
   {
     "parents": ["forestry:imperial", "forestry:modest"],
     "children": {
-      "magicbees:argentum": {
+      "magicbees:silver": {
         "chance": 0.08
       }
     }
@@ -3182,7 +3182,7 @@
   {
     "parents": ["forestry:industrious", "forestry:meadows"],
     "children": {
-      "magicbees:cuprum": {
+      "magicbees:copper": {
         "chance": 0.12
       }
     }
@@ -3211,7 +3211,7 @@
   {
     "parents": ["forestry:industrious", "magicbees:spiteful"],
     "children": {
-      "magicbees:destabilized": {
+      "magicbees:tedestabilized": {
         "chance": 0.12
       }
     }
@@ -3255,7 +3255,7 @@
   {
     "parents": ["forestry:marshy", "forestry:valiant"],
     "children": {
-      "extrabees:sepia": {
+      "extrabees:brown": {
         "chance": 0.05
       }
     }
@@ -3295,7 +3295,7 @@
   {
     "parents": ["forestry:meadows", "forestry:valiant"],
     "children": {
-      "extrabees:saffron": {
+      "extrabees:yellow": {
         "chance": 0.05
       }
     }
@@ -3429,7 +3429,7 @@
     }
   },
   {
-    "parents": ["forestry:phantasmal", "magicbees:esmeraldi"],
+    "parents": ["forestry:phantasmal", "magicbees:emerald"],
     "children": {
       "meatballcraft:nerdyspider": {
         "chance": 0.42,
@@ -3455,15 +3455,15 @@
     }
   },
   {
-    "parents": ["forestry:rural", "magicbees:cuprum"],
+    "parents": ["forestry:rural", "magicbees:copper"],
     "children": {
-      "magicbees:apatine": {
+      "magicbees:apatite": {
         "chance": 0.12
       }
     }
   },
   {
-    "parents": ["forestry:spectral", "magicbees:endearing"],
+    "parents": ["forestry:spectral", "magicbees:teendearing"],
     "children": {
       "meatballcraft:heraldry": {
         "chance": 0.44,
@@ -3491,7 +3491,7 @@
   {
     "parents": ["forestry:tropical", "forestry:valiant"],
     "children": {
-      "extrabees:natural": {
+      "extrabees:green": {
         "chance": 0.05
       }
     }
@@ -3539,7 +3539,7 @@
   {
     "parents": ["forestry:valiant", "forestry:wintry"],
     "children": {
-      "extrabees:bleached": {
+      "extrabees:white": {
         "chance": 0.05
       }
     }
@@ -3571,7 +3571,7 @@
   {
     "parents": ["forestry:wintry", "magicbees:skulking"],
     "children": {
-      "magicbees:blizzy": {
+      "magicbees:teblizzy": {
         "chance": 0.12
       }
     }
@@ -3593,15 +3593,15 @@
     }
   },
   {
-    "parents": ["gendustry color bees:black", "gendustry color bees:white"],
+    "parents": ["gendustry:black", "gendustry:white"],
     "children": {
-      "gendustry color bees:gray": {
+      "gendustry:gray": {
         "chance": 0.1
       }
     }
   },
   {
-    "parents": ["gendustry color bees:black", "magicbees:firey"],
+    "parents": ["gendustry:black", "magicbees:firey"],
     "children": {
       "meatballcraft:sandman": {
         "chance": 0.44,
@@ -3614,79 +3614,79 @@
     }
   },
   {
-    "parents": ["gendustry color bees:blue", "gendustry color bees:green"],
+    "parents": ["gendustry:blue", "gendustry:green"],
     "children": {
-      "gendustry color bees:cyan": {
+      "gendustry:cyan": {
         "chance": 0.1
       }
     }
   },
   {
-    "parents": ["gendustry color bees:blue", "gendustry color bees:pink"],
+    "parents": ["gendustry:blue", "gendustry:pink"],
     "children": {
-      "gendustry color bees:magenta": {
+      "gendustry:magenta": {
         "chance": 0.1
       }
     }
   },
   {
-    "parents": ["gendustry color bees:blue", "gendustry color bees:red"],
+    "parents": ["gendustry:blue", "gendustry:red"],
     "children": {
-      "gendustry color bees:purple": {
+      "gendustry:purple": {
         "chance": 0.1
       }
     }
   },
   {
-    "parents": ["gendustry color bees:blue", "gendustry color bees:white"],
+    "parents": ["gendustry:blue", "gendustry:white"],
     "children": {
-      "gendustry color bees:lightblue": {
+      "gendustry:lightblue": {
         "chance": 0.1
       }
     }
   },
   {
-    "parents": ["gendustry color bees:blue", "gendustry color bees:yellow"],
+    "parents": ["gendustry:blue", "gendustry:yellow"],
     "children": {
-      "gendustry color bees:green": {
+      "gendustry:green": {
         "chance": 0.1
       }
     }
   },
   {
-    "parents": ["gendustry color bees:gray", "gendustry color bees:white"],
+    "parents": ["gendustry:gray", "gendustry:white"],
     "children": {
-      "gendustry color bees:lightgray": {
+      "gendustry:silver": {
         "chance": 0.1
       }
     }
   },
   {
-    "parents": ["gendustry color bees:green", "gendustry color bees:white"],
+    "parents": ["gendustry:green", "gendustry:white"],
     "children": {
-      "gendustry color bees:lime": {
+      "gendustry:lime": {
         "chance": 0.1
       }
     }
   },
   {
-    "parents": ["gendustry color bees:red", "gendustry color bees:white"],
+    "parents": ["gendustry:red", "gendustry:white"],
     "children": {
-      "gendustry color bees:pink": {
+      "gendustry:pink": {
         "chance": 0.1
       }
     }
   },
   {
-    "parents": ["gendustry color bees:red", "gendustry color bees:yellow"],
+    "parents": ["gendustry:red", "gendustry:yellow"],
     "children": {
-      "gendustry color bees:orange": {
+      "gendustry:orange": {
         "chance": 0.1
       }
     }
   },
   {
-    "parents": ["gendustry color bees:white", "magicbees:shocking"],
+    "parents": ["gendustry:white", "magicbees:teshocking"],
     "children": {
       "meatballcraft:restlessclam": {
         "chance": 0.24,
@@ -3709,7 +3709,7 @@
   {
     "parents": ["magicbees:arcane", "magicbees:ethereal"],
     "children": {
-      "magicbees:ordered": {
+      "magicbees:tcorder": {
         "chance": 0.08
       },
       "meatballcraft:alchemical": {
@@ -3733,11 +3733,11 @@
   {
     "parents": ["magicbees:arcane", "magicbees:supernatural"],
     "children": {
-      "magicbees:chaotic": {
-        "chance": 0.08
-      },
       "magicbees:ethereal": {
         "chance": 0.07
+      },
+      "magicbees:tcentropy": {
+        "chance": 0.08
       }
     }
   },
@@ -3763,14 +3763,6 @@
     }
   },
   {
-    "parents": ["magicbees:argentum", "magicbees:auric"],
-    "children": {
-      "magicbees:electrum": {
-        "chance": 0.1
-      }
-    }
-  },
-  {
     "parents": ["magicbees:attuned", "magicbees:aware"],
     "children": {
       "magicbees:spirit": {
@@ -3787,9 +3779,9 @@
     }
   },
   {
-    "parents": ["magicbees:attuned", "magicbees:vis"],
+    "parents": ["magicbees:attuned", "magicbees:tcvis"],
     "children": {
-      "magicbees:rejuvenating": {
+      "magicbees:tcrejuvenating": {
         "chance": 0.08
       }
     }
@@ -3819,9 +3811,9 @@
     }
   },
   {
-    "parents": ["magicbees:beefy", "magicbees:sheepish"],
+    "parents": ["magicbees:beef", "magicbees:sheepish"],
     "children": {
-      "magicbees:neighsayer": {
+      "magicbees:horse": {
         "chance": 0.12,
         "requirements": [
           {
@@ -3832,52 +3824,42 @@
     }
   },
   {
-    "parents": ["magicbees:bigbad", "magicbees:flux"],
+    "parents": ["magicbees:bigbad", "magicbees:tctaint"],
     "children": {
-      "magicbees:ravening": {
+      "magicbees:tchungry": {
         "chance": 0.15
       }
     }
   },
   {
-    "parents": ["magicbees:blossom", "magicbees:botanic"],
+    "parents": ["magicbees:botblossom", "magicbees:botbotanic"],
     "children": {
-      "magicbees:floral": {
+      "magicbees:botfloral": {
         "chance": 0.08
       }
     }
   },
   {
-    "parents": ["magicbees:botanic", "magicbees:earthen"],
+    "parents": ["magicbees:botbotanic", "magicbees:earthy"],
     "children": {
-      "magicbees:blossom": {
+      "magicbees:botblossom": {
         "chance": 0.12
       }
     }
   },
   {
-    "parents": ["magicbees:carbon", "magicbees:dante"],
+    "parents": ["magicbees:botrooted", "magicbees:watery"],
     "children": {
-      "magicbees:pyro": {
-        "chance": 0.08,
-        "requirements": [
-          {
-            "biome": ["NETHER"]
-          }
-        ]
+      "magicbees:botsomnolent": {
+        "chance": 0.16
       }
     }
   },
   {
-    "parents": ["magicbees:carbon", "magicbees:winsome"],
+    "parents": ["magicbees:botsomnolent", "magicbees:windy"],
     "children": {
-      "magicbees:endearing": {
-        "chance": 0.08,
-        "requirements": [
-          {
-            "block": ["blockEnderium"]
-          }
-        ]
+      "magicbees:botdreaming": {
+        "chance": 0.08
       }
     }
   },
@@ -3898,54 +3880,54 @@
     }
   },
   {
-    "parents": ["magicbees:cuprum", "magicbees:stannum"],
+    "parents": ["magicbees:chicken", "magicbees:spidery"],
     "children": {
-      "magicbees:bronzed": {
-        "chance": 0.12
-      }
-    }
-  },
-  {
-    "parents": ["magicbees:destabilized", "magicbees:electrum"],
-    "children": {
-      "magicbees:fluxed": {
-        "chance": 0.1,
+      "magicbees:catty": {
+        "chance": 0.15,
         "requirements": [
           {
-            "block": ["blockElectrumFlux"]
+            "biome": ["JUNGLE"]
           }
         ]
       }
     }
   },
   {
-    "parents": ["magicbees:earthen", "magicbees:earthen"],
+    "parents": ["magicbees:copper", "magicbees:tin"],
     "children": {
-      "magicbees:solum": {
-        "chance": 0.08
-      }
-    }
-  },
-  {
-    "parents": ["magicbees:earthen", "magicbees:grounded"],
-    "children": {
-      "magicbees:rockin'": {
-        "chance": 0.09
-      }
-    }
-  },
-  {
-    "parents": ["magicbees:earthen", "magicbees:smouldering"],
-    "children": {
-      "magicbees:grounded": {
+      "magicbees:bronze": {
         "chance": 0.12
       }
     }
   },
   {
-    "parents": ["magicbees:earthen", "magicbees:windy"],
+    "parents": ["magicbees:earthy", "magicbees:earthy"],
     "children": {
-      "magicbees:skystone": {
+      "magicbees:tcearth": {
+        "chance": 0.08
+      }
+    }
+  },
+  {
+    "parents": ["magicbees:earthy", "magicbees:smouldering"],
+    "children": {
+      "magicbees:tegrounded": {
+        "chance": 0.12
+      }
+    }
+  },
+  {
+    "parents": ["magicbees:earthy", "magicbees:tegrounded"],
+    "children": {
+      "magicbees:terocking": {
+        "chance": 0.09
+      }
+    }
+  },
+  {
+    "parents": ["magicbees:earthy", "magicbees:windy"],
+    "children": {
+      "magicbees:aeskystone": {
         "chance": 0.2
       }
     }
@@ -3980,28 +3962,20 @@
     }
   },
   {
-    "parents": ["magicbees:empowering", "magicbees:rejuvenating"],
+    "parents": ["magicbees:electrum", "magicbees:tedestabilized"],
     "children": {
-      "magicbees:nexus": {
-        "chance": 0.09,
+      "magicbees:rsafluxed": {
+        "chance": 0.1,
         "requirements": [
           {
-            "biome": ["MAGICAL"]
+            "block": ["blockElectrumFlux"]
           }
         ]
       }
     }
   },
   {
-    "parents": ["magicbees:empowering", "magicbees:transmuting"],
-    "children": {
-      "magicbees:flux": {
-        "chance": 0.11
-      }
-    }
-  },
-  {
-    "parents": ["magicbees:esoteric", "magicbees:ferrous"],
+    "parents": ["magicbees:esoteric", "magicbees:iron"],
     "children": {
       "magicbees:nickel": {
         "chance": 0.14
@@ -4019,7 +3993,7 @@
   {
     "parents": ["magicbees:ethereal", "magicbees:ghastly"],
     "children": {
-      "magicbees:wispy": {
+      "magicbees:tcwispy": {
         "chance": 0.09,
         "requirements": [
           {
@@ -4032,7 +4006,7 @@
   {
     "parents": ["magicbees:ethereal", "magicbees:infernal"],
     "children": {
-      "magicbees:vis": {
+      "magicbees:tcvis": {
         "chance": 0.09,
         "requirements": [
           {
@@ -4053,7 +4027,7 @@
   {
     "parents": ["magicbees:ethereal", "magicbees:supernatural"],
     "children": {
-      "magicbees:earthen": {
+      "magicbees:earthy": {
         "chance": 0.14
       },
       "magicbees:firey": {
@@ -4073,30 +4047,9 @@
     }
   },
   {
-    "parents": ["magicbees:ferrous", "magicbees:flux"],
-    "children": {
-      "magicbees:void": {
-        "chance": 0.04,
-        "requirements": [
-          {
-            "biome": ["MAGICAL"]
-          }
-        ]
-      }
-    }
-  },
-  {
-    "parents": ["magicbees:ferrous", "magicbees:nickel"],
-    "children": {
-      "magicbees:invar": {
-        "chance": 0.14
-      }
-    }
-  },
-  {
     "parents": ["magicbees:firey", "magicbees:firey"],
     "children": {
-      "magicbees:ignis": {
+      "magicbees:tcfire": {
         "chance": 0.08
       }
     }
@@ -4111,6 +4064,14 @@
             "biome": ["NETHER"]
           }
         ]
+      }
+    }
+  },
+  {
+    "parents": ["magicbees:gold", "magicbees:silver"],
+    "children": {
+      "magicbees:electrum": {
+        "chance": 0.1
       }
     }
   },
@@ -4130,7 +4091,7 @@
   {
     "parents": ["magicbees:infernal", "magicbees:smouldering"],
     "children": {
-      "magicbees:lux": {
+      "magicbees:telux": {
         "chance": 0.12
       }
     }
@@ -4140,6 +4101,27 @@
     "children": {
       "magicbees:platinum": {
         "chance": 0.1
+      }
+    }
+  },
+  {
+    "parents": ["magicbees:iron", "magicbees:nickel"],
+    "children": {
+      "magicbees:invar": {
+        "chance": 0.14
+      }
+    }
+  },
+  {
+    "parents": ["magicbees:iron", "magicbees:tctaint"],
+    "children": {
+      "magicbees:tcvoid": {
+        "chance": 0.04,
+        "requirements": [
+          {
+            "biome": ["MAGICAL"]
+          }
+        ]
       }
     }
   },
@@ -4189,32 +4171,19 @@
   {
     "parents": ["magicbees:oblivion", "magicbees:platinum"],
     "children": {
-      "magicbees:winsome": {
+      "magicbees:tewinsome": {
         "chance": 0.12
       }
     }
   },
   {
-    "parents": ["magicbees:porcine", "magicbees:skulking"],
+    "parents": ["magicbees:pork", "magicbees:skulking"],
     "children": {
       "magicbees:sheepish": {
         "chance": 0.13,
         "requirements": [
           {
             "biome": ["PLAINS"]
-          }
-        ]
-      }
-    }
-  },
-  {
-    "parents": ["magicbees:poultry", "magicbees:spidery"],
-    "children": {
-      "magicbees:catty": {
-        "chance": 0.15,
-        "requirements": [
-          {
-            "biome": ["JUNGLE"]
           }
         ]
       }
@@ -4229,43 +4198,6 @@
     }
   },
   {
-    "parents": ["magicbees:rejuvenating", "magicbees:transmuting"],
-    "children": {
-      "magicbees:pure": {
-        "chance": 0.08,
-        "requirements": [
-          {
-            "biome": ["MAGICAL"]
-          }
-        ]
-      }
-    }
-  },
-  {
-    "parents": ["magicbees:rejuvenating", "magicbees:vis"],
-    "children": {
-      "magicbees:empowering": {
-        "chance": 0.05
-      }
-    }
-  },
-  {
-    "parents": ["magicbees:rooted", "magicbees:watery"],
-    "children": {
-      "magicbees:somnolent": {
-        "chance": 0.16
-      }
-    }
-  },
-  {
-    "parents": ["magicbees:shocking", "magicbees:windy"],
-    "children": {
-      "magicbees:amped": {
-        "chance": 0.08
-      }
-    }
-  },
-  {
     "parents": ["magicbees:skulking", "magicbees:windy"],
     "children": {
       "magicbees:batty": {
@@ -4276,31 +4208,99 @@
   {
     "parents": ["magicbees:smouldering", "magicbees:windy"],
     "children": {
-      "magicbees:shocking": {
+      "magicbees:teshocking": {
         "chance": 0.12
       }
     }
   },
   {
-    "parents": ["magicbees:somnolent", "magicbees:windy"],
+    "parents": ["magicbees:spiteful", "magicbees:tin"],
     "children": {
-      "magicbees:dreaming": {
+      "magicbees:tecoal": {
+        "chance": 0.12
+      }
+    }
+  },
+  {
+    "parents": ["magicbees:tcempowering", "magicbees:tcrejuvenating"],
+    "children": {
+      "magicbees:tcnexus": {
+        "chance": 0.09,
+        "requirements": [
+          {
+            "biome": ["MAGICAL"]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "parents": ["magicbees:tcempowering", "magicbees:transmuting"],
+    "children": {
+      "magicbees:tctaint": {
+        "chance": 0.11
+      }
+    }
+  },
+  {
+    "parents": ["magicbees:tcrejuvenating", "magicbees:tcvis"],
+    "children": {
+      "magicbees:tcempowering": {
+        "chance": 0.05
+      }
+    }
+  },
+  {
+    "parents": ["magicbees:tcrejuvenating", "magicbees:transmuting"],
+    "children": {
+      "magicbees:tcpure": {
+        "chance": 0.08,
+        "requirements": [
+          {
+            "biome": ["MAGICAL"]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "parents": ["magicbees:tecoal", "magicbees:tedante"],
+    "children": {
+      "magicbees:tepyro": {
+        "chance": 0.08,
+        "requirements": [
+          {
+            "biome": ["NETHER"]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "parents": ["magicbees:tecoal", "magicbees:tewinsome"],
+    "children": {
+      "magicbees:teendearing": {
+        "chance": 0.08,
+        "requirements": [
+          {
+            "block": ["blockEnderium"]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "parents": ["magicbees:teshocking", "magicbees:windy"],
+    "children": {
+      "magicbees:teamped": {
         "chance": 0.08
-      }
-    }
-  },
-  {
-    "parents": ["magicbees:spiteful", "magicbees:stannum"],
-    "children": {
-      "magicbees:carbon": {
-        "chance": 0.12
       }
     }
   },
   {
     "parents": ["magicbees:watery", "magicbees:watery"],
     "children": {
-      "magicbees:aqua": {
+      "magicbees:tcwater": {
         "chance": 0.08
       }
     }
@@ -4308,7 +4308,7 @@
   {
     "parents": ["magicbees:windy", "magicbees:windy"],
     "children": {
-      "magicbees:aer": {
+      "magicbees:tcair": {
         "chance": 0.08
       }
     }
